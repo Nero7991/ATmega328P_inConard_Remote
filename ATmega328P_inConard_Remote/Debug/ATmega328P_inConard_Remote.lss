@@ -1,0 +1,3007 @@
+
+ATmega328P_inConard_Remote.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000000  00800100  00800100  00001594  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         00001520  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          000001f3  00800100  00800100  00001594  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00001594  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  000015c4  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 000005a0  00000000  00000000  00001604  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00006b3a  00000000  00000000  00001ba4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 0000166f  00000000  00000000  000086de  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00002cd9  00000000  00000000  00009d4d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00001288  00000000  00000000  0000ca28  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    000023d7  00000000  00000000  0000dcb0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00004033  00000000  00000000  00010087  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000558  00000000  00000000  000140ba  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+       0:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__ctors_end>
+       4:	0c 94 3a 07 	jmp	0xe74	; 0xe74 <__vector_1>
+       8:	0c 94 6b 07 	jmp	0xed6	; 0xed6 <__vector_2>
+       c:	0c 94 94 07 	jmp	0xf28	; 0xf28 <__vector_3>
+      10:	0c 94 c5 07 	jmp	0xf8a	; 0xf8a <__vector_4>
+      14:	0c 94 f6 07 	jmp	0xfec	; 0xfec <__vector_5>
+      18:	0c 94 9c 01 	jmp	0x338	; 0x338 <__vector_6>
+      1c:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+      20:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+      24:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+      28:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+      2c:	0c 94 c2 08 	jmp	0x1184	; 0x1184 <__vector_11>
+      30:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+      34:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+      38:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+      3c:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+      40:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+      44:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+      48:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+      4c:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+      50:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+      54:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+      58:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+      5c:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+      60:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+      64:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+
+00000068 <__trampolines_end>:
+      68:	44 6f       	ori	r20, 0xF4	; 244
+      6a:	6e 65       	ori	r22, 0x5E	; 94
+	...
+
+0000006d <_ZZ4mainE3__c>:
+      6d:	50 6f 77 65 72 69 6e 67 20 6f 6e 2e 2e 2e 00        Powering on....
+
+0000007c <__ctors_end>:
+      7c:	11 24       	eor	r1, r1
+      7e:	1f be       	out	0x3f, r1	; 63
+      80:	cf ef       	ldi	r28, 0xFF	; 255
+      82:	d8 e0       	ldi	r29, 0x08	; 8
+      84:	de bf       	out	0x3e, r29	; 62
+      86:	cd bf       	out	0x3d, r28	; 61
+
+00000088 <__do_copy_data>:
+      88:	11 e0       	ldi	r17, 0x01	; 1
+      8a:	a0 e0       	ldi	r26, 0x00	; 0
+      8c:	b1 e0       	ldi	r27, 0x01	; 1
+      8e:	e0 e2       	ldi	r30, 0x20	; 32
+      90:	f5 e1       	ldi	r31, 0x15	; 21
+      92:	02 c0       	rjmp	.+4      	; 0x98 <__do_copy_data+0x10>
+      94:	05 90       	lpm	r0, Z+
+      96:	0d 92       	st	X+, r0
+      98:	a0 30       	cpi	r26, 0x00	; 0
+      9a:	b1 07       	cpc	r27, r17
+      9c:	d9 f7       	brne	.-10     	; 0x94 <__do_copy_data+0xc>
+
+0000009e <__do_clear_bss>:
+      9e:	22 e0       	ldi	r18, 0x02	; 2
+      a0:	a0 e0       	ldi	r26, 0x00	; 0
+      a2:	b1 e0       	ldi	r27, 0x01	; 1
+      a4:	01 c0       	rjmp	.+2      	; 0xa8 <.do_clear_bss_start>
+
+000000a6 <.do_clear_bss_loop>:
+      a6:	1d 92       	st	X+, r1
+
+000000a8 <.do_clear_bss_start>:
+      a8:	a3 3f       	cpi	r26, 0xF3	; 243
+      aa:	b2 07       	cpc	r27, r18
+      ac:	e1 f7       	brne	.-8      	; 0xa6 <.do_clear_bss_loop>
+      ae:	0e 94 28 09 	call	0x1250	; 0x1250 <main>
+      b2:	0c 94 8e 0a 	jmp	0x151c	; 0x151c <_exit>
+
+000000b6 <__bad_interrupt>:
+      b6:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000ba <_Z15getReadyToSleepv>:
+	MCUSR &= ~(1<<WDRF);
+	/* Start timed sequence */
+	WDTCR = (1<<WDCE) | (1<<WDE);
+	/* Set new prescaler (time-out) value = 64K cycles (~0.5 s) */
+	WDTCR = prescale;
+	asm volatile("sei"::);
+      ba:	8f ea       	ldi	r24, 0xAF	; 175
+      bc:	80 93 64 00 	sts	0x0064, r24	; 0x800064 <__TEXT_REGION_LENGTH__+0x7e0064>
+      c0:	08 95       	ret
+
+000000c2 <_Z6wakeUpv>:
+      c2:	10 92 64 00 	sts	0x0064, r1	; 0x800064 <__TEXT_REGION_LENGTH__+0x7e0064>
+      c6:	08 95       	ret
+
+000000c8 <_Z10allowSleepb>:
+      c8:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <__data_end>
+      cc:	08 95       	ret
+
+000000ce <_Z12sleepAllowedv>:
+      ce:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__data_end>
+      d2:	08 95       	ret
+
+000000d4 <_Z14SPI_MasterInitv>:
+      d4:	24 98       	cbi	0x04, 4	; 4
+      d6:	84 b1       	in	r24, 0x04	; 4
+      d8:	8c 62       	ori	r24, 0x2C	; 44
+      da:	84 b9       	out	0x04, r24	; 4
+      dc:	2a 9a       	sbi	0x05, 2	; 5
+      de:	8c b5       	in	r24, 0x2c	; 44
+      e0:	82 65       	ori	r24, 0x52	; 82
+      e2:	8c bd       	out	0x2c, r24	; 44
+      e4:	08 95       	ret
+
+000000e6 <_Z18SPI_MasterTransmitc>:
+      e6:	8e bd       	out	0x2e, r24	; 46
+      e8:	0d b4       	in	r0, 0x2d	; 45
+      ea:	07 fe       	sbrs	r0, 7
+      ec:	fd cf       	rjmp	.-6      	; 0xe8 <_Z18SPI_MasterTransmitc+0x2>
+      ee:	8e b5       	in	r24, 0x2e	; 46
+      f0:	08 95       	ret
+
+000000f2 <_Z11Init_CTC_T1hj>:
+      f2:	70 93 89 00 	sts	0x0089, r23	; 0x800089 <__TEXT_REGION_LENGTH__+0x7e0089>
+      f6:	60 93 88 00 	sts	0x0088, r22	; 0x800088 <__TEXT_REGION_LENGTH__+0x7e0088>
+      fa:	10 92 80 00 	sts	0x0080, r1	; 0x800080 <__TEXT_REGION_LENGTH__+0x7e0080>
+      fe:	87 70       	andi	r24, 0x07	; 7
+     100:	88 60       	ori	r24, 0x08	; 8
+     102:	80 93 81 00 	sts	0x0081, r24	; 0x800081 <__TEXT_REGION_LENGTH__+0x7e0081>
+     106:	82 e0       	ldi	r24, 0x02	; 2
+     108:	80 93 6f 00 	sts	0x006F, r24	; 0x80006f <__TEXT_REGION_LENGTH__+0x7e006f>
+     10c:	78 94       	sei
+     10e:	08 95       	ret
+
+00000110 <_Z11setPinStatehhb>:
+     110:	81 30       	cpi	r24, 0x01	; 1
+     112:	e9 f0       	breq	.+58     	; 0x14e <_Z11setPinStatehhb+0x3e>
+     114:	18 f0       	brcs	.+6      	; 0x11c <_Z11setPinStatehhb+0xc>
+     116:	82 30       	cpi	r24, 0x02	; 2
+     118:	99 f1       	breq	.+102    	; 0x180 <_Z11setPinStatehhb+0x70>
+     11a:	08 95       	ret
+     11c:	44 23       	and	r20, r20
+     11e:	59 f0       	breq	.+22     	; 0x136 <_Z11setPinStatehhb+0x26>
+     120:	25 b1       	in	r18, 0x05	; 5
+     122:	81 e0       	ldi	r24, 0x01	; 1
+     124:	90 e0       	ldi	r25, 0x00	; 0
+     126:	02 c0       	rjmp	.+4      	; 0x12c <_Z11setPinStatehhb+0x1c>
+     128:	88 0f       	add	r24, r24
+     12a:	99 1f       	adc	r25, r25
+     12c:	6a 95       	dec	r22
+     12e:	e2 f7       	brpl	.-8      	; 0x128 <_Z11setPinStatehhb+0x18>
+     130:	82 2b       	or	r24, r18
+     132:	85 b9       	out	0x05, r24	; 5
+     134:	08 95       	ret
+     136:	25 b1       	in	r18, 0x05	; 5
+     138:	81 e0       	ldi	r24, 0x01	; 1
+     13a:	90 e0       	ldi	r25, 0x00	; 0
+     13c:	02 c0       	rjmp	.+4      	; 0x142 <_Z11setPinStatehhb+0x32>
+     13e:	88 0f       	add	r24, r24
+     140:	99 1f       	adc	r25, r25
+     142:	6a 95       	dec	r22
+     144:	e2 f7       	brpl	.-8      	; 0x13e <_Z11setPinStatehhb+0x2e>
+     146:	80 95       	com	r24
+     148:	82 23       	and	r24, r18
+     14a:	85 b9       	out	0x05, r24	; 5
+     14c:	08 95       	ret
+     14e:	44 23       	and	r20, r20
+     150:	59 f0       	breq	.+22     	; 0x168 <_Z11setPinStatehhb+0x58>
+     152:	28 b1       	in	r18, 0x08	; 8
+     154:	81 e0       	ldi	r24, 0x01	; 1
+     156:	90 e0       	ldi	r25, 0x00	; 0
+     158:	02 c0       	rjmp	.+4      	; 0x15e <_Z11setPinStatehhb+0x4e>
+     15a:	88 0f       	add	r24, r24
+     15c:	99 1f       	adc	r25, r25
+     15e:	6a 95       	dec	r22
+     160:	e2 f7       	brpl	.-8      	; 0x15a <_Z11setPinStatehhb+0x4a>
+     162:	82 2b       	or	r24, r18
+     164:	88 b9       	out	0x08, r24	; 8
+     166:	08 95       	ret
+     168:	28 b1       	in	r18, 0x08	; 8
+     16a:	81 e0       	ldi	r24, 0x01	; 1
+     16c:	90 e0       	ldi	r25, 0x00	; 0
+     16e:	02 c0       	rjmp	.+4      	; 0x174 <_Z11setPinStatehhb+0x64>
+     170:	88 0f       	add	r24, r24
+     172:	99 1f       	adc	r25, r25
+     174:	6a 95       	dec	r22
+     176:	e2 f7       	brpl	.-8      	; 0x170 <_Z11setPinStatehhb+0x60>
+     178:	80 95       	com	r24
+     17a:	82 23       	and	r24, r18
+     17c:	88 b9       	out	0x08, r24	; 8
+     17e:	08 95       	ret
+     180:	44 23       	and	r20, r20
+     182:	59 f0       	breq	.+22     	; 0x19a <_Z11setPinStatehhb+0x8a>
+     184:	2b b1       	in	r18, 0x0b	; 11
+     186:	81 e0       	ldi	r24, 0x01	; 1
+     188:	90 e0       	ldi	r25, 0x00	; 0
+     18a:	02 c0       	rjmp	.+4      	; 0x190 <_Z11setPinStatehhb+0x80>
+     18c:	88 0f       	add	r24, r24
+     18e:	99 1f       	adc	r25, r25
+     190:	6a 95       	dec	r22
+     192:	e2 f7       	brpl	.-8      	; 0x18c <_Z11setPinStatehhb+0x7c>
+     194:	82 2b       	or	r24, r18
+     196:	8b b9       	out	0x0b, r24	; 11
+     198:	08 95       	ret
+     19a:	2b b1       	in	r18, 0x0b	; 11
+     19c:	81 e0       	ldi	r24, 0x01	; 1
+     19e:	90 e0       	ldi	r25, 0x00	; 0
+     1a0:	02 c0       	rjmp	.+4      	; 0x1a6 <_Z11setPinStatehhb+0x96>
+     1a2:	88 0f       	add	r24, r24
+     1a4:	99 1f       	adc	r25, r25
+     1a6:	6a 95       	dec	r22
+     1a8:	e2 f7       	brpl	.-8      	; 0x1a2 <_Z11setPinStatehhb+0x92>
+     1aa:	80 95       	com	r24
+     1ac:	82 23       	and	r24, r18
+     1ae:	8b b9       	out	0x0b, r24	; 11
+     1b0:	08 95       	ret
+
+000001b2 <_Z15setPinDirectionhhb>:
+     1b2:	81 30       	cpi	r24, 0x01	; 1
+     1b4:	e9 f0       	breq	.+58     	; 0x1f0 <_Z15setPinDirectionhhb+0x3e>
+     1b6:	18 f0       	brcs	.+6      	; 0x1be <_Z15setPinDirectionhhb+0xc>
+     1b8:	82 30       	cpi	r24, 0x02	; 2
+     1ba:	99 f1       	breq	.+102    	; 0x222 <_Z15setPinDirectionhhb+0x70>
+     1bc:	08 95       	ret
+     1be:	44 23       	and	r20, r20
+     1c0:	59 f0       	breq	.+22     	; 0x1d8 <_Z15setPinDirectionhhb+0x26>
+     1c2:	24 b1       	in	r18, 0x04	; 4
+     1c4:	81 e0       	ldi	r24, 0x01	; 1
+     1c6:	90 e0       	ldi	r25, 0x00	; 0
+     1c8:	02 c0       	rjmp	.+4      	; 0x1ce <_Z15setPinDirectionhhb+0x1c>
+     1ca:	88 0f       	add	r24, r24
+     1cc:	99 1f       	adc	r25, r25
+     1ce:	6a 95       	dec	r22
+     1d0:	e2 f7       	brpl	.-8      	; 0x1ca <_Z15setPinDirectionhhb+0x18>
+     1d2:	82 2b       	or	r24, r18
+     1d4:	84 b9       	out	0x04, r24	; 4
+     1d6:	08 95       	ret
+     1d8:	24 b1       	in	r18, 0x04	; 4
+     1da:	81 e0       	ldi	r24, 0x01	; 1
+     1dc:	90 e0       	ldi	r25, 0x00	; 0
+     1de:	02 c0       	rjmp	.+4      	; 0x1e4 <_Z15setPinDirectionhhb+0x32>
+     1e0:	88 0f       	add	r24, r24
+     1e2:	99 1f       	adc	r25, r25
+     1e4:	6a 95       	dec	r22
+     1e6:	e2 f7       	brpl	.-8      	; 0x1e0 <_Z15setPinDirectionhhb+0x2e>
+     1e8:	80 95       	com	r24
+     1ea:	82 23       	and	r24, r18
+     1ec:	84 b9       	out	0x04, r24	; 4
+     1ee:	08 95       	ret
+     1f0:	44 23       	and	r20, r20
+     1f2:	59 f0       	breq	.+22     	; 0x20a <_Z15setPinDirectionhhb+0x58>
+     1f4:	27 b1       	in	r18, 0x07	; 7
+     1f6:	81 e0       	ldi	r24, 0x01	; 1
+     1f8:	90 e0       	ldi	r25, 0x00	; 0
+     1fa:	02 c0       	rjmp	.+4      	; 0x200 <_Z15setPinDirectionhhb+0x4e>
+     1fc:	88 0f       	add	r24, r24
+     1fe:	99 1f       	adc	r25, r25
+     200:	6a 95       	dec	r22
+     202:	e2 f7       	brpl	.-8      	; 0x1fc <_Z15setPinDirectionhhb+0x4a>
+     204:	82 2b       	or	r24, r18
+     206:	87 b9       	out	0x07, r24	; 7
+     208:	08 95       	ret
+     20a:	27 b1       	in	r18, 0x07	; 7
+     20c:	81 e0       	ldi	r24, 0x01	; 1
+     20e:	90 e0       	ldi	r25, 0x00	; 0
+     210:	02 c0       	rjmp	.+4      	; 0x216 <_Z15setPinDirectionhhb+0x64>
+     212:	88 0f       	add	r24, r24
+     214:	99 1f       	adc	r25, r25
+     216:	6a 95       	dec	r22
+     218:	e2 f7       	brpl	.-8      	; 0x212 <_Z15setPinDirectionhhb+0x60>
+     21a:	80 95       	com	r24
+     21c:	82 23       	and	r24, r18
+     21e:	87 b9       	out	0x07, r24	; 7
+     220:	08 95       	ret
+     222:	44 23       	and	r20, r20
+     224:	59 f0       	breq	.+22     	; 0x23c <_Z15setPinDirectionhhb+0x8a>
+     226:	2a b1       	in	r18, 0x0a	; 10
+     228:	81 e0       	ldi	r24, 0x01	; 1
+     22a:	90 e0       	ldi	r25, 0x00	; 0
+     22c:	02 c0       	rjmp	.+4      	; 0x232 <_Z15setPinDirectionhhb+0x80>
+     22e:	88 0f       	add	r24, r24
+     230:	99 1f       	adc	r25, r25
+     232:	6a 95       	dec	r22
+     234:	e2 f7       	brpl	.-8      	; 0x22e <_Z15setPinDirectionhhb+0x7c>
+     236:	82 2b       	or	r24, r18
+     238:	8a b9       	out	0x0a, r24	; 10
+     23a:	08 95       	ret
+     23c:	2a b1       	in	r18, 0x0a	; 10
+     23e:	81 e0       	ldi	r24, 0x01	; 1
+     240:	90 e0       	ldi	r25, 0x00	; 0
+     242:	02 c0       	rjmp	.+4      	; 0x248 <_Z15setPinDirectionhhb+0x96>
+     244:	88 0f       	add	r24, r24
+     246:	99 1f       	adc	r25, r25
+     248:	6a 95       	dec	r22
+     24a:	e2 f7       	brpl	.-8      	; 0x244 <_Z15setPinDirectionhhb+0x92>
+     24c:	80 95       	com	r24
+     24e:	82 23       	and	r24, r18
+     250:	8a b9       	out	0x0a, r24	; 10
+     252:	08 95       	ret
+
+00000254 <_Z21setPinChangeInterrupthhb>:
+     254:	e8 e6       	ldi	r30, 0x68	; 104
+     256:	f0 e0       	ldi	r31, 0x00	; 0
+     258:	90 81       	ld	r25, Z
+     25a:	21 e0       	ldi	r18, 0x01	; 1
+     25c:	30 e0       	ldi	r19, 0x00	; 0
+     25e:	08 2e       	mov	r0, r24
+     260:	02 c0       	rjmp	.+4      	; 0x266 <_Z21setPinChangeInterrupthhb+0x12>
+     262:	22 0f       	add	r18, r18
+     264:	33 1f       	adc	r19, r19
+     266:	0a 94       	dec	r0
+     268:	e2 f7       	brpl	.-8      	; 0x262 <_Z21setPinChangeInterrupthhb+0xe>
+     26a:	29 2b       	or	r18, r25
+     26c:	20 83       	st	Z, r18
+     26e:	81 30       	cpi	r24, 0x01	; 1
+     270:	81 f0       	breq	.+32     	; 0x292 <_Z21setPinChangeInterrupthhb+0x3e>
+     272:	18 f0       	brcs	.+6      	; 0x27a <_Z21setPinChangeInterrupthhb+0x26>
+     274:	82 30       	cpi	r24, 0x02	; 2
+     276:	c9 f0       	breq	.+50     	; 0x2aa <_Z21setPinChangeInterrupthhb+0x56>
+     278:	08 95       	ret
+     27a:	eb e6       	ldi	r30, 0x6B	; 107
+     27c:	f0 e0       	ldi	r31, 0x00	; 0
+     27e:	80 81       	ld	r24, Z
+     280:	50 e0       	ldi	r21, 0x00	; 0
+     282:	02 c0       	rjmp	.+4      	; 0x288 <_Z21setPinChangeInterrupthhb+0x34>
+     284:	44 0f       	add	r20, r20
+     286:	55 1f       	adc	r21, r21
+     288:	6a 95       	dec	r22
+     28a:	e2 f7       	brpl	.-8      	; 0x284 <_Z21setPinChangeInterrupthhb+0x30>
+     28c:	48 2b       	or	r20, r24
+     28e:	40 83       	st	Z, r20
+     290:	08 95       	ret
+     292:	ec e6       	ldi	r30, 0x6C	; 108
+     294:	f0 e0       	ldi	r31, 0x00	; 0
+     296:	80 81       	ld	r24, Z
+     298:	50 e0       	ldi	r21, 0x00	; 0
+     29a:	02 c0       	rjmp	.+4      	; 0x2a0 <_Z21setPinChangeInterrupthhb+0x4c>
+     29c:	44 0f       	add	r20, r20
+     29e:	55 1f       	adc	r21, r21
+     2a0:	6a 95       	dec	r22
+     2a2:	e2 f7       	brpl	.-8      	; 0x29c <_Z21setPinChangeInterrupthhb+0x48>
+     2a4:	48 2b       	or	r20, r24
+     2a6:	40 83       	st	Z, r20
+     2a8:	08 95       	ret
+     2aa:	ed e6       	ldi	r30, 0x6D	; 109
+     2ac:	f0 e0       	ldi	r31, 0x00	; 0
+     2ae:	80 81       	ld	r24, Z
+     2b0:	50 e0       	ldi	r21, 0x00	; 0
+     2b2:	02 c0       	rjmp	.+4      	; 0x2b8 <_Z21setPinChangeInterrupthhb+0x64>
+     2b4:	44 0f       	add	r20, r20
+     2b6:	55 1f       	adc	r21, r21
+     2b8:	6a 95       	dec	r22
+     2ba:	e2 f7       	brpl	.-8      	; 0x2b4 <_Z21setPinChangeInterrupthhb+0x60>
+     2bc:	48 2b       	or	r20, r24
+     2be:	40 83       	st	Z, r20
+     2c0:	08 95       	ret
+
+000002c2 <_Z14USART_Transmith>:
+     2c2:	e0 ec       	ldi	r30, 0xC0	; 192
+     2c4:	f0 e0       	ldi	r31, 0x00	; 0
+     2c6:	90 81       	ld	r25, Z
+     2c8:	95 ff       	sbrs	r25, 5
+     2ca:	fd cf       	rjmp	.-6      	; 0x2c6 <_Z14USART_Transmith+0x4>
+     2cc:	80 93 c6 00 	sts	0x00C6, r24	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7e00c6>
+     2d0:	08 95       	ret
+
+000002d2 <_Z13milliHappenedv>:
+}
+
+
+void milliHappened(){
+	time += 1;
+     2d2:	20 91 03 01 	lds	r18, 0x0103	; 0x800103 <time>
+     2d6:	30 91 04 01 	lds	r19, 0x0104	; 0x800104 <time+0x1>
+     2da:	40 91 05 01 	lds	r20, 0x0105	; 0x800105 <time+0x2>
+     2de:	50 91 06 01 	lds	r21, 0x0106	; 0x800106 <time+0x3>
+     2e2:	60 91 07 01 	lds	r22, 0x0107	; 0x800107 <time+0x4>
+     2e6:	70 91 08 01 	lds	r23, 0x0108	; 0x800108 <time+0x5>
+     2ea:	80 91 09 01 	lds	r24, 0x0109	; 0x800109 <time+0x6>
+     2ee:	90 91 0a 01 	lds	r25, 0x010A	; 0x80010a <time+0x7>
+     2f2:	a1 e0       	ldi	r26, 0x01	; 1
+     2f4:	0e 94 82 0a 	call	0x1504	; 0x1504 <__adddi3_s8>
+     2f8:	20 93 03 01 	sts	0x0103, r18	; 0x800103 <time>
+     2fc:	30 93 04 01 	sts	0x0104, r19	; 0x800104 <time+0x1>
+     300:	40 93 05 01 	sts	0x0105, r20	; 0x800105 <time+0x2>
+     304:	50 93 06 01 	sts	0x0106, r21	; 0x800106 <time+0x3>
+     308:	60 93 07 01 	sts	0x0107, r22	; 0x800107 <time+0x4>
+     30c:	70 93 08 01 	sts	0x0108, r23	; 0x800108 <time+0x5>
+     310:	80 93 09 01 	sts	0x0109, r24	; 0x800109 <time+0x6>
+     314:	90 93 0a 01 	sts	0x010A, r25	; 0x80010a <time+0x7>
+	if(cdown != 0){
+     318:	80 91 01 01 	lds	r24, 0x0101	; 0x800101 <cdown>
+     31c:	90 91 02 01 	lds	r25, 0x0102	; 0x800102 <cdown+0x1>
+     320:	89 2b       	or	r24, r25
+     322:	49 f0       	breq	.+18     	; 0x336 <_Z13milliHappenedv+0x64>
+		cdown -= 1;
+     324:	80 91 01 01 	lds	r24, 0x0101	; 0x800101 <cdown>
+     328:	90 91 02 01 	lds	r25, 0x0102	; 0x800102 <cdown+0x1>
+     32c:	01 97       	sbiw	r24, 0x01	; 1
+     32e:	90 93 02 01 	sts	0x0102, r25	; 0x800102 <cdown+0x1>
+     332:	80 93 01 01 	sts	0x0101, r24	; 0x800101 <cdown>
+     336:	08 95       	ret
+
+00000338 <__vector_6>:
+	}
+	count1 += 1;
+}*/
+
+
+ISR(WDT_vect){
+     338:	1f 92       	push	r1
+     33a:	0f 92       	push	r0
+     33c:	0f b6       	in	r0, 0x3f	; 63
+     33e:	0f 92       	push	r0
+     340:	11 24       	eor	r1, r1
+     342:	8f 93       	push	r24
+	MCUSR &= ~(1 << SE);
+     344:	84 b7       	in	r24, 0x34	; 52
+     346:	8e 7f       	andi	r24, 0xFE	; 254
+     348:	84 bf       	out	0x34, r24	; 52
+     34a:	8f 91       	pop	r24
+     34c:	0f 90       	pop	r0
+     34e:	0f be       	out	0x3f, r0	; 63
+     350:	0f 90       	pop	r0
+     352:	1f 90       	pop	r1
+     354:	18 95       	reti
+
+00000356 <_Z10numToArrayy>:
+	USART_Transmit('\n');
+	while(*p != 0){
+		USART_Transmit(*p);
+		p++;
+	}
+}
+     356:	0f 93       	push	r16
+     358:	ec e4       	ldi	r30, 0x4C	; 76
+     35a:	f1 e0       	ldi	r31, 0x01	; 1
+     35c:	a4 e5       	ldi	r26, 0x54	; 84
+     35e:	b1 e0       	ldi	r27, 0x01	; 1
+     360:	21 93       	st	Z+, r18
+     362:	08 e0       	ldi	r16, 0x08	; 8
+     364:	0e 94 66 0a 	call	0x14cc	; 0x14cc <__lshrdi3>
+     368:	ea 17       	cp	r30, r26
+     36a:	fb 07       	cpc	r31, r27
+     36c:	c9 f7       	brne	.-14     	; 0x360 <_Z10numToArrayy+0xa>
+     36e:	8c e4       	ldi	r24, 0x4C	; 76
+     370:	91 e0       	ldi	r25, 0x01	; 1
+     372:	0f 91       	pop	r16
+     374:	08 95       	ret
+
+00000376 <_Z10hexToASCIIh>:
+     376:	8a 30       	cpi	r24, 0x0A	; 10
+     378:	10 f0       	brcs	.+4      	; 0x37e <_Z10hexToASCIIh+0x8>
+     37a:	89 5c       	subi	r24, 0xC9	; 201
+     37c:	08 95       	ret
+     37e:	80 5d       	subi	r24, 0xD0	; 208
+     380:	08 95       	ret
+
+00000382 <_Z11hexToStringh>:
+     382:	1f 93       	push	r17
+     384:	cf 93       	push	r28
+     386:	df 93       	push	r29
+     388:	18 2f       	mov	r17, r24
+     38a:	82 95       	swap	r24
+     38c:	8f 70       	andi	r24, 0x0F	; 15
+     38e:	0e 94 bb 01 	call	0x376	; 0x376 <_Z10hexToASCIIh>
+     392:	c4 e5       	ldi	r28, 0x54	; 84
+     394:	d1 e0       	ldi	r29, 0x01	; 1
+     396:	88 83       	st	Y, r24
+     398:	81 2f       	mov	r24, r17
+     39a:	8f 70       	andi	r24, 0x0F	; 15
+     39c:	80 93 59 01 	sts	0x0159, r24	; 0x800159 <_ZZ11hexToStringhE4temp>
+     3a0:	0e 94 bb 01 	call	0x376	; 0x376 <_Z10hexToASCIIh>
+     3a4:	89 83       	std	Y+1, r24	; 0x01
+     3a6:	1a 82       	std	Y+2, r1	; 0x02
+     3a8:	ce 01       	movw	r24, r28
+     3aa:	df 91       	pop	r29
+     3ac:	cf 91       	pop	r28
+     3ae:	1f 91       	pop	r17
+     3b0:	08 95       	ret
+
+000003b2 <_Z6NotifyPKc>:
+     3b2:	cf 93       	push	r28
+     3b4:	df 93       	push	r29
+     3b6:	ec 01       	movw	r28, r24
+     3b8:	8d e0       	ldi	r24, 0x0D	; 13
+     3ba:	0e 94 61 01 	call	0x2c2	; 0x2c2 <_Z14USART_Transmith>
+     3be:	8a e0       	ldi	r24, 0x0A	; 10
+     3c0:	0e 94 61 01 	call	0x2c2	; 0x2c2 <_Z14USART_Transmith>
+     3c4:	fe 01       	movw	r30, r28
+     3c6:	84 91       	lpm	r24, Z
+     3c8:	88 23       	and	r24, r24
+     3ca:	49 f0       	breq	.+18     	; 0x3de <_Z6NotifyPKc+0x2c>
+     3cc:	fe 01       	movw	r30, r28
+     3ce:	84 91       	lpm	r24, Z
+     3d0:	0e 94 61 01 	call	0x2c2	; 0x2c2 <_Z14USART_Transmith>
+     3d4:	21 96       	adiw	r28, 0x01	; 1
+     3d6:	fe 01       	movw	r30, r28
+     3d8:	84 91       	lpm	r24, Z
+     3da:	81 11       	cpse	r24, r1
+     3dc:	f7 cf       	rjmp	.-18     	; 0x3cc <_Z6NotifyPKc+0x1a>
+     3de:	df 91       	pop	r29
+     3e0:	cf 91       	pop	r28
+     3e2:	08 95       	ret
+
+000003e4 <_Z11printStringPKc>:
+
+void printString(const char *p){
+     3e4:	cf 93       	push	r28
+     3e6:	df 93       	push	r29
+     3e8:	ec 01       	movw	r28, r24
+	while(*p != 0){
+     3ea:	88 81       	ld	r24, Y
+     3ec:	88 23       	and	r24, r24
+     3ee:	31 f0       	breq	.+12     	; 0x3fc <_Z11printStringPKc+0x18>
+     3f0:	21 96       	adiw	r28, 0x01	; 1
+		USART_Transmit(*p);
+     3f2:	0e 94 61 01 	call	0x2c2	; 0x2c2 <_Z14USART_Transmith>
+		p++;
+	}
+}
+
+void printString(const char *p){
+	while(*p != 0){
+     3f6:	89 91       	ld	r24, Y+
+     3f8:	81 11       	cpse	r24, r1
+     3fa:	fb cf       	rjmp	.-10     	; 0x3f2 <_Z11printStringPKc+0xe>
+		USART_Transmit(*p);
+		p++;
+	}
+}
+     3fc:	df 91       	pop	r29
+     3fe:	cf 91       	pop	r28
+     400:	08 95       	ret
+
+00000402 <_Z16hexArrayToStringPhh>:
+		data >>= 8;
+	}
+	return array;
+} 
+
+char* hexArrayToString(uint8_t *data, uint8_t length){
+     402:	ff 92       	push	r15
+     404:	0f 93       	push	r16
+     406:	1f 93       	push	r17
+     408:	cf 93       	push	r28
+     40a:	df 93       	push	r29
+     40c:	f6 2e       	mov	r15, r22
+	static char str[64], t;
+	data += length - 1;
+     40e:	06 2f       	mov	r16, r22
+     410:	10 e0       	ldi	r17, 0x00	; 0
+     412:	01 50       	subi	r16, 0x01	; 1
+     414:	11 09       	sbc	r17, r1
+     416:	08 0f       	add	r16, r24
+     418:	19 1f       	adc	r17, r25
+		p++;
+	}
+}
+
+void printChar(unsigned char data){
+	USART_Transmit(data);
+     41a:	80 e3       	ldi	r24, 0x30	; 48
+     41c:	0e 94 61 01 	call	0x2c2	; 0x2c2 <_Z14USART_Transmith>
+     420:	88 e7       	ldi	r24, 0x78	; 120
+     422:	0e 94 61 01 	call	0x2c2	; 0x2c2 <_Z14USART_Transmith>
+char* hexArrayToString(uint8_t *data, uint8_t length){
+	static char str[64], t;
+	data += length - 1;
+	printChar('0');
+	printChar('x');
+	for (uint8_t i = 0; i < length; i++)
+     426:	ff 20       	and	r15, r15
+     428:	81 f0       	breq	.+32     	; 0x44a <_Z16hexArrayToStringPhh+0x48>
+     42a:	e8 01       	movw	r28, r16
+     42c:	21 96       	adiw	r28, 0x01	; 1
+     42e:	8f ef       	ldi	r24, 0xFF	; 255
+     430:	8f 0d       	add	r24, r15
+     432:	08 1b       	sub	r16, r24
+     434:	11 09       	sbc	r17, r1
+	{	
+		t = *data;
+     436:	8a 91       	ld	r24, -Y
+     438:	80 93 4b 01 	sts	0x014B, r24	; 0x80014b <_ZZ16hexArrayToStringPhhE1t>
+		printString(hexToString(t));
+     43c:	0e 94 c1 01 	call	0x382	; 0x382 <_Z11hexToStringh>
+     440:	0e 94 f2 01 	call	0x3e4	; 0x3e4 <_Z11printStringPKc>
+char* hexArrayToString(uint8_t *data, uint8_t length){
+	static char str[64], t;
+	data += length - 1;
+	printChar('0');
+	printChar('x');
+	for (uint8_t i = 0; i < length; i++)
+     444:	c0 17       	cp	r28, r16
+     446:	d1 07       	cpc	r29, r17
+     448:	b1 f7       	brne	.-20     	; 0x436 <_Z16hexArrayToStringPhh+0x34>
+	{	
+		t = *data;
+		printString(hexToString(t));
+		data -= 1;
+	}
+	str[length + 2] = 0;
+     44a:	ef 2d       	mov	r30, r15
+     44c:	f0 e0       	ldi	r31, 0x00	; 0
+     44e:	e5 5f       	subi	r30, 0xF5	; 245
+     450:	fe 4f       	sbci	r31, 0xFE	; 254
+     452:	12 82       	std	Z+2, r1	; 0x02
+	return str;
+}
+     454:	8b e0       	ldi	r24, 0x0B	; 11
+     456:	91 e0       	ldi	r25, 0x01	; 1
+     458:	df 91       	pop	r29
+     45a:	cf 91       	pop	r28
+     45c:	1f 91       	pop	r17
+     45e:	0f 91       	pop	r16
+     460:	ff 90       	pop	r15
+     462:	08 95       	ret
+
+00000464 <_Z14printHexNumberyh>:
+	ascii[1] = hexToASCII(temp);
+	ascii[2] = '\0';
+	return ascii;
+}
+
+void printHexNumber(uint64_t data,uint8_t length){
+     464:	0f 93       	push	r16
+	printString(hexArrayToString(numToArray((data)),length));
+     466:	0e 94 ab 01 	call	0x356	; 0x356 <_Z10numToArrayy>
+     46a:	60 2f       	mov	r22, r16
+     46c:	0e 94 01 02 	call	0x402	; 0x402 <_Z16hexArrayToStringPhh>
+     470:	0e 94 f2 01 	call	0x3e4	; 0x3e4 <_Z11printStringPKc>
+}
+     474:	0f 91       	pop	r16
+     476:	08 95       	ret
+
+00000478 <_ZN8NRF24L0114toggleActivateEv>:
+}
+
+NRF24L01::NRF24L01(uint8_t Bufferlength_MasterTX, bool mode){
+	Mode = mode;
+	BufferLength_MasterTX = Bufferlength_MasterTX;
+	initialize();
+     478:	41 98       	cbi	0x08, 1	; 8
+     47a:	80 e5       	ldi	r24, 0x50	; 80
+     47c:	0e 94 73 00 	call	0xe6	; 0xe6 <_Z18SPI_MasterTransmitc>
+     480:	83 e7       	ldi	r24, 0x73	; 115
+     482:	0e 94 73 00 	call	0xe6	; 0xe6 <_Z18SPI_MasterTransmitc>
+     486:	41 9a       	sbi	0x08, 1	; 8
+     488:	08 95       	ret
+
+0000048a <_ZN8NRF24L0114sendSPICommandEh>:
+     48a:	86 2f       	mov	r24, r22
+     48c:	41 98       	cbi	0x08, 1	; 8
+     48e:	0e 94 73 00 	call	0xe6	; 0xe6 <_Z18SPI_MasterTransmitc>
+     492:	41 9a       	sbi	0x08, 1	; 8
+     494:	08 95       	ret
+
+00000496 <_ZN8NRF24L0115readSPIRegisterEhh>:
+     496:	af 92       	push	r10
+     498:	bf 92       	push	r11
+     49a:	cf 92       	push	r12
+     49c:	df 92       	push	r13
+     49e:	ef 92       	push	r14
+     4a0:	ff 92       	push	r15
+     4a2:	0f 93       	push	r16
+     4a4:	1f 93       	push	r17
+     4a6:	cf 93       	push	r28
+     4a8:	df 93       	push	r29
+     4aa:	86 2f       	mov	r24, r22
+     4ac:	a4 2e       	mov	r10, r20
+     4ae:	41 98       	cbi	0x08, 1	; 8
+     4b0:	0e 94 73 00 	call	0xe6	; 0xe6 <_Z18SPI_MasterTransmitc>
+     4b4:	aa 20       	and	r10, r10
+     4b6:	21 f1       	breq	.+72     	; 0x500 <_ZN8NRF24L0115readSPIRegisterEhh+0x6a>
+     4b8:	d0 e0       	ldi	r29, 0x00	; 0
+     4ba:	c0 e0       	ldi	r28, 0x00	; 0
+     4bc:	b1 2c       	mov	r11, r1
+     4be:	c1 2c       	mov	r12, r1
+     4c0:	d1 2c       	mov	r13, r1
+     4c2:	e1 2c       	mov	r14, r1
+     4c4:	f1 2c       	mov	r15, r1
+     4c6:	00 e0       	ldi	r16, 0x00	; 0
+     4c8:	10 e0       	ldi	r17, 0x00	; 0
+     4ca:	80 e0       	ldi	r24, 0x00	; 0
+     4cc:	0e 94 73 00 	call	0xe6	; 0xe6 <_Z18SPI_MasterTransmitc>
+     4d0:	2c 2f       	mov	r18, r28
+     4d2:	28 2b       	or	r18, r24
+     4d4:	3b 2d       	mov	r19, r11
+     4d6:	4c 2d       	mov	r20, r12
+     4d8:	5d 2d       	mov	r21, r13
+     4da:	6e 2d       	mov	r22, r14
+     4dc:	7f 2d       	mov	r23, r15
+     4de:	80 2f       	mov	r24, r16
+     4e0:	91 2f       	mov	r25, r17
+     4e2:	08 e0       	ldi	r16, 0x08	; 8
+     4e4:	0e 94 4b 0a 	call	0x1496	; 0x1496 <__ashldi3>
+     4e8:	c2 2f       	mov	r28, r18
+     4ea:	b3 2e       	mov	r11, r19
+     4ec:	c4 2e       	mov	r12, r20
+     4ee:	d5 2e       	mov	r13, r21
+     4f0:	e6 2e       	mov	r14, r22
+     4f2:	f7 2e       	mov	r15, r23
+     4f4:	08 2f       	mov	r16, r24
+     4f6:	19 2f       	mov	r17, r25
+     4f8:	df 5f       	subi	r29, 0xFF	; 255
+     4fa:	da 11       	cpse	r29, r10
+     4fc:	e6 cf       	rjmp	.-52     	; 0x4ca <_ZN8NRF24L0115readSPIRegisterEhh+0x34>
+     4fe:	08 c0       	rjmp	.+16     	; 0x510 <_ZN8NRF24L0115readSPIRegisterEhh+0x7a>
+     500:	c0 e0       	ldi	r28, 0x00	; 0
+     502:	b1 2c       	mov	r11, r1
+     504:	c1 2c       	mov	r12, r1
+     506:	d1 2c       	mov	r13, r1
+     508:	e1 2c       	mov	r14, r1
+     50a:	f1 2c       	mov	r15, r1
+     50c:	00 e0       	ldi	r16, 0x00	; 0
+     50e:	10 e0       	ldi	r17, 0x00	; 0
+     510:	41 9a       	sbi	0x08, 1	; 8
+     512:	2c 2f       	mov	r18, r28
+     514:	3b 2d       	mov	r19, r11
+     516:	4c 2d       	mov	r20, r12
+     518:	5d 2d       	mov	r21, r13
+     51a:	6e 2d       	mov	r22, r14
+     51c:	7f 2d       	mov	r23, r15
+     51e:	80 2f       	mov	r24, r16
+     520:	91 2f       	mov	r25, r17
+     522:	08 e0       	ldi	r16, 0x08	; 8
+     524:	0e 94 66 0a 	call	0x14cc	; 0x14cc <__lshrdi3>
+     528:	df 91       	pop	r29
+     52a:	cf 91       	pop	r28
+     52c:	1f 91       	pop	r17
+     52e:	0f 91       	pop	r16
+     530:	ff 90       	pop	r15
+     532:	ef 90       	pop	r14
+     534:	df 90       	pop	r13
+     536:	cf 90       	pop	r12
+     538:	bf 90       	pop	r11
+     53a:	af 90       	pop	r10
+     53c:	08 95       	ret
+
+0000053e <_ZN8NRF24L018isTXFullEv>:
+     53e:	41 e0       	ldi	r20, 0x01	; 1
+     540:	67 e1       	ldi	r22, 0x17	; 23
+     542:	0e 94 4b 02 	call	0x496	; 0x496 <_ZN8NRF24L0115readSPIRegisterEhh>
+     546:	82 2f       	mov	r24, r18
+     548:	80 72       	andi	r24, 0x20	; 32
+     54a:	08 95       	ret
+
+0000054c <_ZN8NRF24L0111isTX_DS_SetEv>:
+     54c:	41 e0       	ldi	r20, 0x01	; 1
+     54e:	67 e0       	ldi	r22, 0x07	; 7
+     550:	0e 94 4b 02 	call	0x496	; 0x496 <_ZN8NRF24L0115readSPIRegisterEhh>
+     554:	82 2f       	mov	r24, r18
+     556:	80 72       	andi	r24, 0x20	; 32
+     558:	08 95       	ret
+
+0000055a <_ZN8NRF24L0112isRT_Max_SetEv>:
+     55a:	41 e0       	ldi	r20, 0x01	; 1
+     55c:	67 e0       	ldi	r22, 0x07	; 7
+     55e:	0e 94 4b 02 	call	0x496	; 0x496 <_ZN8NRF24L0115readSPIRegisterEhh>
+     562:	82 2f       	mov	r24, r18
+     564:	80 71       	andi	r24, 0x10	; 16
+     566:	08 95       	ret
+
+00000568 <_ZN8NRF24L0116writeSPIRegisterEhyh>:
+     568:	9f 92       	push	r9
+     56a:	af 92       	push	r10
+     56c:	bf 92       	push	r11
+     56e:	cf 92       	push	r12
+     570:	df 92       	push	r13
+     572:	ef 92       	push	r14
+     574:	ff 92       	push	r15
+     576:	0f 93       	push	r16
+     578:	1f 93       	push	r17
+     57a:	cf 93       	push	r28
+     57c:	df 93       	push	r29
+     57e:	c2 2f       	mov	r28, r18
+     580:	d3 2f       	mov	r29, r19
+     582:	b4 2e       	mov	r11, r20
+     584:	a5 2e       	mov	r10, r21
+     586:	41 98       	cbi	0x08, 1	; 8
+     588:	86 2f       	mov	r24, r22
+     58a:	80 62       	ori	r24, 0x20	; 32
+     58c:	0e 94 73 00 	call	0xe6	; 0xe6 <_Z18SPI_MasterTransmitc>
+     590:	98 2e       	mov	r9, r24
+     592:	cc 20       	and	r12, r12
+     594:	d1 f0       	breq	.+52     	; 0x5ca <_ZN8NRF24L0116writeSPIRegisterEhyh+0x62>
+     596:	d1 2c       	mov	r13, r1
+     598:	8e 2d       	mov	r24, r14
+     59a:	0e 94 73 00 	call	0xe6	; 0xe6 <_Z18SPI_MasterTransmitc>
+     59e:	2e 2d       	mov	r18, r14
+     5a0:	3f 2d       	mov	r19, r15
+     5a2:	40 2f       	mov	r20, r16
+     5a4:	51 2f       	mov	r21, r17
+     5a6:	6c 2f       	mov	r22, r28
+     5a8:	7d 2f       	mov	r23, r29
+     5aa:	8b 2d       	mov	r24, r11
+     5ac:	9a 2d       	mov	r25, r10
+     5ae:	08 e0       	ldi	r16, 0x08	; 8
+     5b0:	0e 94 66 0a 	call	0x14cc	; 0x14cc <__lshrdi3>
+     5b4:	e2 2e       	mov	r14, r18
+     5b6:	f3 2e       	mov	r15, r19
+     5b8:	04 2f       	mov	r16, r20
+     5ba:	15 2f       	mov	r17, r21
+     5bc:	c6 2f       	mov	r28, r22
+     5be:	d7 2f       	mov	r29, r23
+     5c0:	b8 2e       	mov	r11, r24
+     5c2:	a9 2e       	mov	r10, r25
+     5c4:	d3 94       	inc	r13
+     5c6:	dc 10       	cpse	r13, r12
+     5c8:	e7 cf       	rjmp	.-50     	; 0x598 <_ZN8NRF24L0116writeSPIRegisterEhyh+0x30>
+     5ca:	41 9a       	sbi	0x08, 1	; 8
+     5cc:	89 2d       	mov	r24, r9
+     5ce:	df 91       	pop	r29
+     5d0:	cf 91       	pop	r28
+     5d2:	1f 91       	pop	r17
+     5d4:	0f 91       	pop	r16
+     5d6:	ff 90       	pop	r15
+     5d8:	ef 90       	pop	r14
+     5da:	df 90       	pop	r13
+     5dc:	cf 90       	pop	r12
+     5de:	bf 90       	pop	r11
+     5e0:	af 90       	pop	r10
+     5e2:	9f 90       	pop	r9
+     5e4:	08 95       	ret
+
+000005e6 <_ZN8NRF24L017powerONEb>:
+     5e6:	cf 92       	push	r12
+     5e8:	ef 92       	push	r14
+     5ea:	ff 92       	push	r15
+     5ec:	0f 93       	push	r16
+     5ee:	1f 93       	push	r17
+     5f0:	cf 93       	push	r28
+     5f2:	df 93       	push	r29
+     5f4:	ec 01       	movw	r28, r24
+     5f6:	e6 2e       	mov	r14, r22
+     5f8:	41 e0       	ldi	r20, 0x01	; 1
+     5fa:	60 e0       	ldi	r22, 0x00	; 0
+     5fc:	0e 94 4b 02 	call	0x496	; 0x496 <_ZN8NRF24L0115readSPIRegisterEhh>
+     600:	2d 7f       	andi	r18, 0xFD	; 253
+     602:	ee 0c       	add	r14, r14
+     604:	e2 2a       	or	r14, r18
+     606:	eb 82       	std	Y+3, r14	; 0x03
+     608:	cc 24       	eor	r12, r12
+     60a:	c3 94       	inc	r12
+     60c:	f1 2c       	mov	r15, r1
+     60e:	00 e0       	ldi	r16, 0x00	; 0
+     610:	10 e0       	ldi	r17, 0x00	; 0
+     612:	20 e0       	ldi	r18, 0x00	; 0
+     614:	30 e0       	ldi	r19, 0x00	; 0
+     616:	40 e0       	ldi	r20, 0x00	; 0
+     618:	50 e0       	ldi	r21, 0x00	; 0
+     61a:	60 e0       	ldi	r22, 0x00	; 0
+     61c:	ce 01       	movw	r24, r28
+     61e:	0e 94 b4 02 	call	0x568	; 0x568 <_ZN8NRF24L0116writeSPIRegisterEhyh>
+     622:	df 91       	pop	r29
+     624:	cf 91       	pop	r28
+     626:	1f 91       	pop	r17
+     628:	0f 91       	pop	r16
+     62a:	ff 90       	pop	r15
+     62c:	ef 90       	pop	r14
+     62e:	cf 90       	pop	r12
+     630:	08 95       	ret
+
+00000632 <_ZN8NRF24L017setModeEb>:
+     632:	cf 92       	push	r12
+     634:	ef 92       	push	r14
+     636:	ff 92       	push	r15
+     638:	0f 93       	push	r16
+     63a:	1f 93       	push	r17
+     63c:	cf 93       	push	r28
+     63e:	df 93       	push	r29
+     640:	ec 01       	movw	r28, r24
+     642:	e6 2e       	mov	r14, r22
+     644:	41 e0       	ldi	r20, 0x01	; 1
+     646:	60 e0       	ldi	r22, 0x00	; 0
+     648:	0e 94 4b 02 	call	0x496	; 0x496 <_ZN8NRF24L0115readSPIRegisterEhh>
+     64c:	2b 83       	std	Y+3, r18	; 0x03
+     64e:	01 e0       	ldi	r16, 0x01	; 1
+     650:	30 e0       	ldi	r19, 0x00	; 0
+     652:	40 e0       	ldi	r20, 0x00	; 0
+     654:	50 e0       	ldi	r21, 0x00	; 0
+     656:	60 e0       	ldi	r22, 0x00	; 0
+     658:	70 e0       	ldi	r23, 0x00	; 0
+     65a:	80 e0       	ldi	r24, 0x00	; 0
+     65c:	90 e0       	ldi	r25, 0x00	; 0
+     65e:	0e 94 32 02 	call	0x464	; 0x464 <_Z14printHexNumberyh>
+     662:	8b 81       	ldd	r24, Y+3	; 0x03
+     664:	8e 7f       	andi	r24, 0xFE	; 254
+     666:	e8 2a       	or	r14, r24
+     668:	eb 82       	std	Y+3, r14	; 0x03
+     66a:	cc 24       	eor	r12, r12
+     66c:	c3 94       	inc	r12
+     66e:	f1 2c       	mov	r15, r1
+     670:	00 e0       	ldi	r16, 0x00	; 0
+     672:	10 e0       	ldi	r17, 0x00	; 0
+     674:	20 e0       	ldi	r18, 0x00	; 0
+     676:	30 e0       	ldi	r19, 0x00	; 0
+     678:	40 e0       	ldi	r20, 0x00	; 0
+     67a:	50 e0       	ldi	r21, 0x00	; 0
+     67c:	60 e0       	ldi	r22, 0x00	; 0
+     67e:	ce 01       	movw	r24, r28
+     680:	0e 94 b4 02 	call	0x568	; 0x568 <_ZN8NRF24L0116writeSPIRegisterEhyh>
+     684:	41 e0       	ldi	r20, 0x01	; 1
+     686:	60 e0       	ldi	r22, 0x00	; 0
+     688:	ce 01       	movw	r24, r28
+     68a:	0e 94 4b 02 	call	0x496	; 0x496 <_ZN8NRF24L0115readSPIRegisterEhh>
+     68e:	df 91       	pop	r29
+     690:	cf 91       	pop	r28
+     692:	1f 91       	pop	r17
+     694:	0f 91       	pop	r16
+     696:	ff 90       	pop	r15
+     698:	ef 90       	pop	r14
+     69a:	cf 90       	pop	r12
+     69c:	08 95       	ret
+
+0000069e <_ZN8NRF24L0120enableACKWithPayloadEb>:
+     69e:	cf 92       	push	r12
+     6a0:	ef 92       	push	r14
+     6a2:	ff 92       	push	r15
+     6a4:	0f 93       	push	r16
+     6a6:	1f 93       	push	r17
+     6a8:	cf 93       	push	r28
+     6aa:	df 93       	push	r29
+     6ac:	ec 01       	movw	r28, r24
+     6ae:	e6 2e       	mov	r14, r22
+     6b0:	41 e0       	ldi	r20, 0x01	; 1
+     6b2:	6d e1       	ldi	r22, 0x1D	; 29
+     6b4:	0e 94 4b 02 	call	0x496	; 0x496 <_ZN8NRF24L0115readSPIRegisterEhh>
+     6b8:	2d 7f       	andi	r18, 0xFD	; 253
+     6ba:	ee 0c       	add	r14, r14
+     6bc:	e2 2a       	or	r14, r18
+     6be:	eb 82       	std	Y+3, r14	; 0x03
+     6c0:	cc 24       	eor	r12, r12
+     6c2:	c3 94       	inc	r12
+     6c4:	f1 2c       	mov	r15, r1
+     6c6:	00 e0       	ldi	r16, 0x00	; 0
+     6c8:	10 e0       	ldi	r17, 0x00	; 0
+     6ca:	20 e0       	ldi	r18, 0x00	; 0
+     6cc:	30 e0       	ldi	r19, 0x00	; 0
+     6ce:	40 e0       	ldi	r20, 0x00	; 0
+     6d0:	50 e0       	ldi	r21, 0x00	; 0
+     6d2:	6d e1       	ldi	r22, 0x1D	; 29
+     6d4:	ce 01       	movw	r24, r28
+     6d6:	0e 94 b4 02 	call	0x568	; 0x568 <_ZN8NRF24L0116writeSPIRegisterEhyh>
+     6da:	df 91       	pop	r29
+     6dc:	cf 91       	pop	r28
+     6de:	1f 91       	pop	r17
+     6e0:	0f 91       	pop	r16
+     6e2:	ff 90       	pop	r15
+     6e4:	ef 90       	pop	r14
+     6e6:	cf 90       	pop	r12
+     6e8:	08 95       	ret
+
+000006ea <_ZN8NRF24L0126enableDynamicPayloadLengthEb>:
+     6ea:	cf 92       	push	r12
+     6ec:	ef 92       	push	r14
+     6ee:	ff 92       	push	r15
+     6f0:	0f 93       	push	r16
+     6f2:	1f 93       	push	r17
+     6f4:	cf 93       	push	r28
+     6f6:	df 93       	push	r29
+     6f8:	ec 01       	movw	r28, r24
+     6fa:	e6 2e       	mov	r14, r22
+     6fc:	41 e0       	ldi	r20, 0x01	; 1
+     6fe:	6d e1       	ldi	r22, 0x1D	; 29
+     700:	0e 94 4b 02 	call	0x496	; 0x496 <_ZN8NRF24L0115readSPIRegisterEhh>
+     704:	2b 7f       	andi	r18, 0xFB	; 251
+     706:	ee 0c       	add	r14, r14
+     708:	ee 0c       	add	r14, r14
+     70a:	e2 2a       	or	r14, r18
+     70c:	eb 82       	std	Y+3, r14	; 0x03
+     70e:	cc 24       	eor	r12, r12
+     710:	c3 94       	inc	r12
+     712:	f1 2c       	mov	r15, r1
+     714:	00 e0       	ldi	r16, 0x00	; 0
+     716:	10 e0       	ldi	r17, 0x00	; 0
+     718:	20 e0       	ldi	r18, 0x00	; 0
+     71a:	30 e0       	ldi	r19, 0x00	; 0
+     71c:	40 e0       	ldi	r20, 0x00	; 0
+     71e:	50 e0       	ldi	r21, 0x00	; 0
+     720:	6d e1       	ldi	r22, 0x1D	; 29
+     722:	ce 01       	movw	r24, r28
+     724:	0e 94 b4 02 	call	0x568	; 0x568 <_ZN8NRF24L0116writeSPIRegisterEhyh>
+     728:	df 91       	pop	r29
+     72a:	cf 91       	pop	r28
+     72c:	1f 91       	pop	r17
+     72e:	0f 91       	pop	r16
+     730:	ff 90       	pop	r15
+     732:	ef 90       	pop	r14
+     734:	cf 90       	pop	r12
+     736:	08 95       	ret
+
+00000738 <_ZN8NRF24L0118enableDPLForRXPipeEhb>:
+     738:	af 92       	push	r10
+     73a:	bf 92       	push	r11
+     73c:	cf 92       	push	r12
+     73e:	ef 92       	push	r14
+     740:	ff 92       	push	r15
+     742:	0f 93       	push	r16
+     744:	1f 93       	push	r17
+     746:	cf 93       	push	r28
+     748:	df 93       	push	r29
+     74a:	66 30       	cpi	r22, 0x06	; 6
+     74c:	48 f5       	brcc	.+82     	; 0x7a0 <_ZN8NRF24L0118enableDPLForRXPipeEhb+0x68>
+     74e:	c4 2f       	mov	r28, r20
+     750:	d6 2f       	mov	r29, r22
+     752:	5c 01       	movw	r10, r24
+     754:	41 e0       	ldi	r20, 0x01	; 1
+     756:	6c e1       	ldi	r22, 0x1C	; 28
+     758:	0e 94 4b 02 	call	0x496	; 0x496 <_ZN8NRF24L0115readSPIRegisterEhh>
+     75c:	81 e0       	ldi	r24, 0x01	; 1
+     75e:	90 e0       	ldi	r25, 0x00	; 0
+     760:	0d 2e       	mov	r0, r29
+     762:	02 c0       	rjmp	.+4      	; 0x768 <_ZN8NRF24L0118enableDPLForRXPipeEhb+0x30>
+     764:	88 0f       	add	r24, r24
+     766:	99 1f       	adc	r25, r25
+     768:	0a 94       	dec	r0
+     76a:	e2 f7       	brpl	.-8      	; 0x764 <_ZN8NRF24L0118enableDPLForRXPipeEhb+0x2c>
+     76c:	80 95       	com	r24
+     76e:	82 23       	and	r24, r18
+     770:	4c 2f       	mov	r20, r28
+     772:	50 e0       	ldi	r21, 0x00	; 0
+     774:	02 c0       	rjmp	.+4      	; 0x77a <_ZN8NRF24L0118enableDPLForRXPipeEhb+0x42>
+     776:	44 0f       	add	r20, r20
+     778:	55 1f       	adc	r21, r21
+     77a:	da 95       	dec	r29
+     77c:	e2 f7       	brpl	.-8      	; 0x776 <_ZN8NRF24L0118enableDPLForRXPipeEhb+0x3e>
+     77e:	e8 2e       	mov	r14, r24
+     780:	e4 2a       	or	r14, r20
+     782:	f5 01       	movw	r30, r10
+     784:	e3 82       	std	Z+3, r14	; 0x03
+     786:	cc 24       	eor	r12, r12
+     788:	c3 94       	inc	r12
+     78a:	f1 2c       	mov	r15, r1
+     78c:	00 e0       	ldi	r16, 0x00	; 0
+     78e:	10 e0       	ldi	r17, 0x00	; 0
+     790:	20 e0       	ldi	r18, 0x00	; 0
+     792:	30 e0       	ldi	r19, 0x00	; 0
+     794:	40 e0       	ldi	r20, 0x00	; 0
+     796:	50 e0       	ldi	r21, 0x00	; 0
+     798:	6c e1       	ldi	r22, 0x1C	; 28
+     79a:	c5 01       	movw	r24, r10
+     79c:	0e 94 b4 02 	call	0x568	; 0x568 <_ZN8NRF24L0116writeSPIRegisterEhyh>
+     7a0:	df 91       	pop	r29
+     7a2:	cf 91       	pop	r28
+     7a4:	1f 91       	pop	r17
+     7a6:	0f 91       	pop	r16
+     7a8:	ff 90       	pop	r15
+     7aa:	ef 90       	pop	r14
+     7ac:	cf 90       	pop	r12
+     7ae:	bf 90       	pop	r11
+     7b0:	af 90       	pop	r10
+     7b2:	08 95       	ret
+
+000007b4 <_ZN8NRF24L0110clearTX_DSEv>:
+     7b4:	cf 92       	push	r12
+     7b6:	ef 92       	push	r14
+     7b8:	ff 92       	push	r15
+     7ba:	0f 93       	push	r16
+     7bc:	1f 93       	push	r17
+     7be:	cc 24       	eor	r12, r12
+     7c0:	c3 94       	inc	r12
+     7c2:	68 94       	set
+     7c4:	ee 24       	eor	r14, r14
+     7c6:	e5 f8       	bld	r14, 5
+     7c8:	f1 2c       	mov	r15, r1
+     7ca:	00 e0       	ldi	r16, 0x00	; 0
+     7cc:	10 e0       	ldi	r17, 0x00	; 0
+     7ce:	20 e0       	ldi	r18, 0x00	; 0
+     7d0:	30 e0       	ldi	r19, 0x00	; 0
+     7d2:	40 e0       	ldi	r20, 0x00	; 0
+     7d4:	50 e0       	ldi	r21, 0x00	; 0
+     7d6:	67 e0       	ldi	r22, 0x07	; 7
+     7d8:	0e 94 b4 02 	call	0x568	; 0x568 <_ZN8NRF24L0116writeSPIRegisterEhyh>
+     7dc:	1f 91       	pop	r17
+     7de:	0f 91       	pop	r16
+     7e0:	ff 90       	pop	r15
+     7e2:	ef 90       	pop	r14
+     7e4:	cf 90       	pop	r12
+     7e6:	08 95       	ret
+
+000007e8 <_ZN8NRF24L0111clearRT_MaxEv>:
+     7e8:	cf 92       	push	r12
+     7ea:	ef 92       	push	r14
+     7ec:	ff 92       	push	r15
+     7ee:	0f 93       	push	r16
+     7f0:	1f 93       	push	r17
+     7f2:	cc 24       	eor	r12, r12
+     7f4:	c3 94       	inc	r12
+     7f6:	68 94       	set
+     7f8:	ee 24       	eor	r14, r14
+     7fa:	e4 f8       	bld	r14, 4
+     7fc:	f1 2c       	mov	r15, r1
+     7fe:	00 e0       	ldi	r16, 0x00	; 0
+     800:	10 e0       	ldi	r17, 0x00	; 0
+     802:	20 e0       	ldi	r18, 0x00	; 0
+     804:	30 e0       	ldi	r19, 0x00	; 0
+     806:	40 e0       	ldi	r20, 0x00	; 0
+     808:	50 e0       	ldi	r21, 0x00	; 0
+     80a:	67 e0       	ldi	r22, 0x07	; 7
+     80c:	0e 94 b4 02 	call	0x568	; 0x568 <_ZN8NRF24L0116writeSPIRegisterEhyh>
+     810:	1f 91       	pop	r17
+     812:	0f 91       	pop	r16
+     814:	ff 90       	pop	r15
+     816:	ef 90       	pop	r14
+     818:	cf 90       	pop	r12
+     81a:	08 95       	ret
+
+0000081c <_ZN8NRF24L0113setRFDataRateEb>:
+     81c:	cf 92       	push	r12
+     81e:	ef 92       	push	r14
+     820:	ff 92       	push	r15
+     822:	0f 93       	push	r16
+     824:	1f 93       	push	r17
+     826:	cf 93       	push	r28
+     828:	df 93       	push	r29
+     82a:	ec 01       	movw	r28, r24
+     82c:	e6 2e       	mov	r14, r22
+     82e:	41 e0       	ldi	r20, 0x01	; 1
+     830:	66 e0       	ldi	r22, 0x06	; 6
+     832:	0e 94 4b 02 	call	0x496	; 0x496 <_ZN8NRF24L0115readSPIRegisterEhh>
+     836:	27 7f       	andi	r18, 0xF7	; 247
+     838:	ee 0c       	add	r14, r14
+     83a:	ee 0c       	add	r14, r14
+     83c:	ee 0c       	add	r14, r14
+     83e:	e2 2a       	or	r14, r18
+     840:	eb 82       	std	Y+3, r14	; 0x03
+     842:	cc 24       	eor	r12, r12
+     844:	c3 94       	inc	r12
+     846:	f1 2c       	mov	r15, r1
+     848:	00 e0       	ldi	r16, 0x00	; 0
+     84a:	10 e0       	ldi	r17, 0x00	; 0
+     84c:	20 e0       	ldi	r18, 0x00	; 0
+     84e:	30 e0       	ldi	r19, 0x00	; 0
+     850:	40 e0       	ldi	r20, 0x00	; 0
+     852:	50 e0       	ldi	r21, 0x00	; 0
+     854:	66 e0       	ldi	r22, 0x06	; 6
+     856:	ce 01       	movw	r24, r28
+     858:	0e 94 b4 02 	call	0x568	; 0x568 <_ZN8NRF24L0116writeSPIRegisterEhyh>
+     85c:	df 91       	pop	r29
+     85e:	cf 91       	pop	r28
+     860:	1f 91       	pop	r17
+     862:	0f 91       	pop	r16
+     864:	ff 90       	pop	r15
+     866:	ef 90       	pop	r14
+     868:	cf 90       	pop	r12
+     86a:	08 95       	ret
+
+0000086c <_ZN8NRF24L0119fastTransferPayloadEh>:
+     86c:	af 92       	push	r10
+     86e:	bf 92       	push	r11
+     870:	cf 92       	push	r12
+     872:	ef 92       	push	r14
+     874:	ff 92       	push	r15
+     876:	0f 93       	push	r16
+     878:	1f 93       	push	r17
+     87a:	cf 93       	push	r28
+     87c:	df 93       	push	r29
+     87e:	1f 92       	push	r1
+     880:	cd b7       	in	r28, 0x3d	; 61
+     882:	de b7       	in	r29, 0x3e	; 62
+     884:	5c 01       	movw	r10, r24
+     886:	69 83       	std	Y+1, r22	; 0x01
+     888:	6f ef       	ldi	r22, 0xFF	; 255
+     88a:	0e 94 45 02 	call	0x48a	; 0x48a <_ZN8NRF24L0114sendSPICommandEh>
+     88e:	80 93 5a 01 	sts	0x015A, r24	; 0x80015a <_ZZN8NRF24L0119fastTransferPayloadEhE6status>
+     892:	80 fd       	sbrc	r24, 0
+     894:	09 c0       	rjmp	.+18     	; 0x8a8 <_ZN8NRF24L0119fastTransferPayloadEh+0x3c>
+     896:	41 98       	cbi	0x08, 1	; 8
+     898:	80 ea       	ldi	r24, 0xA0	; 160
+     89a:	0e 94 73 00 	call	0xe6	; 0xe6 <_Z18SPI_MasterTransmitc>
+     89e:	89 81       	ldd	r24, Y+1	; 0x01
+     8a0:	0e 94 73 00 	call	0xe6	; 0xe6 <_Z18SPI_MasterTransmitc>
+     8a4:	41 9a       	sbi	0x08, 1	; 8
+     8a6:	12 c0       	rjmp	.+36     	; 0x8cc <_ZN8NRF24L0119fastTransferPayloadEh+0x60>
+     8a8:	84 ff       	sbrs	r24, 4
+     8aa:	10 c0       	rjmp	.+32     	; 0x8cc <_ZN8NRF24L0119fastTransferPayloadEh+0x60>
+     8ac:	cc 24       	eor	r12, r12
+     8ae:	c3 94       	inc	r12
+     8b0:	68 94       	set
+     8b2:	ee 24       	eor	r14, r14
+     8b4:	e4 f8       	bld	r14, 4
+     8b6:	f1 2c       	mov	r15, r1
+     8b8:	00 e0       	ldi	r16, 0x00	; 0
+     8ba:	10 e0       	ldi	r17, 0x00	; 0
+     8bc:	20 e0       	ldi	r18, 0x00	; 0
+     8be:	30 e0       	ldi	r19, 0x00	; 0
+     8c0:	40 e0       	ldi	r20, 0x00	; 0
+     8c2:	50 e0       	ldi	r21, 0x00	; 0
+     8c4:	67 e0       	ldi	r22, 0x07	; 7
+     8c6:	c5 01       	movw	r24, r10
+     8c8:	0e 94 b4 02 	call	0x568	; 0x568 <_ZN8NRF24L0116writeSPIRegisterEhyh>
+     8cc:	0f 90       	pop	r0
+     8ce:	df 91       	pop	r29
+     8d0:	cf 91       	pop	r28
+     8d2:	1f 91       	pop	r17
+     8d4:	0f 91       	pop	r16
+     8d6:	ff 90       	pop	r15
+     8d8:	ef 90       	pop	r14
+     8da:	cf 90       	pop	r12
+     8dc:	bf 90       	pop	r11
+     8de:	af 90       	pop	r10
+     8e0:	08 95       	ret
+
+000008e2 <_ZN8NRF24L0118setTransmitAddressEy>:
+     8e2:	cf 92       	push	r12
+     8e4:	ef 92       	push	r14
+     8e6:	ff 92       	push	r15
+     8e8:	0f 93       	push	r16
+     8ea:	1f 93       	push	r17
+     8ec:	0f 2e       	mov	r0, r31
+     8ee:	f5 e0       	ldi	r31, 0x05	; 5
+     8f0:	cf 2e       	mov	r12, r31
+     8f2:	f0 2d       	mov	r31, r0
+     8f4:	e0 2e       	mov	r14, r16
+     8f6:	f1 2e       	mov	r15, r17
+     8f8:	02 2f       	mov	r16, r18
+     8fa:	13 2f       	mov	r17, r19
+     8fc:	24 2f       	mov	r18, r20
+     8fe:	35 2f       	mov	r19, r21
+     900:	46 2f       	mov	r20, r22
+     902:	57 2f       	mov	r21, r23
+     904:	60 e1       	ldi	r22, 0x10	; 16
+     906:	0e 94 b4 02 	call	0x568	; 0x568 <_ZN8NRF24L0116writeSPIRegisterEhyh>
+     90a:	1f 91       	pop	r17
+     90c:	0f 91       	pop	r16
+     90e:	ff 90       	pop	r15
+     910:	ef 90       	pop	r14
+     912:	cf 90       	pop	r12
+     914:	08 95       	ret
+
+00000916 <_ZN8NRF24L0118setReceive0AddressEy>:
+     916:	cf 92       	push	r12
+     918:	ef 92       	push	r14
+     91a:	ff 92       	push	r15
+     91c:	0f 93       	push	r16
+     91e:	1f 93       	push	r17
+     920:	0f 2e       	mov	r0, r31
+     922:	f5 e0       	ldi	r31, 0x05	; 5
+     924:	cf 2e       	mov	r12, r31
+     926:	f0 2d       	mov	r31, r0
+     928:	e0 2e       	mov	r14, r16
+     92a:	f1 2e       	mov	r15, r17
+     92c:	02 2f       	mov	r16, r18
+     92e:	13 2f       	mov	r17, r19
+     930:	24 2f       	mov	r18, r20
+     932:	35 2f       	mov	r19, r21
+     934:	46 2f       	mov	r20, r22
+     936:	57 2f       	mov	r21, r23
+     938:	6a e0       	ldi	r22, 0x0A	; 10
+     93a:	0e 94 b4 02 	call	0x568	; 0x568 <_ZN8NRF24L0116writeSPIRegisterEhyh>
+     93e:	1f 91       	pop	r17
+     940:	0f 91       	pop	r16
+     942:	ff 90       	pop	r15
+     944:	ef 90       	pop	r14
+     946:	cf 90       	pop	r12
+     948:	08 95       	ret
+
+0000094a <_ZN8NRF24L0110initializeEv>:
+     94a:	cf 92       	push	r12
+     94c:	ef 92       	push	r14
+     94e:	ff 92       	push	r15
+     950:	0f 93       	push	r16
+     952:	1f 93       	push	r17
+     954:	cf 93       	push	r28
+     956:	df 93       	push	r29
+     958:	ec 01       	movw	r28, r24
+     95a:	39 9a       	sbi	0x07, 1	; 7
+     95c:	38 9a       	sbi	0x07, 0	; 7
+     95e:	40 9a       	sbi	0x08, 0	; 8
+     960:	57 9a       	sbi	0x0a, 7	; 10
+     962:	1a 82       	std	Y+2, r1	; 0x02
+     964:	05 eb       	ldi	r16, 0xB5	; 181
+     966:	1a eb       	ldi	r17, 0xBA	; 186
+     968:	2a eb       	ldi	r18, 0xBA	; 186
+     96a:	3a eb       	ldi	r19, 0xBA	; 186
+     96c:	4a eb       	ldi	r20, 0xBA	; 186
+     96e:	50 e0       	ldi	r21, 0x00	; 0
+     970:	60 e0       	ldi	r22, 0x00	; 0
+     972:	70 e0       	ldi	r23, 0x00	; 0
+     974:	0e 94 71 04 	call	0x8e2	; 0x8e2 <_ZN8NRF24L0118setTransmitAddressEy>
+     978:	2a eb       	ldi	r18, 0xBA	; 186
+     97a:	3a eb       	ldi	r19, 0xBA	; 186
+     97c:	4a eb       	ldi	r20, 0xBA	; 186
+     97e:	50 e0       	ldi	r21, 0x00	; 0
+     980:	60 e0       	ldi	r22, 0x00	; 0
+     982:	70 e0       	ldi	r23, 0x00	; 0
+     984:	ce 01       	movw	r24, r28
+     986:	0e 94 8b 04 	call	0x916	; 0x916 <_ZN8NRF24L0118setReceive0AddressEy>
+     98a:	cc 24       	eor	r12, r12
+     98c:	c3 94       	inc	r12
+     98e:	e1 2c       	mov	r14, r1
+     990:	f1 2c       	mov	r15, r1
+     992:	00 e0       	ldi	r16, 0x00	; 0
+     994:	10 e0       	ldi	r17, 0x00	; 0
+     996:	20 e0       	ldi	r18, 0x00	; 0
+     998:	30 e0       	ldi	r19, 0x00	; 0
+     99a:	40 e0       	ldi	r20, 0x00	; 0
+     99c:	50 e0       	ldi	r21, 0x00	; 0
+     99e:	64 e0       	ldi	r22, 0x04	; 4
+     9a0:	ce 01       	movw	r24, r28
+     9a2:	0e 94 b4 02 	call	0x568	; 0x568 <_ZN8NRF24L0116writeSPIRegisterEhyh>
+     9a6:	61 e0       	ldi	r22, 0x01	; 1
+     9a8:	ce 01       	movw	r24, r28
+     9aa:	0e 94 0e 04 	call	0x81c	; 0x81c <_ZN8NRF24L0113setRFDataRateEb>
+     9ae:	6f 81       	ldd	r22, Y+7	; 0x07
+     9b0:	ce 01       	movw	r24, r28
+     9b2:	0e 94 19 03 	call	0x632	; 0x632 <_ZN8NRF24L017setModeEb>
+     9b6:	88 85       	ldd	r24, Y+8	; 0x08
+     9b8:	88 23       	and	r24, r24
+     9ba:	81 f0       	breq	.+32     	; 0x9dc <_ZN8NRF24L0110initializeEv+0x92>
+     9bc:	ce 01       	movw	r24, r28
+     9be:	0e 94 3c 02 	call	0x478	; 0x478 <_ZN8NRF24L0114toggleActivateEv>
+     9c2:	61 e0       	ldi	r22, 0x01	; 1
+     9c4:	ce 01       	movw	r24, r28
+     9c6:	0e 94 75 03 	call	0x6ea	; 0x6ea <_ZN8NRF24L0126enableDynamicPayloadLengthEb>
+     9ca:	41 e0       	ldi	r20, 0x01	; 1
+     9cc:	60 e0       	ldi	r22, 0x00	; 0
+     9ce:	ce 01       	movw	r24, r28
+     9d0:	0e 94 9c 03 	call	0x738	; 0x738 <_ZN8NRF24L0118enableDPLForRXPipeEhb>
+     9d4:	61 e0       	ldi	r22, 0x01	; 1
+     9d6:	ce 01       	movw	r24, r28
+     9d8:	0e 94 4f 03 	call	0x69e	; 0x69e <_ZN8NRF24L0120enableACKWithPayloadEb>
+     9dc:	61 e0       	ldi	r22, 0x01	; 1
+     9de:	ce 01       	movw	r24, r28
+     9e0:	0e 94 f3 02 	call	0x5e6	; 0x5e6 <_ZN8NRF24L017powerONEb>
+     9e4:	df 91       	pop	r29
+     9e6:	cf 91       	pop	r28
+     9e8:	1f 91       	pop	r17
+     9ea:	0f 91       	pop	r16
+     9ec:	ff 90       	pop	r15
+     9ee:	ef 90       	pop	r14
+     9f0:	cf 90       	pop	r12
+     9f2:	08 95       	ret
+
+000009f4 <_ZN8NRF24L01C1Ehhb>:
+     9f4:	3f ef       	ldi	r19, 0xFF	; 255
+     9f6:	50 e7       	ldi	r21, 0x70	; 112
+     9f8:	72 e0       	ldi	r23, 0x02	; 2
+     9fa:	31 50       	subi	r19, 0x01	; 1
+     9fc:	50 40       	sbci	r21, 0x00	; 0
+     9fe:	70 40       	sbci	r23, 0x00	; 0
+     a00:	e1 f7       	brne	.-8      	; 0x9fa <_ZN8NRF24L01C1Ehhb+0x6>
+     a02:	00 c0       	rjmp	.+0      	; 0xa04 <_ZN8NRF24L01C1Ehhb+0x10>
+     a04:	00 00       	nop
+     a06:	fc 01       	movw	r30, r24
+     a08:	27 83       	std	Z+7, r18	; 0x07
+     a0a:	21 e0       	ldi	r18, 0x01	; 1
+     a0c:	20 87       	std	Z+8, r18	; 0x08
+     a0e:	60 83       	st	Z, r22
+     a10:	41 83       	std	Z+1, r20	; 0x01
+     a12:	0e 94 a5 04 	call	0x94a	; 0x94a <_ZN8NRF24L0110initializeEv>
+     a16:	08 95       	ret
+
+00000a18 <_ZN8NRF24L017flushTXEv>:
+void NRF24L01::setReceive0Address(uint64_t address){
+	writeSPIRegister(RX_ADDR_P0, address, 5);
+}
+
+void NRF24L01::flushTX(){
+	sendSPICommand(FLUSH_TX);
+     a18:	61 ee       	ldi	r22, 0xE1	; 225
+     a1a:	0e 94 45 02 	call	0x48a	; 0x48a <_ZN8NRF24L0114sendSPICommandEh>
+     a1e:	08 95       	ret
+
+00000a20 <_ZN11SwitchClass9doNothingEh>:
+	S = (SwitchState & (1 << PinNumber));
+}
+
+void SwitchClass::pinStateChanged(){
+	//printChar('s');
+	Switch.callAllProcessStateChange();
+     a20:	08 95       	ret
+
+00000a22 <_ZN11SwitchClass5beginEv>:
+     a22:	10 92 6e 01 	sts	0x016E, r1	; 0x80016e <_ZN11SwitchClass1iE>
+     a26:	80 e1       	ldi	r24, 0x10	; 16
+     a28:	95 e0       	ldi	r25, 0x05	; 5
+     a2a:	90 93 5c 01 	sts	0x015C, r25	; 0x80015c <_ZN11SwitchClass17PinStateChangePtrE+0x1>
+     a2e:	80 93 5b 01 	sts	0x015B, r24	; 0x80015b <_ZN11SwitchClass17PinStateChangePtrE>
+     a32:	08 95       	ret
+
+00000a34 <_ZN11SwitchClass10shortPressEPFvhE>:
+     a34:	fc 01       	movw	r30, r24
+     a36:	77 87       	std	Z+15, r23	; 0x0f
+     a38:	66 87       	std	Z+14, r22	; 0x0e
+     a3a:	70 93 5e 01 	sts	0x015E, r23	; 0x80015e <_ZN11SwitchClass16AllShortPressPtrE+0x1>
+     a3e:	60 93 5d 01 	sts	0x015D, r22	; 0x80015d <_ZN11SwitchClass16AllShortPressPtrE>
+     a42:	21 e0       	ldi	r18, 0x01	; 1
+     a44:	24 8f       	std	Z+28, r18	; 0x1c
+     a46:	08 95       	ret
+
+00000a48 <_ZN11SwitchClass18doubleWaitCompleteEv>:
+     a48:	cf 93       	push	r28
+     a4a:	df 93       	push	r29
+     a4c:	ec 01       	movw	r28, r24
+     a4e:	1b a2       	std	Y+35, r1	; 0x23
+     a50:	1c a2       	std	Y+36, r1	; 0x24
+     a52:	0e 94 6f 08 	call	0x10de	; 0x10de <_ZN10TimerClass10resetTimerEv>
+     a56:	ce 01       	movw	r24, r28
+     a58:	0e 94 4f 08 	call	0x109e	; 0x109e <_ZN10TimerClass18resetCallbackTimerEv>
+     a5c:	8c 8d       	ldd	r24, Y+28	; 0x1c
+     a5e:	81 11       	cpse	r24, r1
+     a60:	04 c0       	rjmp	.+8      	; 0xa6a <_ZN11SwitchClass18doubleWaitCompleteEv+0x22>
+     a62:	80 91 68 01 	lds	r24, 0x0168	; 0x800168 <_ZN11SwitchClass11AllShort_ENE>
+     a66:	88 23       	and	r24, r24
+     a68:	c9 f0       	breq	.+50     	; 0xa9c <_ZN11SwitchClass18doubleWaitCompleteEv+0x54>
+     a6a:	80 91 69 01 	lds	r24, 0x0169	; 0x800169 <_ZN11SwitchClass13AllSamePtr_ENE>
+     a6e:	88 23       	and	r24, r24
+     a70:	61 f0       	breq	.+24     	; 0xa8a <_ZN11SwitchClass18doubleWaitCompleteEv+0x42>
+     a72:	81 e0       	ldi	r24, 0x01	; 1
+     a74:	0e 94 64 00 	call	0xc8	; 0xc8 <_Z10allowSleepb>
+     a78:	e0 91 5d 01 	lds	r30, 0x015D	; 0x80015d <_ZN11SwitchClass16AllShortPressPtrE>
+     a7c:	f0 91 5e 01 	lds	r31, 0x015E	; 0x80015e <_ZN11SwitchClass16AllShortPressPtrE+0x1>
+     a80:	30 97       	sbiw	r30, 0x00	; 0
+     a82:	61 f0       	breq	.+24     	; 0xa9c <_ZN11SwitchClass18doubleWaitCompleteEv+0x54>
+     a84:	8e a1       	ldd	r24, Y+38	; 0x26
+     a86:	09 95       	icall
+     a88:	09 c0       	rjmp	.+18     	; 0xa9c <_ZN11SwitchClass18doubleWaitCompleteEv+0x54>
+     a8a:	81 e0       	ldi	r24, 0x01	; 1
+     a8c:	0e 94 64 00 	call	0xc8	; 0xc8 <_Z10allowSleepb>
+     a90:	ee 85       	ldd	r30, Y+14	; 0x0e
+     a92:	ff 85       	ldd	r31, Y+15	; 0x0f
+     a94:	30 97       	sbiw	r30, 0x00	; 0
+     a96:	11 f0       	breq	.+4      	; 0xa9c <_ZN11SwitchClass18doubleWaitCompleteEv+0x54>
+     a98:	8e a1       	ldd	r24, Y+38	; 0x26
+     a9a:	09 95       	icall
+     a9c:	df 91       	pop	r29
+     a9e:	cf 91       	pop	r28
+     aa0:	08 95       	ret
+
+00000aa2 <_ZN11SwitchClass17callAllDoubleWaitEh>:
+     aa2:	cf 93       	push	r28
+     aa4:	df 93       	push	r29
+     aa6:	90 91 6e 01 	lds	r25, 0x016E	; 0x80016e <_ZN11SwitchClass1iE>
+     aaa:	99 23       	and	r25, r25
+     aac:	c1 f0       	breq	.+48     	; 0xade <_ZN11SwitchClass17callAllDoubleWaitEh+0x3c>
+     aae:	d8 2f       	mov	r29, r24
+     ab0:	c0 e0       	ldi	r28, 0x00	; 0
+     ab2:	ec 2f       	mov	r30, r28
+     ab4:	f0 e0       	ldi	r31, 0x00	; 0
+     ab6:	ee 0f       	add	r30, r30
+     ab8:	ff 1f       	adc	r31, r31
+     aba:	e1 59       	subi	r30, 0x91	; 145
+     abc:	fe 4f       	sbci	r31, 0xFE	; 254
+     abe:	01 90       	ld	r0, Z+
+     ac0:	f0 81       	ld	r31, Z
+     ac2:	e0 2d       	mov	r30, r0
+     ac4:	91 a5       	ldd	r25, Z+41	; 0x29
+     ac6:	9d 13       	cpse	r25, r29
+     ac8:	05 c0       	rjmp	.+10     	; 0xad4 <_ZN11SwitchClass17callAllDoubleWaitEh+0x32>
+     aca:	30 97       	sbiw	r30, 0x00	; 0
+     acc:	19 f0       	breq	.+6      	; 0xad4 <_ZN11SwitchClass17callAllDoubleWaitEh+0x32>
+     ace:	cf 01       	movw	r24, r30
+     ad0:	0e 94 24 05 	call	0xa48	; 0xa48 <_ZN11SwitchClass18doubleWaitCompleteEv>
+     ad4:	cf 5f       	subi	r28, 0xFF	; 255
+     ad6:	90 91 6e 01 	lds	r25, 0x016E	; 0x80016e <_ZN11SwitchClass1iE>
+     ada:	c9 17       	cp	r28, r25
+     adc:	50 f3       	brcs	.-44     	; 0xab2 <_ZN11SwitchClass17callAllDoubleWaitEh+0x10>
+     ade:	df 91       	pop	r29
+     ae0:	cf 91       	pop	r28
+     ae2:	08 95       	ret
+
+00000ae4 <_ZN11SwitchClass17enableSamePtrModeEb>:
+     ae4:	80 93 69 01 	sts	0x0169, r24	; 0x800169 <_ZN11SwitchClass13AllSamePtr_ENE>
+     ae8:	80 93 68 01 	sts	0x0168, r24	; 0x800168 <_ZN11SwitchClass11AllShort_ENE>
+     aec:	80 93 67 01 	sts	0x0167, r24	; 0x800167 <_ZN11SwitchClass12AllDouble_ENE>
+     af0:	80 93 66 01 	sts	0x0166, r24	; 0x800166 <_ZN11SwitchClass10AllLong_ENE>
+     af4:	80 93 65 01 	sts	0x0165, r24	; 0x800165 <_ZN11SwitchClass20AllContinuousLong_ENE>
+     af8:	08 95       	ret
+
+00000afa <_ZN11SwitchClass16updatePinBuffersEv>:
+     afa:	83 b1       	in	r24, 0x03	; 3
+     afc:	ea e6       	ldi	r30, 0x6A	; 106
+     afe:	f1 e0       	ldi	r31, 0x01	; 1
+     b00:	80 83       	st	Z, r24
+     b02:	86 b1       	in	r24, 0x06	; 6
+     b04:	81 83       	std	Z+1, r24	; 0x01
+     b06:	89 b1       	in	r24, 0x09	; 9
+     b08:	82 83       	std	Z+2, r24	; 0x02
+     b0a:	08 95       	ret
+
+00000b0c <_ZN11SwitchClass10pollSwitchEv>:
+     b0c:	fc 01       	movw	r30, r24
+     b0e:	80 a5       	ldd	r24, Z+40	; 0x28
+     b10:	81 30       	cpi	r24, 0x01	; 1
+     b12:	49 f0       	breq	.+18     	; 0xb26 <_ZN11SwitchClass10pollSwitchEv+0x1a>
+     b14:	18 f0       	brcs	.+6      	; 0xb1c <_ZN11SwitchClass10pollSwitchEv+0x10>
+     b16:	82 30       	cpi	r24, 0x02	; 2
+     b18:	59 f0       	breq	.+22     	; 0xb30 <_ZN11SwitchClass10pollSwitchEv+0x24>
+     b1a:	0e c0       	rjmp	.+28     	; 0xb38 <_ZN11SwitchClass10pollSwitchEv+0x2c>
+     b1c:	80 91 6a 01 	lds	r24, 0x016A	; 0x80016a <_ZN11SwitchClass9PinBufferE>
+     b20:	80 93 6d 01 	sts	0x016D, r24	; 0x80016d <_ZN11SwitchClass11SwitchStateE>
+     b24:	09 c0       	rjmp	.+18     	; 0xb38 <_ZN11SwitchClass10pollSwitchEv+0x2c>
+     b26:	80 91 6b 01 	lds	r24, 0x016B	; 0x80016b <_ZN11SwitchClass9PinBufferE+0x1>
+     b2a:	80 93 6d 01 	sts	0x016D, r24	; 0x80016d <_ZN11SwitchClass11SwitchStateE>
+     b2e:	04 c0       	rjmp	.+8      	; 0xb38 <_ZN11SwitchClass10pollSwitchEv+0x2c>
+     b30:	80 91 6c 01 	lds	r24, 0x016C	; 0x80016c <_ZN11SwitchClass9PinBufferE+0x2>
+     b34:	80 93 6d 01 	sts	0x016D, r24	; 0x80016d <_ZN11SwitchClass11SwitchStateE>
+     b38:	82 8d       	ldd	r24, Z+26	; 0x1a
+     b3a:	81 a3       	std	Z+33, r24	; 0x21
+     b3c:	20 91 6d 01 	lds	r18, 0x016D	; 0x80016d <_ZN11SwitchClass11SwitchStateE>
+     b40:	30 e0       	ldi	r19, 0x00	; 0
+     b42:	07 a0       	ldd	r0, Z+39	; 0x27
+     b44:	02 c0       	rjmp	.+4      	; 0xb4a <_ZN11SwitchClass10pollSwitchEv+0x3e>
+     b46:	35 95       	asr	r19
+     b48:	27 95       	ror	r18
+     b4a:	0a 94       	dec	r0
+     b4c:	e2 f7       	brpl	.-8      	; 0xb46 <_ZN11SwitchClass10pollSwitchEv+0x3a>
+     b4e:	21 70       	andi	r18, 0x01	; 1
+     b50:	22 8f       	std	Z+26, r18	; 0x1a
+     b52:	08 95       	ret
+
+00000b54 <_ZN11SwitchClass16initializeSwitchEhhPS_>:
+     b54:	ef 92       	push	r14
+     b56:	ff 92       	push	r15
+     b58:	0f 93       	push	r16
+     b5a:	1f 93       	push	r17
+     b5c:	cf 93       	push	r28
+     b5e:	df 93       	push	r29
+     b60:	ec 01       	movw	r28, r24
+     b62:	f6 2e       	mov	r15, r22
+     b64:	e4 2e       	mov	r14, r20
+     b66:	89 01       	movw	r16, r18
+     b68:	1f 86       	std	Y+15, r1	; 0x0f
+     b6a:	1e 86       	std	Y+14, r1	; 0x0e
+     b6c:	1b 8a       	std	Y+19, r1	; 0x13
+     b6e:	1a 8a       	std	Y+18, r1	; 0x12
+     b70:	19 8a       	std	Y+17, r1	; 0x11
+     b72:	18 8a       	std	Y+16, r1	; 0x10
+     b74:	1d 8a       	std	Y+21, r1	; 0x15
+     b76:	1c 8a       	std	Y+20, r1	; 0x14
+     b78:	1f 8a       	std	Y+23, r1	; 0x17
+     b7a:	1e 8a       	std	Y+22, r1	; 0x16
+     b7c:	19 8e       	std	Y+25, r1	; 0x19
+     b7e:	18 8e       	std	Y+24, r1	; 0x18
+     b80:	0e 94 30 08 	call	0x1060	; 0x1060 <_ZN10TimerClass15initializeTimerEv>
+     b84:	ef a2       	std	Y+39, r14	; 0x27
+     b86:	f8 a6       	std	Y+40, r15	; 0x28
+     b88:	40 e0       	ldi	r20, 0x00	; 0
+     b8a:	6e 2d       	mov	r22, r14
+     b8c:	8f 2d       	mov	r24, r15
+     b8e:	0e 94 d9 00 	call	0x1b2	; 0x1b2 <_Z15setPinDirectionhhb>
+     b92:	41 e0       	ldi	r20, 0x01	; 1
+     b94:	6f a1       	ldd	r22, Y+39	; 0x27
+     b96:	88 a5       	ldd	r24, Y+40	; 0x28
+     b98:	0e 94 88 00 	call	0x110	; 0x110 <_Z11setPinStatehhb>
+     b9c:	41 e0       	ldi	r20, 0x01	; 1
+     b9e:	6e 2d       	mov	r22, r14
+     ba0:	8f 2d       	mov	r24, r15
+     ba2:	0e 94 2a 01 	call	0x254	; 0x254 <_Z21setPinChangeInterrupthhb>
+     ba6:	88 a5       	ldd	r24, Y+40	; 0x28
+     ba8:	81 30       	cpi	r24, 0x01	; 1
+     baa:	41 f0       	breq	.+16     	; 0xbbc <_ZN11SwitchClass16initializeSwitchEhhPS_+0x68>
+     bac:	18 f0       	brcs	.+6      	; 0xbb4 <_ZN11SwitchClass16initializeSwitchEhhPS_+0x60>
+     bae:	82 30       	cpi	r24, 0x02	; 2
+     bb0:	49 f0       	breq	.+18     	; 0xbc4 <_ZN11SwitchClass16initializeSwitchEhhPS_+0x70>
+     bb2:	0b c0       	rjmp	.+22     	; 0xbca <_ZN11SwitchClass16initializeSwitchEhhPS_+0x76>
+     bb4:	83 b1       	in	r24, 0x03	; 3
+     bb6:	80 93 6d 01 	sts	0x016D, r24	; 0x80016d <_ZN11SwitchClass11SwitchStateE>
+     bba:	07 c0       	rjmp	.+14     	; 0xbca <_ZN11SwitchClass16initializeSwitchEhhPS_+0x76>
+     bbc:	86 b1       	in	r24, 0x06	; 6
+     bbe:	80 93 6d 01 	sts	0x016D, r24	; 0x80016d <_ZN11SwitchClass11SwitchStateE>
+     bc2:	03 c0       	rjmp	.+6      	; 0xbca <_ZN11SwitchClass16initializeSwitchEhhPS_+0x76>
+     bc4:	89 b1       	in	r24, 0x09	; 9
+     bc6:	80 93 6d 01 	sts	0x016D, r24	; 0x80016d <_ZN11SwitchClass11SwitchStateE>
+     bca:	80 91 6e 01 	lds	r24, 0x016E	; 0x80016e <_ZN11SwitchClass1iE>
+     bce:	e8 2f       	mov	r30, r24
+     bd0:	f0 e0       	ldi	r31, 0x00	; 0
+     bd2:	ee 0f       	add	r30, r30
+     bd4:	ff 1f       	adc	r31, r31
+     bd6:	e1 59       	subi	r30, 0x91	; 145
+     bd8:	fe 4f       	sbci	r31, 0xFE	; 254
+     bda:	11 83       	std	Z+1, r17	; 0x01
+     bdc:	00 83       	st	Z, r16
+     bde:	8e a3       	std	Y+38, r24	; 0x26
+     be0:	8f 5f       	subi	r24, 0xFF	; 255
+     be2:	80 93 6e 01 	sts	0x016E, r24	; 0x80016e <_ZN11SwitchClass1iE>
+     be6:	ce 01       	movw	r24, r28
+     be8:	0e 94 7d 05 	call	0xafa	; 0xafa <_ZN11SwitchClass16updatePinBuffersEv>
+     bec:	ce 01       	movw	r24, r28
+     bee:	0e 94 86 05 	call	0xb0c	; 0xb0c <_ZN11SwitchClass10pollSwitchEv>
+     bf2:	1f 8e       	std	Y+31, r1	; 0x1f
+     bf4:	ce 01       	movw	r24, r28
+     bf6:	0e 94 bf 08 	call	0x117e	; 0x117e <_ZN10TimerClass10getTimerIDEv>
+     bfa:	89 a7       	std	Y+41, r24	; 0x29
+     bfc:	df 91       	pop	r29
+     bfe:	cf 91       	pop	r28
+     c00:	1f 91       	pop	r17
+     c02:	0f 91       	pop	r16
+     c04:	ff 90       	pop	r15
+     c06:	ef 90       	pop	r14
+     c08:	08 95       	ret
+
+00000c0a <_ZN11SwitchClass18processStateChangeEv>:
+     c0a:	cf 93       	push	r28
+     c0c:	df 93       	push	r29
+     c0e:	ec 01       	movw	r28, r24
+     c10:	0e 94 86 05 	call	0xb0c	; 0xb0c <_ZN11SwitchClass10pollSwitchEv>
+     c14:	8a 8d       	ldd	r24, Y+26	; 0x1a
+     c16:	81 11       	cpse	r24, r1
+     c18:	20 c0       	rjmp	.+64     	; 0xc5a <_ZN11SwitchClass18processStateChangeEv+0x50>
+     c1a:	89 a1       	ldd	r24, Y+33	; 0x21
+     c1c:	88 23       	and	r24, r24
+     c1e:	09 f4       	brne	.+2      	; 0xc22 <_ZN11SwitchClass18processStateChangeEv+0x18>
+     c20:	78 c0       	rjmp	.+240    	; 0xd12 <_ZN11SwitchClass18processStateChangeEv+0x108>
+     c22:	8b a1       	ldd	r24, Y+35	; 0x23
+     c24:	81 11       	cpse	r24, r1
+     c26:	08 c0       	rjmp	.+16     	; 0xc38 <_ZN11SwitchClass18processStateChangeEv+0x2e>
+     c28:	29 e1       	ldi	r18, 0x19	; 25
+     c2a:	37 e0       	ldi	r19, 0x07	; 7
+     c2c:	40 e0       	ldi	r20, 0x00	; 0
+     c2e:	6c eb       	ldi	r22, 0xBC	; 188
+     c30:	72 e0       	ldi	r23, 0x02	; 2
+     c32:	ce 01       	movw	r24, r28
+     c34:	0e 94 41 08 	call	0x1082	; 0x1082 <_ZN10TimerClass15setCallBackTimeEjhPFvhE>
+     c38:	81 e0       	ldi	r24, 0x01	; 1
+     c3a:	8a a3       	std	Y+34, r24	; 0x22
+     c3c:	8b a1       	ldd	r24, Y+35	; 0x23
+     c3e:	88 23       	and	r24, r24
+     c40:	41 f0       	breq	.+16     	; 0xc52 <_ZN11SwitchClass18processStateChangeEv+0x48>
+     c42:	68 e5       	ldi	r22, 0x58	; 88
+     c44:	72 e0       	ldi	r23, 0x02	; 2
+     c46:	ce 01       	movw	r24, r28
+     c48:	0e 94 5c 08 	call	0x10b8	; 0x10b8 <_ZN10TimerClass7setTimeEj>
+     c4c:	81 e0       	ldi	r24, 0x01	; 1
+     c4e:	8c a3       	std	Y+36, r24	; 0x24
+     c50:	1b a2       	std	Y+35, r1	; 0x23
+     c52:	8a 8d       	ldd	r24, Y+26	; 0x1a
+     c54:	88 23       	and	r24, r24
+     c56:	09 f4       	brne	.+2      	; 0xc5a <_ZN11SwitchClass18processStateChangeEv+0x50>
+     c58:	5c c0       	rjmp	.+184    	; 0xd12 <_ZN11SwitchClass18processStateChangeEv+0x108>
+     c5a:	89 a1       	ldd	r24, Y+33	; 0x21
+     c5c:	81 11       	cpse	r24, r1
+     c5e:	59 c0       	rjmp	.+178    	; 0xd12 <_ZN11SwitchClass18processStateChangeEv+0x108>
+     c60:	8c a1       	ldd	r24, Y+36	; 0x24
+     c62:	81 11       	cpse	r24, r1
+     c64:	06 c0       	rjmp	.+12     	; 0xc72 <_ZN11SwitchClass18processStateChangeEv+0x68>
+     c66:	ce 01       	movw	r24, r28
+     c68:	0e 94 54 08 	call	0x10a8	; 0x10a8 <_ZN10TimerClass15getCallBackTimeEv>
+     c6c:	9d a7       	std	Y+45, r25	; 0x2d
+     c6e:	8c a7       	std	Y+44, r24	; 0x2c
+     c70:	05 c0       	rjmp	.+10     	; 0xc7c <_ZN11SwitchClass18processStateChangeEv+0x72>
+     c72:	ce 01       	movw	r24, r28
+     c74:	0e 94 67 08 	call	0x10ce	; 0x10ce <_ZN10TimerClass7getTimeEv>
+     c78:	9d a7       	std	Y+45, r25	; 0x2d
+     c7a:	8c a7       	std	Y+44, r24	; 0x2c
+     c7c:	ce 01       	movw	r24, r28
+     c7e:	0e 94 6f 08 	call	0x10de	; 0x10de <_ZN10TimerClass10resetTimerEv>
+     c82:	ce 01       	movw	r24, r28
+     c84:	0e 94 4f 08 	call	0x109e	; 0x109e <_ZN10TimerClass18resetCallbackTimerEv>
+     c88:	1a a2       	std	Y+34, r1	; 0x22
+     c8a:	8c a5       	ldd	r24, Y+44	; 0x2c
+     c8c:	9d a5       	ldd	r25, Y+45	; 0x2d
+     c8e:	0b 97       	sbiw	r24, 0x0b	; 11
+     c90:	8d 34       	cpi	r24, 0x4D	; 77
+     c92:	92 40       	sbci	r25, 0x02	; 2
+     c94:	98 f5       	brcc	.+102    	; 0xcfc <_ZN11SwitchClass18processStateChangeEv+0xf2>
+     c96:	8c a1       	ldd	r24, Y+36	; 0x24
+     c98:	81 11       	cpse	r24, r1
+     c9a:	17 c0       	rjmp	.+46     	; 0xcca <_ZN11SwitchClass18processStateChangeEv+0xc0>
+     c9c:	8d a1       	ldd	r24, Y+37	; 0x25
+     c9e:	81 11       	cpse	r24, r1
+     ca0:	2f c0       	rjmp	.+94     	; 0xd00 <_ZN11SwitchClass18processStateChangeEv+0xf6>
+     ca2:	8f 8d       	ldd	r24, Y+31	; 0x1f
+     ca4:	88 23       	and	r24, r24
+     ca6:	59 f0       	breq	.+22     	; 0xcbe <_ZN11SwitchClass18processStateChangeEv+0xb4>
+     ca8:	21 e5       	ldi	r18, 0x51	; 81
+     caa:	35 e0       	ldi	r19, 0x05	; 5
+     cac:	40 e0       	ldi	r20, 0x00	; 0
+     cae:	64 e6       	ldi	r22, 0x64	; 100
+     cb0:	70 e0       	ldi	r23, 0x00	; 0
+     cb2:	ce 01       	movw	r24, r28
+     cb4:	0e 94 41 08 	call	0x1082	; 0x1082 <_ZN10TimerClass15setCallBackTimeEjhPFvhE>
+     cb8:	81 e0       	ldi	r24, 0x01	; 1
+     cba:	8b a3       	std	Y+35, r24	; 0x23
+     cbc:	03 c0       	rjmp	.+6      	; 0xcc4 <_ZN11SwitchClass18processStateChangeEv+0xba>
+     cbe:	ce 01       	movw	r24, r28
+     cc0:	0e 94 24 05 	call	0xa48	; 0xa48 <_ZN11SwitchClass18doubleWaitCompleteEv>
+     cc4:	8c a1       	ldd	r24, Y+36	; 0x24
+     cc6:	88 23       	and	r24, r24
+     cc8:	09 f1       	breq	.+66     	; 0xd0c <_ZN11SwitchClass18processStateChangeEv+0x102>
+     cca:	80 91 69 01 	lds	r24, 0x0169	; 0x800169 <_ZN11SwitchClass13AllSamePtr_ENE>
+     cce:	88 23       	and	r24, r24
+     cd0:	61 f0       	breq	.+24     	; 0xcea <_ZN11SwitchClass18processStateChangeEv+0xe0>
+     cd2:	81 e0       	ldi	r24, 0x01	; 1
+     cd4:	0e 94 64 00 	call	0xc8	; 0xc8 <_Z10allowSleepb>
+     cd8:	e0 91 63 01 	lds	r30, 0x0163	; 0x800163 <_ZN11SwitchClass17AllDoublePressPtrE>
+     cdc:	f0 91 64 01 	lds	r31, 0x0164	; 0x800164 <_ZN11SwitchClass17AllDoublePressPtrE+0x1>
+     ce0:	30 97       	sbiw	r30, 0x00	; 0
+     ce2:	61 f0       	breq	.+24     	; 0xcfc <_ZN11SwitchClass18processStateChangeEv+0xf2>
+     ce4:	8e a1       	ldd	r24, Y+38	; 0x26
+     ce6:	09 95       	icall
+     ce8:	09 c0       	rjmp	.+18     	; 0xcfc <_ZN11SwitchClass18processStateChangeEv+0xf2>
+     cea:	81 e0       	ldi	r24, 0x01	; 1
+     cec:	0e 94 64 00 	call	0xc8	; 0xc8 <_Z10allowSleepb>
+     cf0:	ea 89       	ldd	r30, Y+18	; 0x12
+     cf2:	fb 89       	ldd	r31, Y+19	; 0x13
+     cf4:	30 97       	sbiw	r30, 0x00	; 0
+     cf6:	11 f0       	breq	.+4      	; 0xcfc <_ZN11SwitchClass18processStateChangeEv+0xf2>
+     cf8:	8e a1       	ldd	r24, Y+38	; 0x26
+     cfa:	09 95       	icall
+     cfc:	8d a1       	ldd	r24, Y+37	; 0x25
+     cfe:	81 11       	cpse	r24, r1
+     d00:	1d a2       	std	Y+37, r1	; 0x25
+     d02:	8c a1       	ldd	r24, Y+36	; 0x24
+     d04:	88 23       	and	r24, r24
+     d06:	29 f0       	breq	.+10     	; 0xd12 <_ZN11SwitchClass18processStateChangeEv+0x108>
+     d08:	1c a2       	std	Y+36, r1	; 0x24
+     d0a:	03 c0       	rjmp	.+6      	; 0xd12 <_ZN11SwitchClass18processStateChangeEv+0x108>
+     d0c:	8d a1       	ldd	r24, Y+37	; 0x25
+     d0e:	81 11       	cpse	r24, r1
+     d10:	f7 cf       	rjmp	.-18     	; 0xd00 <_ZN11SwitchClass18processStateChangeEv+0xf6>
+     d12:	df 91       	pop	r29
+     d14:	cf 91       	pop	r28
+     d16:	08 95       	ret
+
+00000d18 <_ZN11SwitchClass25callAllProcessStateChangeEv>:
+     d18:	cf 93       	push	r28
+     d1a:	80 91 6e 01 	lds	r24, 0x016E	; 0x80016e <_ZN11SwitchClass1iE>
+     d1e:	88 23       	and	r24, r24
+     d20:	91 f0       	breq	.+36     	; 0xd46 <_ZN11SwitchClass25callAllProcessStateChangeEv+0x2e>
+     d22:	c0 e0       	ldi	r28, 0x00	; 0
+     d24:	ec 2f       	mov	r30, r28
+     d26:	f0 e0       	ldi	r31, 0x00	; 0
+     d28:	ee 0f       	add	r30, r30
+     d2a:	ff 1f       	adc	r31, r31
+     d2c:	e1 59       	subi	r30, 0x91	; 145
+     d2e:	fe 4f       	sbci	r31, 0xFE	; 254
+     d30:	80 81       	ld	r24, Z
+     d32:	91 81       	ldd	r25, Z+1	; 0x01
+     d34:	00 97       	sbiw	r24, 0x00	; 0
+     d36:	11 f0       	breq	.+4      	; 0xd3c <_ZN11SwitchClass25callAllProcessStateChangeEv+0x24>
+     d38:	0e 94 05 06 	call	0xc0a	; 0xc0a <_ZN11SwitchClass18processStateChangeEv>
+     d3c:	cf 5f       	subi	r28, 0xFF	; 255
+     d3e:	80 91 6e 01 	lds	r24, 0x016E	; 0x80016e <_ZN11SwitchClass1iE>
+     d42:	c8 17       	cp	r28, r24
+     d44:	78 f3       	brcs	.-34     	; 0xd24 <_ZN11SwitchClass25callAllProcessStateChangeEv+0xc>
+     d46:	cf 91       	pop	r28
+     d48:	08 95       	ret
+
+00000d4a <_ZN11SwitchClass16longWaitCompleteEv>:
+     d4a:	cf 93       	push	r28
+     d4c:	df 93       	push	r29
+     d4e:	ec 01       	movw	r28, r24
+     d50:	18 a2       	std	Y+32, r1	; 0x20
+     d52:	1b a2       	std	Y+35, r1	; 0x23
+     d54:	1c a2       	std	Y+36, r1	; 0x24
+     d56:	8d a1       	ldd	r24, Y+37	; 0x25
+     d58:	88 23       	and	r24, r24
+     d5a:	89 f1       	breq	.+98     	; 0xdbe <_ZN11SwitchClass16longWaitCompleteEv+0x74>
+     d5c:	ce 01       	movw	r24, r28
+     d5e:	0e 94 7d 05 	call	0xafa	; 0xafa <_ZN11SwitchClass16updatePinBuffersEv>
+     d62:	ce 01       	movw	r24, r28
+     d64:	0e 94 86 05 	call	0xb0c	; 0xb0c <_ZN11SwitchClass10pollSwitchEv>
+     d68:	8a 8d       	ldd	r24, Y+26	; 0x1a
+     d6a:	81 11       	cpse	r24, r1
+     d6c:	28 c0       	rjmp	.+80     	; 0xdbe <_ZN11SwitchClass16longWaitCompleteEv+0x74>
+     d6e:	8e 8d       	ldd	r24, Y+30	; 0x1e
+     d70:	81 11       	cpse	r24, r1
+     d72:	04 c0       	rjmp	.+8      	; 0xd7c <_ZN11SwitchClass16longWaitCompleteEv+0x32>
+     d74:	80 91 65 01 	lds	r24, 0x0165	; 0x800165 <_ZN11SwitchClass20AllContinuousLong_ENE>
+     d78:	88 23       	and	r24, r24
+     d7a:	09 f1       	breq	.+66     	; 0xdbe <_ZN11SwitchClass16longWaitCompleteEv+0x74>
+     d7c:	29 e1       	ldi	r18, 0x19	; 25
+     d7e:	37 e0       	ldi	r19, 0x07	; 7
+     d80:	40 e0       	ldi	r20, 0x00	; 0
+     d82:	66 e4       	ldi	r22, 0x46	; 70
+     d84:	70 e0       	ldi	r23, 0x00	; 0
+     d86:	ce 01       	movw	r24, r28
+     d88:	0e 94 41 08 	call	0x1082	; 0x1082 <_ZN10TimerClass15setCallBackTimeEjhPFvhE>
+     d8c:	80 91 69 01 	lds	r24, 0x0169	; 0x800169 <_ZN11SwitchClass13AllSamePtr_ENE>
+     d90:	88 23       	and	r24, r24
+     d92:	61 f0       	breq	.+24     	; 0xdac <_ZN11SwitchClass16longWaitCompleteEv+0x62>
+     d94:	81 e0       	ldi	r24, 0x01	; 1
+     d96:	0e 94 64 00 	call	0xc8	; 0xc8 <_Z10allowSleepb>
+     d9a:	e0 91 5f 01 	lds	r30, 0x015F	; 0x80015f <_ZN11SwitchClass25AllContinuousLongPressPtrE>
+     d9e:	f0 91 60 01 	lds	r31, 0x0160	; 0x800160 <_ZN11SwitchClass25AllContinuousLongPressPtrE+0x1>
+     da2:	30 97       	sbiw	r30, 0x00	; 0
+     da4:	61 f0       	breq	.+24     	; 0xdbe <_ZN11SwitchClass16longWaitCompleteEv+0x74>
+     da6:	8e a1       	ldd	r24, Y+38	; 0x26
+     da8:	09 95       	icall
+     daa:	09 c0       	rjmp	.+18     	; 0xdbe <_ZN11SwitchClass16longWaitCompleteEv+0x74>
+     dac:	81 e0       	ldi	r24, 0x01	; 1
+     dae:	0e 94 64 00 	call	0xc8	; 0xc8 <_Z10allowSleepb>
+     db2:	ec 89       	ldd	r30, Y+20	; 0x14
+     db4:	fd 89       	ldd	r31, Y+21	; 0x15
+     db6:	30 97       	sbiw	r30, 0x00	; 0
+     db8:	11 f0       	breq	.+4      	; 0xdbe <_ZN11SwitchClass16longWaitCompleteEv+0x74>
+     dba:	8e a1       	ldd	r24, Y+38	; 0x26
+     dbc:	09 95       	icall
+     dbe:	8a a1       	ldd	r24, Y+34	; 0x22
+     dc0:	88 23       	and	r24, r24
+     dc2:	a1 f1       	breq	.+104    	; 0xe2c <_ZN11SwitchClass16longWaitCompleteEv+0xe2>
+     dc4:	ce 01       	movw	r24, r28
+     dc6:	0e 94 7d 05 	call	0xafa	; 0xafa <_ZN11SwitchClass16updatePinBuffersEv>
+     dca:	ce 01       	movw	r24, r28
+     dcc:	0e 94 86 05 	call	0xb0c	; 0xb0c <_ZN11SwitchClass10pollSwitchEv>
+     dd0:	8a 8d       	ldd	r24, Y+26	; 0x1a
+     dd2:	81 11       	cpse	r24, r1
+     dd4:	2b c0       	rjmp	.+86     	; 0xe2c <_ZN11SwitchClass16longWaitCompleteEv+0xe2>
+     dd6:	8d 8d       	ldd	r24, Y+29	; 0x1d
+     dd8:	81 11       	cpse	r24, r1
+     dda:	04 c0       	rjmp	.+8      	; 0xde4 <_ZN11SwitchClass16longWaitCompleteEv+0x9a>
+     ddc:	80 91 66 01 	lds	r24, 0x0166	; 0x800166 <_ZN11SwitchClass10AllLong_ENE>
+     de0:	88 23       	and	r24, r24
+     de2:	21 f1       	breq	.+72     	; 0xe2c <_ZN11SwitchClass16longWaitCompleteEv+0xe2>
+     de4:	1a a2       	std	Y+34, r1	; 0x22
+     de6:	81 e0       	ldi	r24, 0x01	; 1
+     de8:	8d a3       	std	Y+37, r24	; 0x25
+     dea:	29 e1       	ldi	r18, 0x19	; 25
+     dec:	37 e0       	ldi	r19, 0x07	; 7
+     dee:	40 e0       	ldi	r20, 0x00	; 0
+     df0:	62 e3       	ldi	r22, 0x32	; 50
+     df2:	70 e0       	ldi	r23, 0x00	; 0
+     df4:	ce 01       	movw	r24, r28
+     df6:	0e 94 41 08 	call	0x1082	; 0x1082 <_ZN10TimerClass15setCallBackTimeEjhPFvhE>
+     dfa:	80 91 69 01 	lds	r24, 0x0169	; 0x800169 <_ZN11SwitchClass13AllSamePtr_ENE>
+     dfe:	88 23       	and	r24, r24
+     e00:	61 f0       	breq	.+24     	; 0xe1a <_ZN11SwitchClass16longWaitCompleteEv+0xd0>
+     e02:	81 e0       	ldi	r24, 0x01	; 1
+     e04:	0e 94 64 00 	call	0xc8	; 0xc8 <_Z10allowSleepb>
+     e08:	e0 91 61 01 	lds	r30, 0x0161	; 0x800161 <_ZN11SwitchClass15AllLongPressPtrE>
+     e0c:	f0 91 62 01 	lds	r31, 0x0162	; 0x800162 <_ZN11SwitchClass15AllLongPressPtrE+0x1>
+     e10:	30 97       	sbiw	r30, 0x00	; 0
+     e12:	61 f0       	breq	.+24     	; 0xe2c <_ZN11SwitchClass16longWaitCompleteEv+0xe2>
+     e14:	8e a1       	ldd	r24, Y+38	; 0x26
+     e16:	09 95       	icall
+     e18:	09 c0       	rjmp	.+18     	; 0xe2c <_ZN11SwitchClass16longWaitCompleteEv+0xe2>
+     e1a:	81 e0       	ldi	r24, 0x01	; 1
+     e1c:	0e 94 64 00 	call	0xc8	; 0xc8 <_Z10allowSleepb>
+     e20:	e8 89       	ldd	r30, Y+16	; 0x10
+     e22:	f9 89       	ldd	r31, Y+17	; 0x11
+     e24:	30 97       	sbiw	r30, 0x00	; 0
+     e26:	11 f0       	breq	.+4      	; 0xe2c <_ZN11SwitchClass16longWaitCompleteEv+0xe2>
+     e28:	8e a1       	ldd	r24, Y+38	; 0x26
+     e2a:	09 95       	icall
+     e2c:	df 91       	pop	r29
+     e2e:	cf 91       	pop	r28
+     e30:	08 95       	ret
+
+00000e32 <_ZN11SwitchClass20callAllOjectLongWaitEh>:
+     e32:	cf 93       	push	r28
+     e34:	df 93       	push	r29
+     e36:	90 91 6e 01 	lds	r25, 0x016E	; 0x80016e <_ZN11SwitchClass1iE>
+     e3a:	99 23       	and	r25, r25
+     e3c:	c1 f0       	breq	.+48     	; 0xe6e <_ZN11SwitchClass20callAllOjectLongWaitEh+0x3c>
+     e3e:	d8 2f       	mov	r29, r24
+     e40:	c0 e0       	ldi	r28, 0x00	; 0
+     e42:	ec 2f       	mov	r30, r28
+     e44:	f0 e0       	ldi	r31, 0x00	; 0
+     e46:	ee 0f       	add	r30, r30
+     e48:	ff 1f       	adc	r31, r31
+     e4a:	e1 59       	subi	r30, 0x91	; 145
+     e4c:	fe 4f       	sbci	r31, 0xFE	; 254
+     e4e:	01 90       	ld	r0, Z+
+     e50:	f0 81       	ld	r31, Z
+     e52:	e0 2d       	mov	r30, r0
+     e54:	91 a5       	ldd	r25, Z+41	; 0x29
+     e56:	9d 13       	cpse	r25, r29
+     e58:	05 c0       	rjmp	.+10     	; 0xe64 <_ZN11SwitchClass20callAllOjectLongWaitEh+0x32>
+     e5a:	30 97       	sbiw	r30, 0x00	; 0
+     e5c:	19 f0       	breq	.+6      	; 0xe64 <_ZN11SwitchClass20callAllOjectLongWaitEh+0x32>
+     e5e:	cf 01       	movw	r24, r30
+     e60:	0e 94 a5 06 	call	0xd4a	; 0xd4a <_ZN11SwitchClass16longWaitCompleteEv>
+     e64:	cf 5f       	subi	r28, 0xFF	; 255
+     e66:	90 91 6e 01 	lds	r25, 0x016E	; 0x80016e <_ZN11SwitchClass1iE>
+     e6a:	c9 17       	cp	r28, r25
+     e6c:	50 f3       	brcs	.-44     	; 0xe42 <_ZN11SwitchClass20callAllOjectLongWaitEh+0x10>
+     e6e:	df 91       	pop	r29
+     e70:	cf 91       	pop	r28
+     e72:	08 95       	ret
+
+00000e74 <__vector_1>:
+}
+
+ISR(INT0_vect){
+     e74:	1f 92       	push	r1
+     e76:	0f 92       	push	r0
+     e78:	0f b6       	in	r0, 0x3f	; 63
+     e7a:	0f 92       	push	r0
+     e7c:	11 24       	eor	r1, r1
+     e7e:	2f 93       	push	r18
+     e80:	3f 93       	push	r19
+     e82:	4f 93       	push	r20
+     e84:	5f 93       	push	r21
+     e86:	6f 93       	push	r22
+     e88:	7f 93       	push	r23
+     e8a:	8f 93       	push	r24
+     e8c:	9f 93       	push	r25
+     e8e:	af 93       	push	r26
+     e90:	bf 93       	push	r27
+     e92:	ef 93       	push	r30
+     e94:	ff 93       	push	r31
+	Switch.PinBuffer[0] = PINB;
+     e96:	83 b1       	in	r24, 0x03	; 3
+     e98:	ea e6       	ldi	r30, 0x6A	; 106
+     e9a:	f1 e0       	ldi	r31, 0x01	; 1
+     e9c:	80 83       	st	Z, r24
+	Switch.PinBuffer[1] = PINC;
+     e9e:	86 b1       	in	r24, 0x06	; 6
+     ea0:	81 83       	std	Z+1, r24	; 0x01
+	Switch.PinBuffer[2] = PIND;
+     ea2:	89 b1       	in	r24, 0x09	; 9
+     ea4:	82 83       	std	Z+2, r24	; 0x02
+	wakeUp();
+     ea6:	0e 94 61 00 	call	0xc2	; 0xc2 <_Z6wakeUpv>
+	#ifdef DEBUG_SWITCH
+	printStringCRNL("0 S");
+	#endif 
+	allowSleep(0);
+     eaa:	80 e0       	ldi	r24, 0x00	; 0
+     eac:	0e 94 64 00 	call	0xc8	; 0xc8 <_Z10allowSleepb>
+	S = (SwitchState & (1 << PinNumber));
+}
+
+void SwitchClass::pinStateChanged(){
+	//printChar('s');
+	Switch.callAllProcessStateChange();
+     eb0:	0e 94 8c 06 	call	0xd18	; 0xd18 <_ZN11SwitchClass25callAllProcessStateChangeEv>
+	#ifdef DEBUG_SWITCH
+	printStringCRNL("0 S");
+	#endif 
+	allowSleep(0);
+	Switch.pinStateChanged();
+}
+     eb4:	ff 91       	pop	r31
+     eb6:	ef 91       	pop	r30
+     eb8:	bf 91       	pop	r27
+     eba:	af 91       	pop	r26
+     ebc:	9f 91       	pop	r25
+     ebe:	8f 91       	pop	r24
+     ec0:	7f 91       	pop	r23
+     ec2:	6f 91       	pop	r22
+     ec4:	5f 91       	pop	r21
+     ec6:	4f 91       	pop	r20
+     ec8:	3f 91       	pop	r19
+     eca:	2f 91       	pop	r18
+     ecc:	0f 90       	pop	r0
+     ece:	0f be       	out	0x3f, r0	; 63
+     ed0:	0f 90       	pop	r0
+     ed2:	1f 90       	pop	r1
+     ed4:	18 95       	reti
+
+00000ed6 <__vector_2>:
+
+ISR(INT1_vect){
+     ed6:	1f 92       	push	r1
+     ed8:	0f 92       	push	r0
+     eda:	0f b6       	in	r0, 0x3f	; 63
+     edc:	0f 92       	push	r0
+     ede:	11 24       	eor	r1, r1
+     ee0:	2f 93       	push	r18
+     ee2:	3f 93       	push	r19
+     ee4:	4f 93       	push	r20
+     ee6:	5f 93       	push	r21
+     ee8:	6f 93       	push	r22
+     eea:	7f 93       	push	r23
+     eec:	8f 93       	push	r24
+     eee:	9f 93       	push	r25
+     ef0:	af 93       	push	r26
+     ef2:	bf 93       	push	r27
+     ef4:	ef 93       	push	r30
+     ef6:	ff 93       	push	r31
+	wakeUp();
+     ef8:	0e 94 61 00 	call	0xc2	; 0xc2 <_Z6wakeUpv>
+	#ifdef DEBUG_SWITCH
+	printStringCRNL("1 S");
+	#endif 
+	allowSleep(0);
+     efc:	80 e0       	ldi	r24, 0x00	; 0
+     efe:	0e 94 64 00 	call	0xc8	; 0xc8 <_Z10allowSleepb>
+	S = (SwitchState & (1 << PinNumber));
+}
+
+void SwitchClass::pinStateChanged(){
+	//printChar('s');
+	Switch.callAllProcessStateChange();
+     f02:	0e 94 8c 06 	call	0xd18	; 0xd18 <_ZN11SwitchClass25callAllProcessStateChangeEv>
+	#ifdef DEBUG_SWITCH
+	printStringCRNL("1 S");
+	#endif 
+	allowSleep(0);
+	Switch.pinStateChanged();
+}
+     f06:	ff 91       	pop	r31
+     f08:	ef 91       	pop	r30
+     f0a:	bf 91       	pop	r27
+     f0c:	af 91       	pop	r26
+     f0e:	9f 91       	pop	r25
+     f10:	8f 91       	pop	r24
+     f12:	7f 91       	pop	r23
+     f14:	6f 91       	pop	r22
+     f16:	5f 91       	pop	r21
+     f18:	4f 91       	pop	r20
+     f1a:	3f 91       	pop	r19
+     f1c:	2f 91       	pop	r18
+     f1e:	0f 90       	pop	r0
+     f20:	0f be       	out	0x3f, r0	; 63
+     f22:	0f 90       	pop	r0
+     f24:	1f 90       	pop	r1
+     f26:	18 95       	reti
+
+00000f28 <__vector_3>:
+
+ISR(PCINT0_vect){
+     f28:	1f 92       	push	r1
+     f2a:	0f 92       	push	r0
+     f2c:	0f b6       	in	r0, 0x3f	; 63
+     f2e:	0f 92       	push	r0
+     f30:	11 24       	eor	r1, r1
+     f32:	2f 93       	push	r18
+     f34:	3f 93       	push	r19
+     f36:	4f 93       	push	r20
+     f38:	5f 93       	push	r21
+     f3a:	6f 93       	push	r22
+     f3c:	7f 93       	push	r23
+     f3e:	8f 93       	push	r24
+     f40:	9f 93       	push	r25
+     f42:	af 93       	push	r26
+     f44:	bf 93       	push	r27
+     f46:	ef 93       	push	r30
+     f48:	ff 93       	push	r31
+	//Switch.PinStateChangePtr(PORT_B);
+	Switch.PinBuffer[0] = PINB;
+     f4a:	83 b1       	in	r24, 0x03	; 3
+     f4c:	ea e6       	ldi	r30, 0x6A	; 106
+     f4e:	f1 e0       	ldi	r31, 0x01	; 1
+     f50:	80 83       	st	Z, r24
+	Switch.PinBuffer[1] = PINC;
+     f52:	86 b1       	in	r24, 0x06	; 6
+     f54:	81 83       	std	Z+1, r24	; 0x01
+	Switch.PinBuffer[2] = PIND;
+     f56:	89 b1       	in	r24, 0x09	; 9
+     f58:	82 83       	std	Z+2, r24	; 0x02
+	wakeUp();
+     f5a:	0e 94 61 00 	call	0xc2	; 0xc2 <_Z6wakeUpv>
+	#ifdef DEBUG_SWITCH
+	printStringCRNL("PinChanged -> PORT B");
+	#endif
+	allowSleep(0);
+     f5e:	80 e0       	ldi	r24, 0x00	; 0
+     f60:	0e 94 64 00 	call	0xc8	; 0xc8 <_Z10allowSleepb>
+	S = (SwitchState & (1 << PinNumber));
+}
+
+void SwitchClass::pinStateChanged(){
+	//printChar('s');
+	Switch.callAllProcessStateChange();
+     f64:	0e 94 8c 06 	call	0xd18	; 0xd18 <_ZN11SwitchClass25callAllProcessStateChangeEv>
+	#ifdef DEBUG_SWITCH
+	printStringCRNL("PinChanged -> PORT B");
+	#endif
+	allowSleep(0);
+	Switch.pinStateChanged();
+}
+     f68:	ff 91       	pop	r31
+     f6a:	ef 91       	pop	r30
+     f6c:	bf 91       	pop	r27
+     f6e:	af 91       	pop	r26
+     f70:	9f 91       	pop	r25
+     f72:	8f 91       	pop	r24
+     f74:	7f 91       	pop	r23
+     f76:	6f 91       	pop	r22
+     f78:	5f 91       	pop	r21
+     f7a:	4f 91       	pop	r20
+     f7c:	3f 91       	pop	r19
+     f7e:	2f 91       	pop	r18
+     f80:	0f 90       	pop	r0
+     f82:	0f be       	out	0x3f, r0	; 63
+     f84:	0f 90       	pop	r0
+     f86:	1f 90       	pop	r1
+     f88:	18 95       	reti
+
+00000f8a <__vector_4>:
+
+ISR(PCINT1_vect){
+     f8a:	1f 92       	push	r1
+     f8c:	0f 92       	push	r0
+     f8e:	0f b6       	in	r0, 0x3f	; 63
+     f90:	0f 92       	push	r0
+     f92:	11 24       	eor	r1, r1
+     f94:	2f 93       	push	r18
+     f96:	3f 93       	push	r19
+     f98:	4f 93       	push	r20
+     f9a:	5f 93       	push	r21
+     f9c:	6f 93       	push	r22
+     f9e:	7f 93       	push	r23
+     fa0:	8f 93       	push	r24
+     fa2:	9f 93       	push	r25
+     fa4:	af 93       	push	r26
+     fa6:	bf 93       	push	r27
+     fa8:	ef 93       	push	r30
+     faa:	ff 93       	push	r31
+	//Switch.PinStateChangePtr(PORT_C);
+	Switch.PinBuffer[0] = PINB;
+     fac:	83 b1       	in	r24, 0x03	; 3
+     fae:	ea e6       	ldi	r30, 0x6A	; 106
+     fb0:	f1 e0       	ldi	r31, 0x01	; 1
+     fb2:	80 83       	st	Z, r24
+	Switch.PinBuffer[1] = PINC;
+     fb4:	86 b1       	in	r24, 0x06	; 6
+     fb6:	81 83       	std	Z+1, r24	; 0x01
+	Switch.PinBuffer[2] = PIND;
+     fb8:	89 b1       	in	r24, 0x09	; 9
+     fba:	82 83       	std	Z+2, r24	; 0x02
+	wakeUp();
+     fbc:	0e 94 61 00 	call	0xc2	; 0xc2 <_Z6wakeUpv>
+	#ifdef DEBUG_SWITCH
+	printStringCRNL("PinChanged -> PORT C");
+	#endif	
+	allowSleep(0);
+     fc0:	80 e0       	ldi	r24, 0x00	; 0
+     fc2:	0e 94 64 00 	call	0xc8	; 0xc8 <_Z10allowSleepb>
+	S = (SwitchState & (1 << PinNumber));
+}
+
+void SwitchClass::pinStateChanged(){
+	//printChar('s');
+	Switch.callAllProcessStateChange();
+     fc6:	0e 94 8c 06 	call	0xd18	; 0xd18 <_ZN11SwitchClass25callAllProcessStateChangeEv>
+	#ifdef DEBUG_SWITCH
+	printStringCRNL("PinChanged -> PORT C");
+	#endif	
+	allowSleep(0);
+	Switch.pinStateChanged();
+}
+     fca:	ff 91       	pop	r31
+     fcc:	ef 91       	pop	r30
+     fce:	bf 91       	pop	r27
+     fd0:	af 91       	pop	r26
+     fd2:	9f 91       	pop	r25
+     fd4:	8f 91       	pop	r24
+     fd6:	7f 91       	pop	r23
+     fd8:	6f 91       	pop	r22
+     fda:	5f 91       	pop	r21
+     fdc:	4f 91       	pop	r20
+     fde:	3f 91       	pop	r19
+     fe0:	2f 91       	pop	r18
+     fe2:	0f 90       	pop	r0
+     fe4:	0f be       	out	0x3f, r0	; 63
+     fe6:	0f 90       	pop	r0
+     fe8:	1f 90       	pop	r1
+     fea:	18 95       	reti
+
+00000fec <__vector_5>:
+
+ISR(PCINT2_vect){
+     fec:	1f 92       	push	r1
+     fee:	0f 92       	push	r0
+     ff0:	0f b6       	in	r0, 0x3f	; 63
+     ff2:	0f 92       	push	r0
+     ff4:	11 24       	eor	r1, r1
+     ff6:	2f 93       	push	r18
+     ff8:	3f 93       	push	r19
+     ffa:	4f 93       	push	r20
+     ffc:	5f 93       	push	r21
+     ffe:	6f 93       	push	r22
+    1000:	7f 93       	push	r23
+    1002:	8f 93       	push	r24
+    1004:	9f 93       	push	r25
+    1006:	af 93       	push	r26
+    1008:	bf 93       	push	r27
+    100a:	ef 93       	push	r30
+    100c:	ff 93       	push	r31
+	//Switch.PinStateChangePtr(PORT_D);
+	Switch.PinBuffer[0] = PINB;
+    100e:	83 b1       	in	r24, 0x03	; 3
+    1010:	ea e6       	ldi	r30, 0x6A	; 106
+    1012:	f1 e0       	ldi	r31, 0x01	; 1
+    1014:	80 83       	st	Z, r24
+	Switch.PinBuffer[1] = PINC;
+    1016:	86 b1       	in	r24, 0x06	; 6
+    1018:	81 83       	std	Z+1, r24	; 0x01
+	Switch.PinBuffer[2] = PIND;
+    101a:	89 b1       	in	r24, 0x09	; 9
+    101c:	82 83       	std	Z+2, r24	; 0x02
+	wakeUp();
+    101e:	0e 94 61 00 	call	0xc2	; 0xc2 <_Z6wakeUpv>
+	#ifdef DEBUG_SWITCH
+	printStringCRNL("PinChanged -> PORT D");
+	#endif
+	allowSleep(0);
+    1022:	80 e0       	ldi	r24, 0x00	; 0
+    1024:	0e 94 64 00 	call	0xc8	; 0xc8 <_Z10allowSleepb>
+	S = (SwitchState & (1 << PinNumber));
+}
+
+void SwitchClass::pinStateChanged(){
+	//printChar('s');
+	Switch.callAllProcessStateChange();
+    1028:	0e 94 8c 06 	call	0xd18	; 0xd18 <_ZN11SwitchClass25callAllProcessStateChangeEv>
+	#ifdef DEBUG_SWITCH
+	printStringCRNL("PinChanged -> PORT D");
+	#endif
+	allowSleep(0);
+	Switch.pinStateChanged();
+}
+    102c:	ff 91       	pop	r31
+    102e:	ef 91       	pop	r30
+    1030:	bf 91       	pop	r27
+    1032:	af 91       	pop	r26
+    1034:	9f 91       	pop	r25
+    1036:	8f 91       	pop	r24
+    1038:	7f 91       	pop	r23
+    103a:	6f 91       	pop	r22
+    103c:	5f 91       	pop	r21
+    103e:	4f 91       	pop	r20
+    1040:	3f 91       	pop	r19
+    1042:	2f 91       	pop	r18
+    1044:	0f 90       	pop	r0
+    1046:	0f be       	out	0x3f, r0	; 63
+    1048:	0f 90       	pop	r0
+    104a:	1f 90       	pop	r1
+    104c:	18 95       	reti
+
+0000104e <_ZN10TimerClass5beginEv>:
+}
+
+
+uint64_t TimerClass::millis(){
+	return Time;
+}
+    104e:	60 e4       	ldi	r22, 0x40	; 64
+    1050:	7f e1       	ldi	r23, 0x1F	; 31
+    1052:	81 e0       	ldi	r24, 0x01	; 1
+    1054:	0e 94 79 00 	call	0xf2	; 0xf2 <_Z11Init_CTC_T1hj>
+    1058:	81 e0       	ldi	r24, 0x01	; 1
+    105a:	80 93 7b 01 	sts	0x017B, r24	; 0x80017b <_ZN10TimerClass1iE>
+    105e:	08 95       	ret
+
+00001060 <_ZN10TimerClass15initializeTimerEv>:
+    1060:	dc 01       	movw	r26, r24
+    1062:	90 91 7b 01 	lds	r25, 0x017B	; 0x80017b <_ZN10TimerClass1iE>
+    1066:	e9 2f       	mov	r30, r25
+    1068:	f0 e0       	ldi	r31, 0x00	; 0
+    106a:	ee 0f       	add	r30, r30
+    106c:	ff 1f       	adc	r31, r31
+    106e:	ec 57       	subi	r30, 0x7C	; 124
+    1070:	fe 4f       	sbci	r31, 0xFE	; 254
+    1072:	b1 83       	std	Z+1, r27	; 0x01
+    1074:	a0 83       	st	Z, r26
+    1076:	15 96       	adiw	r26, 0x05	; 5
+    1078:	9c 93       	st	X, r25
+    107a:	9f 5f       	subi	r25, 0xFF	; 255
+    107c:	90 93 7b 01 	sts	0x017B, r25	; 0x80017b <_ZN10TimerClass1iE>
+    1080:	08 95       	ret
+
+00001082 <_ZN10TimerClass15setCallBackTimeEjhPFvhE>:
+    1082:	fc 01       	movw	r30, r24
+    1084:	71 83       	std	Z+1, r23	; 0x01
+    1086:	60 83       	st	Z, r22
+    1088:	73 83       	std	Z+3, r23	; 0x03
+    108a:	62 83       	std	Z+2, r22	; 0x02
+    108c:	35 87       	std	Z+13, r19	; 0x0d
+    108e:	24 87       	std	Z+12, r18	; 0x0c
+    1090:	81 e0       	ldi	r24, 0x01	; 1
+    1092:	83 87       	std	Z+11, r24	; 0x0b
+    1094:	44 83       	std	Z+4, r20	; 0x04
+    1096:	80 e0       	ldi	r24, 0x00	; 0
+    1098:	0e 94 64 00 	call	0xc8	; 0xc8 <_Z10allowSleepb>
+    109c:	08 95       	ret
+
+0000109e <_ZN10TimerClass18resetCallbackTimerEv>:
+    109e:	fc 01       	movw	r30, r24
+    10a0:	13 86       	std	Z+11, r1	; 0x0b
+    10a2:	11 82       	std	Z+1, r1	; 0x01
+    10a4:	10 82       	st	Z, r1
+    10a6:	08 95       	ret
+
+000010a8 <_ZN10TimerClass15getCallBackTimeEv>:
+    10a8:	fc 01       	movw	r30, r24
+    10aa:	82 81       	ldd	r24, Z+2	; 0x02
+    10ac:	93 81       	ldd	r25, Z+3	; 0x03
+    10ae:	20 81       	ld	r18, Z
+    10b0:	31 81       	ldd	r19, Z+1	; 0x01
+    10b2:	82 1b       	sub	r24, r18
+    10b4:	93 0b       	sbc	r25, r19
+    10b6:	08 95       	ret
+
+000010b8 <_ZN10TimerClass7setTimeEj>:
+    10b8:	fc 01       	movw	r30, r24
+    10ba:	77 83       	std	Z+7, r23	; 0x07
+    10bc:	66 83       	std	Z+6, r22	; 0x06
+    10be:	81 e0       	ldi	r24, 0x01	; 1
+    10c0:	82 87       	std	Z+10, r24	; 0x0a
+    10c2:	71 87       	std	Z+9, r23	; 0x09
+    10c4:	60 87       	std	Z+8, r22	; 0x08
+    10c6:	80 e0       	ldi	r24, 0x00	; 0
+    10c8:	0e 94 64 00 	call	0xc8	; 0xc8 <_Z10allowSleepb>
+    10cc:	08 95       	ret
+
+000010ce <_ZN10TimerClass7getTimeEv>:
+    10ce:	fc 01       	movw	r30, r24
+    10d0:	80 85       	ldd	r24, Z+8	; 0x08
+    10d2:	91 85       	ldd	r25, Z+9	; 0x09
+    10d4:	26 81       	ldd	r18, Z+6	; 0x06
+    10d6:	37 81       	ldd	r19, Z+7	; 0x07
+    10d8:	82 1b       	sub	r24, r18
+    10da:	93 0b       	sbc	r25, r19
+    10dc:	08 95       	ret
+
+000010de <_ZN10TimerClass10resetTimerEv>:
+    10de:	fc 01       	movw	r30, r24
+    10e0:	17 82       	std	Z+7, r1	; 0x07
+    10e2:	16 82       	std	Z+6, r1	; 0x06
+    10e4:	12 86       	std	Z+10, r1	; 0x0a
+    10e6:	08 95       	ret
+
+000010e8 <_ZN10TimerClass11milliPassedEv>:
+
+void TimerClass::milliPassed(){
+    10e8:	cf 93       	push	r28
+    10ea:	df 93       	push	r29
+    10ec:	ec 01       	movw	r28, r24
+	if(Count_EN){
+    10ee:	8b 85       	ldd	r24, Y+11	; 0x0b
+    10f0:	88 23       	and	r24, r24
+    10f2:	e1 f0       	breq	.+56     	; 0x112c <_ZN10TimerClass11milliPassedEv+0x44>
+		#ifdef DEBUG_TIMER
+		//printChar('T');
+		#endif
+		if(Count)
+    10f4:	88 81       	ld	r24, Y
+    10f6:	99 81       	ldd	r25, Y+1	; 0x01
+    10f8:	00 97       	sbiw	r24, 0x00	; 0
+    10fa:	29 f0       	breq	.+10     	; 0x1106 <_ZN10TimerClass11milliPassedEv+0x1e>
+		Count -= 1;
+    10fc:	01 97       	sbiw	r24, 0x01	; 1
+    10fe:	99 83       	std	Y+1, r25	; 0x01
+    1100:	88 83       	st	Y, r24
+		if(!Count){
+    1102:	89 2b       	or	r24, r25
+    1104:	99 f4       	brne	.+38     	; 0x112c <_ZN10TimerClass11milliPassedEv+0x44>
+			if(Mode == TIMER_MODE_REPEAT){
+    1106:	8c 81       	ldd	r24, Y+4	; 0x04
+    1108:	81 30       	cpi	r24, 0x01	; 1
+    110a:	29 f4       	brne	.+10     	; 0x1116 <_ZN10TimerClass11milliPassedEv+0x2e>
+				Count = Count_Save;
+    110c:	8a 81       	ldd	r24, Y+2	; 0x02
+    110e:	9b 81       	ldd	r25, Y+3	; 0x03
+    1110:	99 83       	std	Y+1, r25	; 0x01
+    1112:	88 83       	st	Y, r24
+    1114:	05 c0       	rjmp	.+10     	; 0x1120 <_ZN10TimerClass11milliPassedEv+0x38>
+			}
+			if(Mode == TIMER_MODE_ONCE){
+    1116:	81 11       	cpse	r24, r1
+    1118:	03 c0       	rjmp	.+6      	; 0x1120 <_ZN10TimerClass11milliPassedEv+0x38>
+				Count_EN = 0;
+    111a:	1b 86       	std	Y+11, r1	; 0x0b
+				Count = 0;
+    111c:	19 82       	std	Y+1, r1	; 0x01
+    111e:	18 82       	st	Y, r1
+			}
+			if(CallBackPtr != NULL){
+    1120:	ec 85       	ldd	r30, Y+12	; 0x0c
+    1122:	fd 85       	ldd	r31, Y+13	; 0x0d
+    1124:	30 97       	sbiw	r30, 0x00	; 0
+    1126:	11 f0       	breq	.+4      	; 0x112c <_ZN10TimerClass11milliPassedEv+0x44>
+				#ifdef DEBUG_TIMER
+				printStringCRNL("Timer Done : ");
+				printNumber(Timer_ID);
+				#endif
+				//allowSleep(1);
+				CallBackPtr(Timer_ID);
+    1128:	8d 81       	ldd	r24, Y+5	; 0x05
+    112a:	09 95       	icall
+			}
+		}
+	}
+	if(NCount_EN){
+    112c:	8a 85       	ldd	r24, Y+10	; 0x0a
+    112e:	88 23       	and	r24, r24
+    1130:	51 f0       	breq	.+20     	; 0x1146 <_ZN10TimerClass11milliPassedEv+0x5e>
+		if(NCount)
+    1132:	8e 81       	ldd	r24, Y+6	; 0x06
+    1134:	9f 81       	ldd	r25, Y+7	; 0x07
+    1136:	00 97       	sbiw	r24, 0x00	; 0
+    1138:	29 f0       	breq	.+10     	; 0x1144 <_ZN10TimerClass11milliPassedEv+0x5c>
+		NCount -= 1;
+    113a:	01 97       	sbiw	r24, 0x01	; 1
+    113c:	9f 83       	std	Y+7, r25	; 0x07
+    113e:	8e 83       	std	Y+6, r24	; 0x06
+		if(!NCount){
+    1140:	89 2b       	or	r24, r25
+    1142:	09 f4       	brne	.+2      	; 0x1146 <_ZN10TimerClass11milliPassedEv+0x5e>
+			NCount_EN = 0;
+    1144:	1a 86       	std	Y+10, r1	; 0x0a
+		}
+	}
+}
+    1146:	df 91       	pop	r29
+    1148:	cf 91       	pop	r28
+    114a:	08 95       	ret
+
+0000114c <_ZN10TimerClass19callAllTimerObjectsEv>:
+
+void TimerClass::callAllTimerObjects(){
+    114c:	cf 93       	push	r28
+	for(uint8_t a = 0; a < i; a += 1){
+    114e:	80 91 7b 01 	lds	r24, 0x017B	; 0x80017b <_ZN10TimerClass1iE>
+    1152:	88 23       	and	r24, r24
+    1154:	91 f0       	breq	.+36     	; 0x117a <_ZN10TimerClass19callAllTimerObjectsEv+0x2e>
+    1156:	c0 e0       	ldi	r28, 0x00	; 0
+		if(Timers[a] != NULL)
+    1158:	ec 2f       	mov	r30, r28
+    115a:	f0 e0       	ldi	r31, 0x00	; 0
+    115c:	ee 0f       	add	r30, r30
+    115e:	ff 1f       	adc	r31, r31
+    1160:	ec 57       	subi	r30, 0x7C	; 124
+    1162:	fe 4f       	sbci	r31, 0xFE	; 254
+    1164:	80 81       	ld	r24, Z
+    1166:	91 81       	ldd	r25, Z+1	; 0x01
+    1168:	00 97       	sbiw	r24, 0x00	; 0
+    116a:	11 f0       	breq	.+4      	; 0x1170 <_ZN10TimerClass19callAllTimerObjectsEv+0x24>
+		Timers[a]->milliPassed();
+    116c:	0e 94 74 08 	call	0x10e8	; 0x10e8 <_ZN10TimerClass11milliPassedEv>
+		}
+	}
+}
+
+void TimerClass::callAllTimerObjects(){
+	for(uint8_t a = 0; a < i; a += 1){
+    1170:	cf 5f       	subi	r28, 0xFF	; 255
+    1172:	80 91 7b 01 	lds	r24, 0x017B	; 0x80017b <_ZN10TimerClass1iE>
+    1176:	c8 17       	cp	r28, r24
+    1178:	78 f3       	brcs	.-34     	; 0x1158 <_ZN10TimerClass19callAllTimerObjectsEv+0xc>
+		if(Timers[a] != NULL)
+		Timers[a]->milliPassed();
+	}
+}
+    117a:	cf 91       	pop	r28
+    117c:	08 95       	ret
+
+0000117e <_ZN10TimerClass10getTimerIDEv>:
+
+uint8_t TimerClass::getTimerID(){
+	return Timer_ID;
+}
+    117e:	fc 01       	movw	r30, r24
+    1180:	85 81       	ldd	r24, Z+5	; 0x05
+    1182:	08 95       	ret
+
+00001184 <__vector_11>:
+
+
+
+ISR(TIMER1_COMPA_vect){
+    1184:	1f 92       	push	r1
+    1186:	0f 92       	push	r0
+    1188:	0f b6       	in	r0, 0x3f	; 63
+    118a:	0f 92       	push	r0
+    118c:	11 24       	eor	r1, r1
+    118e:	2f 93       	push	r18
+    1190:	3f 93       	push	r19
+    1192:	4f 93       	push	r20
+    1194:	5f 93       	push	r21
+    1196:	6f 93       	push	r22
+    1198:	7f 93       	push	r23
+    119a:	8f 93       	push	r24
+    119c:	9f 93       	push	r25
+    119e:	af 93       	push	r26
+    11a0:	bf 93       	push	r27
+    11a2:	ef 93       	push	r30
+    11a4:	ff 93       	push	r31
+	//printChar('I');
+	milliHappened();
+    11a6:	0e 94 69 01 	call	0x2d2	; 0x2d2 <_Z13milliHappenedv>
+	Timer.Time += 1;
+    11aa:	20 91 7c 01 	lds	r18, 0x017C	; 0x80017c <_ZN10TimerClass4TimeE>
+    11ae:	30 91 7d 01 	lds	r19, 0x017D	; 0x80017d <_ZN10TimerClass4TimeE+0x1>
+    11b2:	40 91 7e 01 	lds	r20, 0x017E	; 0x80017e <_ZN10TimerClass4TimeE+0x2>
+    11b6:	50 91 7f 01 	lds	r21, 0x017F	; 0x80017f <_ZN10TimerClass4TimeE+0x3>
+    11ba:	60 91 80 01 	lds	r22, 0x0180	; 0x800180 <_ZN10TimerClass4TimeE+0x4>
+    11be:	70 91 81 01 	lds	r23, 0x0181	; 0x800181 <_ZN10TimerClass4TimeE+0x5>
+    11c2:	80 91 82 01 	lds	r24, 0x0182	; 0x800182 <_ZN10TimerClass4TimeE+0x6>
+    11c6:	90 91 83 01 	lds	r25, 0x0183	; 0x800183 <_ZN10TimerClass4TimeE+0x7>
+    11ca:	a1 e0       	ldi	r26, 0x01	; 1
+    11cc:	0e 94 82 0a 	call	0x1504	; 0x1504 <__adddi3_s8>
+    11d0:	20 93 7c 01 	sts	0x017C, r18	; 0x80017c <_ZN10TimerClass4TimeE>
+    11d4:	30 93 7d 01 	sts	0x017D, r19	; 0x80017d <_ZN10TimerClass4TimeE+0x1>
+    11d8:	40 93 7e 01 	sts	0x017E, r20	; 0x80017e <_ZN10TimerClass4TimeE+0x2>
+    11dc:	50 93 7f 01 	sts	0x017F, r21	; 0x80017f <_ZN10TimerClass4TimeE+0x3>
+    11e0:	60 93 80 01 	sts	0x0180, r22	; 0x800180 <_ZN10TimerClass4TimeE+0x4>
+    11e4:	70 93 81 01 	sts	0x0181, r23	; 0x800181 <_ZN10TimerClass4TimeE+0x5>
+    11e8:	80 93 82 01 	sts	0x0182, r24	; 0x800182 <_ZN10TimerClass4TimeE+0x6>
+    11ec:	90 93 83 01 	sts	0x0183, r25	; 0x800183 <_ZN10TimerClass4TimeE+0x7>
+	Timer.callAllTimerObjects();
+    11f0:	0e 94 a6 08 	call	0x114c	; 0x114c <_ZN10TimerClass19callAllTimerObjectsEv>
+	//printChar('O');
+}
+    11f4:	ff 91       	pop	r31
+    11f6:	ef 91       	pop	r30
+    11f8:	bf 91       	pop	r27
+    11fa:	af 91       	pop	r26
+    11fc:	9f 91       	pop	r25
+    11fe:	8f 91       	pop	r24
+    1200:	7f 91       	pop	r23
+    1202:	6f 91       	pop	r22
+    1204:	5f 91       	pop	r21
+    1206:	4f 91       	pop	r20
+    1208:	3f 91       	pop	r19
+    120a:	2f 91       	pop	r18
+    120c:	0f 90       	pop	r0
+    120e:	0f be       	out	0x3f, r0	; 63
+    1210:	0f 90       	pop	r0
+    1212:	1f 90       	pop	r1
+    1214:	18 95       	reti
+
+00001216 <_Z13switchPressedh>:
+void portStateChange(uint8_t PortNo){
+	printStringCRNL("Pin state changed");
+	if(PortNo == PORT_C){
+		setPinState(PORT_C, 2, getPinState(PORT_C, 0));
+	}
+}
+    1216:	91 e0       	ldi	r25, 0x01	; 1
+    1218:	90 93 f1 02 	sts	0x02F1, r25	; 0x8002f1 <SwitchPressedFlag>
+    121c:	80 93 f2 02 	sts	0x02F2, r24	; 0x8002f2 <SwitchID>
+    1220:	80 e0       	ldi	r24, 0x00	; 0
+    1222:	0e 94 64 00 	call	0xc8	; 0xc8 <_Z10allowSleepb>
+    1226:	08 95       	ret
+
+00001228 <_Z9timerDoneh>:
+    1228:	81 e0       	ldi	r24, 0x01	; 1
+    122a:	80 93 f0 02 	sts	0x02F0, r24	; 0x8002f0 <TimeOut>
+    122e:	5a 98       	cbi	0x0b, 2	; 11
+    1230:	0e 94 64 00 	call	0xc8	; 0xc8 <_Z10allowSleepb>
+    1234:	08 95       	ret
+
+00001236 <_Z8runSetupv>:
+
+void runSetup(){
+	
+	//USART_Init(MYUBRR);
+	Init_CTC_T1(2,1000);
+    1236:	68 ee       	ldi	r22, 0xE8	; 232
+    1238:	73 e0       	ldi	r23, 0x03	; 3
+    123a:	82 e0       	ldi	r24, 0x02	; 2
+    123c:	0e 94 79 00 	call	0xf2	; 0xf2 <_Z11Init_CTC_T1hj>
+	SPI_MasterInit();
+    1240:	0e 94 6a 00 	call	0xd4	; 0xd4 <_Z14SPI_MasterInitv>
+	setPinDirection(PORT_D, 2, 1);
+    1244:	41 e0       	ldi	r20, 0x01	; 1
+    1246:	62 e0       	ldi	r22, 0x02	; 2
+    1248:	82 e0       	ldi	r24, 0x02	; 2
+    124a:	0e 94 d9 00 	call	0x1b2	; 0x1b2 <_Z15setPinDirectionhhb>
+    124e:	08 95       	ret
+
+00001250 <main>:
+TimerClass Timer1, Timer2;
+SwitchClass S1, S2, S3, S4, S5, S6;
+
+
+int main(void)
+{
+    1250:	cf 93       	push	r28
+    1252:	df 93       	push	r29
+    1254:	cd b7       	in	r28, 0x3d	; 61
+    1256:	de b7       	in	r29, 0x3e	; 62
+    1258:	29 97       	sbiw	r28, 0x09	; 9
+    125a:	0f b6       	in	r0, 0x3f	; 63
+    125c:	f8 94       	cli
+    125e:	de bf       	out	0x3e, r29	; 62
+    1260:	0f be       	out	0x3f, r0	; 63
+    1262:	cd bf       	out	0x3d, r28	; 61
+	runSetup();
+    1264:	0e 94 1b 09 	call	0x1236	; 0x1236 <_Z8runSetupv>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+    1268:	2f ef       	ldi	r18, 0xFF	; 255
+    126a:	84 e3       	ldi	r24, 0x34	; 52
+    126c:	9c e0       	ldi	r25, 0x0C	; 12
+    126e:	21 50       	subi	r18, 0x01	; 1
+    1270:	80 40       	sbci	r24, 0x00	; 0
+    1272:	90 40       	sbci	r25, 0x00	; 0
+    1274:	e1 f7       	brne	.-8      	; 0x126e <main+0x1e>
+    1276:	00 c0       	rjmp	.+0      	; 0x1278 <main+0x28>
+    1278:	00 00       	nop
+	_delay_ms(500);
+	Notify(PSTR("Powering on..."));
+    127a:	8d e6       	ldi	r24, 0x6D	; 109
+    127c:	90 e0       	ldi	r25, 0x00	; 0
+    127e:	0e 94 d9 01 	call	0x3b2	; 0x3b2 <_Z6NotifyPKc>
+	sei();
+    1282:	78 94       	sei
+	TimeOut = false;
+    1284:	10 92 f0 02 	sts	0x02F0, r1	; 0x8002f0 <TimeOut>
+	NRF24L01 Radio(1,1,0);
+    1288:	20 e0       	ldi	r18, 0x00	; 0
+    128a:	41 e0       	ldi	r20, 0x01	; 1
+    128c:	61 e0       	ldi	r22, 0x01	; 1
+    128e:	ce 01       	movw	r24, r28
+    1290:	01 96       	adiw	r24, 0x01	; 1
+    1292:	0e 94 fa 04 	call	0x9f4	; 0x9f4 <_ZN8NRF24L01C1Ehhb>
+	Timer1.begin();
+    1296:	0e 94 27 08 	call	0x104e	; 0x104e <_ZN10TimerClass5beginEv>
+	Timer1.initializeTimer();
+    129a:	82 ee       	ldi	r24, 0xE2	; 226
+    129c:	92 e0       	ldi	r25, 0x02	; 2
+    129e:	0e 94 30 08 	call	0x1060	; 0x1060 <_ZN10TimerClass15initializeTimerEv>
+	Timer2.initializeTimer();
+    12a2:	84 ed       	ldi	r24, 0xD4	; 212
+    12a4:	92 e0       	ldi	r25, 0x02	; 2
+    12a6:	0e 94 30 08 	call	0x1060	; 0x1060 <_ZN10TimerClass15initializeTimerEv>
+	Timer1.setCallBackTime(100, 0, timerDone);
+    12aa:	24 e1       	ldi	r18, 0x14	; 20
+    12ac:	39 e0       	ldi	r19, 0x09	; 9
+    12ae:	40 e0       	ldi	r20, 0x00	; 0
+    12b0:	64 e6       	ldi	r22, 0x64	; 100
+    12b2:	70 e0       	ldi	r23, 0x00	; 0
+    12b4:	82 ee       	ldi	r24, 0xE2	; 226
+    12b6:	92 e0       	ldi	r25, 0x02	; 2
+    12b8:	0e 94 41 08 	call	0x1082	; 0x1082 <_ZN10TimerClass15setCallBackTimeEjhPFvhE>
+	S1.begin();
+    12bc:	0e 94 11 05 	call	0xa22	; 0xa22 <_ZN11SwitchClass5beginEv>
+	S1.initializeSwitch(PORT_B, 0, &S1); //1
+    12c0:	26 ea       	ldi	r18, 0xA6	; 166
+    12c2:	32 e0       	ldi	r19, 0x02	; 2
+    12c4:	40 e0       	ldi	r20, 0x00	; 0
+    12c6:	60 e0       	ldi	r22, 0x00	; 0
+    12c8:	c9 01       	movw	r24, r18
+    12ca:	0e 94 aa 05 	call	0xb54	; 0xb54 <_ZN11SwitchClass16initializeSwitchEhhPS_>
+	S2.initializeSwitch(PORT_B, 6, &S2); //0
+    12ce:	28 e7       	ldi	r18, 0x78	; 120
+    12d0:	32 e0       	ldi	r19, 0x02	; 2
+    12d2:	46 e0       	ldi	r20, 0x06	; 6
+    12d4:	60 e0       	ldi	r22, 0x00	; 0
+    12d6:	c9 01       	movw	r24, r18
+    12d8:	0e 94 aa 05 	call	0xb54	; 0xb54 <_ZN11SwitchClass16initializeSwitchEhhPS_>
+	S3.initializeSwitch(PORT_B, 1, &S3); //6
+    12dc:	2a e4       	ldi	r18, 0x4A	; 74
+    12de:	32 e0       	ldi	r19, 0x02	; 2
+    12e0:	41 e0       	ldi	r20, 0x01	; 1
+    12e2:	60 e0       	ldi	r22, 0x00	; 0
+    12e4:	c9 01       	movw	r24, r18
+    12e6:	0e 94 aa 05 	call	0xb54	; 0xb54 <_ZN11SwitchClass16initializeSwitchEhhPS_>
+	S4.initializeSwitch(PORT_B, 7, &S4);
+    12ea:	2c e1       	ldi	r18, 0x1C	; 28
+    12ec:	32 e0       	ldi	r19, 0x02	; 2
+    12ee:	47 e0       	ldi	r20, 0x07	; 7
+    12f0:	60 e0       	ldi	r22, 0x00	; 0
+    12f2:	c9 01       	movw	r24, r18
+    12f4:	0e 94 aa 05 	call	0xb54	; 0xb54 <_ZN11SwitchClass16initializeSwitchEhhPS_>
+	S5.initializeSwitch(PORT_D, 6, &S5);
+    12f8:	2e ee       	ldi	r18, 0xEE	; 238
+    12fa:	31 e0       	ldi	r19, 0x01	; 1
+    12fc:	46 e0       	ldi	r20, 0x06	; 6
+    12fe:	62 e0       	ldi	r22, 0x02	; 2
+    1300:	c9 01       	movw	r24, r18
+    1302:	0e 94 aa 05 	call	0xb54	; 0xb54 <_ZN11SwitchClass16initializeSwitchEhhPS_>
+	S6.initializeSwitch(PORT_D, 7, &S6);
+    1306:	20 ec       	ldi	r18, 0xC0	; 192
+    1308:	31 e0       	ldi	r19, 0x01	; 1
+    130a:	47 e0       	ldi	r20, 0x07	; 7
+    130c:	62 e0       	ldi	r22, 0x02	; 2
+    130e:	c9 01       	movw	r24, r18
+    1310:	0e 94 aa 05 	call	0xb54	; 0xb54 <_ZN11SwitchClass16initializeSwitchEhhPS_>
+	S1.shortPress(switchPressed);
+    1314:	6b e0       	ldi	r22, 0x0B	; 11
+    1316:	79 e0       	ldi	r23, 0x09	; 9
+    1318:	86 ea       	ldi	r24, 0xA6	; 166
+    131a:	92 e0       	ldi	r25, 0x02	; 2
+    131c:	0e 94 1a 05 	call	0xa34	; 0xa34 <_ZN11SwitchClass10shortPressEPFvhE>
+	S1.enableSamePtrMode(true);
+    1320:	81 e0       	ldi	r24, 0x01	; 1
+    1322:	0e 94 72 05 	call	0xae4	; 0xae4 <_ZN11SwitchClass17enableSamePtrModeEb>
+	Notify(PSTR("Done"));
+    1326:	88 e6       	ldi	r24, 0x68	; 104
+    1328:	90 e0       	ldi	r25, 0x00	; 0
+    132a:	0e 94 d9 01 	call	0x3b2	; 0x3b2 <_Z6NotifyPKc>
+	allowSleep(true);
+    132e:	81 e0       	ldi	r24, 0x01	; 1
+    1330:	0e 94 64 00 	call	0xc8	; 0xc8 <_Z10allowSleepb>
+	if(Radio.isRT_Max_Set())
+    1334:	ce 01       	movw	r24, r28
+    1336:	01 96       	adiw	r24, 0x01	; 1
+    1338:	0e 94 ad 02 	call	0x55a	; 0x55a <_ZN8NRF24L0112isRT_Max_SetEv>
+    133c:	88 23       	and	r24, r24
+    133e:	21 f0       	breq	.+8      	; 0x1348 <main+0xf8>
+	Radio.clearRT_Max();
+    1340:	ce 01       	movw	r24, r28
+    1342:	01 96       	adiw	r24, 0x01	; 1
+    1344:	0e 94 f4 03 	call	0x7e8	; 0x7e8 <_ZN8NRF24L0111clearRT_MaxEv>
+	if(Radio.isTXFull())
+    1348:	ce 01       	movw	r24, r28
+    134a:	01 96       	adiw	r24, 0x01	; 1
+    134c:	0e 94 9f 02 	call	0x53e	; 0x53e <_ZN8NRF24L018isTXFullEv>
+    1350:	88 23       	and	r24, r24
+    1352:	21 f0       	breq	.+8      	; 0x135c <main+0x10c>
+	Radio.flushTX();
+    1354:	ce 01       	movw	r24, r28
+    1356:	01 96       	adiw	r24, 0x01	; 1
+    1358:	0e 94 0c 05 	call	0xa18	; 0xa18 <_ZN8NRF24L017flushTXEv>
+	if(Radio.isTX_DS_Set())
+    135c:	ce 01       	movw	r24, r28
+    135e:	01 96       	adiw	r24, 0x01	; 1
+    1360:	0e 94 a6 02 	call	0x54c	; 0x54c <_ZN8NRF24L0111isTX_DS_SetEv>
+    1364:	88 23       	and	r24, r24
+    1366:	21 f0       	breq	.+8      	; 0x1370 <main+0x120>
+	Radio.clearTX_DS();
+    1368:	ce 01       	movw	r24, r28
+    136a:	01 96       	adiw	r24, 0x01	; 1
+    136c:	0e 94 da 03 	call	0x7b4	; 0x7b4 <_ZN8NRF24L0110clearTX_DSEv>
+	while (1)
+	{	
+		if(SwitchPressedFlag){
+    1370:	80 91 f1 02 	lds	r24, 0x02F1	; 0x8002f1 <SwitchPressedFlag>
+    1374:	88 23       	and	r24, r24
+    1376:	09 f4       	brne	.+2      	; 0x137a <main+0x12a>
+    1378:	67 c0       	rjmp	.+206    	; 0x1448 <main+0x1f8>
+			SwitchPressedFlag = false;
+    137a:	10 92 f1 02 	sts	0x02F1, r1	; 0x8002f1 <SwitchPressedFlag>
+			#ifdef STATS
+			printStringCRNL("Switch Pressed: ");
+			printNumber(SwitchID);
+			#endif
+			if(SwitchID < 4){
+    137e:	80 91 f2 02 	lds	r24, 0x02F2	; 0x8002f2 <SwitchID>
+    1382:	84 30       	cpi	r24, 0x04	; 4
+    1384:	40 f4       	brcc	.+16     	; 0x1396 <main+0x146>
+				Radio.fastTransferPayload(SwitchID + 1);
+    1386:	60 91 f2 02 	lds	r22, 0x02F2	; 0x8002f2 <SwitchID>
+    138a:	6f 5f       	subi	r22, 0xFF	; 255
+    138c:	ce 01       	movw	r24, r28
+    138e:	01 96       	adiw	r24, 0x01	; 1
+    1390:	0e 94 36 04 	call	0x86c	; 0x86c <_ZN8NRF24L0119fastTransferPayloadEh>
+    1394:	0f c0       	rjmp	.+30     	; 0x13b4 <main+0x164>
+			}
+			else
+			{
+				if(SwitchID == 0x05)
+    1396:	80 91 f2 02 	lds	r24, 0x02F2	; 0x8002f2 <SwitchID>
+    139a:	85 30       	cpi	r24, 0x05	; 5
+    139c:	31 f4       	brne	.+12     	; 0x13aa <main+0x15a>
+				Radio.fastTransferPayload(0xD1);
+    139e:	61 ed       	ldi	r22, 0xD1	; 209
+    13a0:	ce 01       	movw	r24, r28
+    13a2:	01 96       	adiw	r24, 0x01	; 1
+    13a4:	0e 94 36 04 	call	0x86c	; 0x86c <_ZN8NRF24L0119fastTransferPayloadEh>
+    13a8:	05 c0       	rjmp	.+10     	; 0x13b4 <main+0x164>
+				else
+				Radio.fastTransferPayload(0xD0);
+    13aa:	60 ed       	ldi	r22, 0xD0	; 208
+    13ac:	ce 01       	movw	r24, r28
+    13ae:	01 96       	adiw	r24, 0x01	; 1
+    13b0:	0e 94 36 04 	call	0x86c	; 0x86c <_ZN8NRF24L0119fastTransferPayloadEh>
+			}
+			TimeOut = false;
+    13b4:	10 92 f0 02 	sts	0x02F0, r1	; 0x8002f0 <TimeOut>
+			Timer2.setCallBackTime(50, 0, timerDone);
+    13b8:	24 e1       	ldi	r18, 0x14	; 20
+    13ba:	39 e0       	ldi	r19, 0x09	; 9
+    13bc:	40 e0       	ldi	r20, 0x00	; 0
+    13be:	62 e3       	ldi	r22, 0x32	; 50
+    13c0:	70 e0       	ldi	r23, 0x00	; 0
+    13c2:	84 ed       	ldi	r24, 0xD4	; 212
+    13c4:	92 e0       	ldi	r25, 0x02	; 2
+    13c6:	0e 94 41 08 	call	0x1082	; 0x1082 <_ZN10TimerClass15setCallBackTimeEjhPFvhE>
+			while(Radio.isTX_DS_Set() != 0x20 && !TimeOut){
+    13ca:	ce 01       	movw	r24, r28
+    13cc:	01 96       	adiw	r24, 0x01	; 1
+    13ce:	0e 94 a6 02 	call	0x54c	; 0x54c <_ZN8NRF24L0111isTX_DS_SetEv>
+    13d2:	80 32       	cpi	r24, 0x20	; 32
+    13d4:	09 f4       	brne	.+2      	; 0x13d8 <main+0x188>
+    13d6:	57 c0       	rjmp	.+174    	; 0x1486 <main+0x236>
+    13d8:	80 91 f0 02 	lds	r24, 0x02F0	; 0x8002f0 <TimeOut>
+    13dc:	81 11       	cpse	r24, r1
+    13de:	53 c0       	rjmp	.+166    	; 0x1486 <main+0x236>
+    13e0:	f4 cf       	rjmp	.-24     	; 0x13ca <main+0x17a>
+				
+			}
+			if(Radio.isTX_DS_Set() == 0x20){
+				LED = 1;
+    13e2:	5a 9a       	sbi	0x0b, 2	; 11
+				Radio.clearTX_DS();
+    13e4:	ce 01       	movw	r24, r28
+    13e6:	01 96       	adiw	r24, 0x01	; 1
+    13e8:	0e 94 da 03 	call	0x7b4	; 0x7b4 <_ZN8NRF24L0110clearTX_DSEv>
+				Timer1.setCallBackTime(200, 0, timerDone);
+    13ec:	24 e1       	ldi	r18, 0x14	; 20
+    13ee:	39 e0       	ldi	r19, 0x09	; 9
+    13f0:	40 e0       	ldi	r20, 0x00	; 0
+    13f2:	68 ec       	ldi	r22, 0xC8	; 200
+    13f4:	70 e0       	ldi	r23, 0x00	; 0
+    13f6:	82 ee       	ldi	r24, 0xE2	; 226
+    13f8:	92 e0       	ldi	r25, 0x02	; 2
+    13fa:	0e 94 41 08 	call	0x1082	; 0x1082 <_ZN10TimerClass15setCallBackTimeEjhPFvhE>
+				Timer2.resetCallbackTimer();
+    13fe:	84 ed       	ldi	r24, 0xD4	; 212
+    1400:	92 e0       	ldi	r25, 0x02	; 2
+    1402:	0e 94 4f 08 	call	0x109e	; 0x109e <_ZN10TimerClass18resetCallbackTimerEv>
+    1406:	02 c0       	rjmp	.+4      	; 0x140c <main+0x1bc>
+				printStringCRNL("Payload transmitted.");
+				#endif
+				//Radio.flushTX();
+			}
+			else{
+				TimeOut = false;
+    1408:	10 92 f0 02 	sts	0x02F0, r1	; 0x8002f0 <TimeOut>
+				//Radio.flushTX();
+				#ifdef STATS
+				printStringCRNL("Timed out");
+				#endif
+			}
+			if(Radio.isRT_Max_Set())
+    140c:	ce 01       	movw	r24, r28
+    140e:	01 96       	adiw	r24, 0x01	; 1
+    1410:	0e 94 ad 02 	call	0x55a	; 0x55a <_ZN8NRF24L0112isRT_Max_SetEv>
+    1414:	88 23       	and	r24, r24
+    1416:	21 f0       	breq	.+8      	; 0x1420 <main+0x1d0>
+			Radio.clearRT_Max();
+    1418:	ce 01       	movw	r24, r28
+    141a:	01 96       	adiw	r24, 0x01	; 1
+    141c:	0e 94 f4 03 	call	0x7e8	; 0x7e8 <_ZN8NRF24L0111clearRT_MaxEv>
+			if(Radio.isTXFull())
+    1420:	ce 01       	movw	r24, r28
+    1422:	01 96       	adiw	r24, 0x01	; 1
+    1424:	0e 94 9f 02 	call	0x53e	; 0x53e <_ZN8NRF24L018isTXFullEv>
+    1428:	88 23       	and	r24, r24
+    142a:	21 f0       	breq	.+8      	; 0x1434 <main+0x1e4>
+			Radio.flushTX();
+    142c:	ce 01       	movw	r24, r28
+    142e:	01 96       	adiw	r24, 0x01	; 1
+    1430:	0e 94 0c 05 	call	0xa18	; 0xa18 <_ZN8NRF24L017flushTXEv>
+			if(Radio.isTX_DS_Set())
+    1434:	ce 01       	movw	r24, r28
+    1436:	01 96       	adiw	r24, 0x01	; 1
+    1438:	0e 94 a6 02 	call	0x54c	; 0x54c <_ZN8NRF24L0111isTX_DS_SetEv>
+    143c:	88 23       	and	r24, r24
+    143e:	21 f0       	breq	.+8      	; 0x1448 <main+0x1f8>
+			Radio.clearTX_DS();
+    1440:	ce 01       	movw	r24, r28
+    1442:	01 96       	adiw	r24, 0x01	; 1
+    1444:	0e 94 da 03 	call	0x7b4	; 0x7b4 <_ZN8NRF24L0110clearTX_DSEv>
+			#ifdef STATS
+			Radio.printInfo();
+			#endif
+		}
+		if(sleepAllowed()){
+    1448:	0e 94 67 00 	call	0xce	; 0xce <_Z12sleepAllowedv>
+    144c:	88 23       	and	r24, r24
+    144e:	09 f4       	brne	.+2      	; 0x1452 <main+0x202>
+    1450:	8f cf       	rjmp	.-226    	; 0x1370 <main+0x120>
+			#ifdef STATS
+			printStringCRNL("Sleeping...");
+			#endif
+			set_sleep_mode(SLEEP_MODE_PWR_DOWN);
+    1452:	83 b7       	in	r24, 0x33	; 51
+    1454:	81 7f       	andi	r24, 0xF1	; 241
+    1456:	84 60       	ori	r24, 0x04	; 4
+    1458:	83 bf       	out	0x33, r24	; 51
+			sleep_enable();
+    145a:	83 b7       	in	r24, 0x33	; 51
+    145c:	81 60       	ori	r24, 0x01	; 1
+    145e:	83 bf       	out	0x33, r24	; 51
+			sei();
+    1460:	78 94       	sei
+			getReadyToSleep();
+    1462:	0e 94 5d 00 	call	0xba	; 0xba <_Z15getReadyToSleepv>
+			CE = 0;
+    1466:	40 98       	cbi	0x08, 0	; 8
+			sleep_mode();
+    1468:	83 b7       	in	r24, 0x33	; 51
+    146a:	81 60       	ori	r24, 0x01	; 1
+    146c:	83 bf       	out	0x33, r24	; 51
+    146e:	88 95       	sleep
+    1470:	83 b7       	in	r24, 0x33	; 51
+    1472:	8e 7f       	andi	r24, 0xFE	; 254
+    1474:	83 bf       	out	0x33, r24	; 51
+			CE = 1;
+    1476:	40 9a       	sbi	0x08, 0	; 8
+    1478:	8f e3       	ldi	r24, 0x3F	; 63
+    147a:	9c e9       	ldi	r25, 0x9C	; 156
+    147c:	01 97       	sbiw	r24, 0x01	; 1
+    147e:	f1 f7       	brne	.-4      	; 0x147c <main+0x22c>
+    1480:	00 c0       	rjmp	.+0      	; 0x1482 <main+0x232>
+    1482:	00 00       	nop
+    1484:	75 cf       	rjmp	.-278    	; 0x1370 <main+0x120>
+			TimeOut = false;
+			Timer2.setCallBackTime(50, 0, timerDone);
+			while(Radio.isTX_DS_Set() != 0x20 && !TimeOut){
+				
+			}
+			if(Radio.isTX_DS_Set() == 0x20){
+    1486:	ce 01       	movw	r24, r28
+    1488:	01 96       	adiw	r24, 0x01	; 1
+    148a:	0e 94 a6 02 	call	0x54c	; 0x54c <_ZN8NRF24L0111isTX_DS_SetEv>
+    148e:	80 32       	cpi	r24, 0x20	; 32
+    1490:	09 f0       	breq	.+2      	; 0x1494 <main+0x244>
+    1492:	ba cf       	rjmp	.-140    	; 0x1408 <main+0x1b8>
+    1494:	a6 cf       	rjmp	.-180    	; 0x13e2 <main+0x192>
+
+00001496 <__ashldi3>:
+    1496:	0f 93       	push	r16
+    1498:	08 30       	cpi	r16, 0x08	; 8
+    149a:	90 f0       	brcs	.+36     	; 0x14c0 <__ashldi3+0x2a>
+    149c:	98 2f       	mov	r25, r24
+    149e:	87 2f       	mov	r24, r23
+    14a0:	76 2f       	mov	r23, r22
+    14a2:	65 2f       	mov	r22, r21
+    14a4:	54 2f       	mov	r21, r20
+    14a6:	43 2f       	mov	r20, r19
+    14a8:	32 2f       	mov	r19, r18
+    14aa:	22 27       	eor	r18, r18
+    14ac:	08 50       	subi	r16, 0x08	; 8
+    14ae:	f4 cf       	rjmp	.-24     	; 0x1498 <__ashldi3+0x2>
+    14b0:	22 0f       	add	r18, r18
+    14b2:	33 1f       	adc	r19, r19
+    14b4:	44 1f       	adc	r20, r20
+    14b6:	55 1f       	adc	r21, r21
+    14b8:	66 1f       	adc	r22, r22
+    14ba:	77 1f       	adc	r23, r23
+    14bc:	88 1f       	adc	r24, r24
+    14be:	99 1f       	adc	r25, r25
+    14c0:	0a 95       	dec	r16
+    14c2:	b2 f7       	brpl	.-20     	; 0x14b0 <__ashldi3+0x1a>
+    14c4:	0f 91       	pop	r16
+    14c6:	08 95       	ret
+
+000014c8 <__ashrdi3>:
+    14c8:	97 fb       	bst	r25, 7
+    14ca:	10 f8       	bld	r1, 0
+
+000014cc <__lshrdi3>:
+    14cc:	16 94       	lsr	r1
+    14ce:	00 08       	sbc	r0, r0
+    14d0:	0f 93       	push	r16
+    14d2:	08 30       	cpi	r16, 0x08	; 8
+    14d4:	98 f0       	brcs	.+38     	; 0x14fc <__lshrdi3+0x30>
+    14d6:	08 50       	subi	r16, 0x08	; 8
+    14d8:	23 2f       	mov	r18, r19
+    14da:	34 2f       	mov	r19, r20
+    14dc:	45 2f       	mov	r20, r21
+    14de:	56 2f       	mov	r21, r22
+    14e0:	67 2f       	mov	r22, r23
+    14e2:	78 2f       	mov	r23, r24
+    14e4:	89 2f       	mov	r24, r25
+    14e6:	90 2d       	mov	r25, r0
+    14e8:	f4 cf       	rjmp	.-24     	; 0x14d2 <__lshrdi3+0x6>
+    14ea:	05 94       	asr	r0
+    14ec:	97 95       	ror	r25
+    14ee:	87 95       	ror	r24
+    14f0:	77 95       	ror	r23
+    14f2:	67 95       	ror	r22
+    14f4:	57 95       	ror	r21
+    14f6:	47 95       	ror	r20
+    14f8:	37 95       	ror	r19
+    14fa:	27 95       	ror	r18
+    14fc:	0a 95       	dec	r16
+    14fe:	aa f7       	brpl	.-22     	; 0x14ea <__lshrdi3+0x1e>
+    1500:	0f 91       	pop	r16
+    1502:	08 95       	ret
+
+00001504 <__adddi3_s8>:
+    1504:	00 24       	eor	r0, r0
+    1506:	a7 fd       	sbrc	r26, 7
+    1508:	00 94       	com	r0
+    150a:	2a 0f       	add	r18, r26
+    150c:	30 1d       	adc	r19, r0
+    150e:	40 1d       	adc	r20, r0
+    1510:	50 1d       	adc	r21, r0
+    1512:	60 1d       	adc	r22, r0
+    1514:	70 1d       	adc	r23, r0
+    1516:	80 1d       	adc	r24, r0
+    1518:	90 1d       	adc	r25, r0
+    151a:	08 95       	ret
+
+0000151c <_exit>:
+    151c:	f8 94       	cli
+
+0000151e <__stop_program>:
+    151e:	ff cf       	rjmp	.-2      	; 0x151e <__stop_program>
