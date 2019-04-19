@@ -35,6 +35,8 @@ int main(void)
 	sei();
 	TimeOut = false;
 	NRF24L01 Radio(1,1,0);
+	Radio.setTransmitAddress(0xEABABABAC1);
+	Radio.setReceiveAddress(0xEABABABAC1, 0);
 	Timer1.begin();
 	Timer1.initializeTimer();
 	Timer2.initializeTimer();
@@ -82,7 +84,7 @@ int main(void)
 			if(Radio.isTX_DS_Set() == 0x20){
 				LED = 1;
 				Radio.clearTX_DS();
-				Timer1.setCallBackTime(200, 0, timerDone);
+				Timer1.setCallBackTime(50, 0, timerDone);
 				Timer2.resetCallbackTimer();
 				#ifdef STATS
 				printStringCRNL("Payload transmitted.");

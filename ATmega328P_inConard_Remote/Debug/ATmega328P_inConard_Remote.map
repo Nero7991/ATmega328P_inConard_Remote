@@ -139,8 +139,14 @@ Discarded input sections
  .text          0x00000000        0x0 Essential.o
  .data          0x00000000        0x0 Essential.o
  .bss           0x00000000        0x0 Essential.o
+ .text._Z10numToArrayy
+                0x00000000       0x20 Essential.o
  .text._Z9charToHexPc
                 0x00000000       0x26 Essential.o
+ .text._Z10hexToASCIIh
+                0x00000000        0xc Essential.o
+ .text._Z11hexToStringh
+                0x00000000       0x30 Essential.o
  .text._Z11printNumbery
                 0x00000000      0x138 Essential.o
  .text._Z17printSignedNumberi
@@ -155,8 +161,24 @@ Discarded input sections
                 0x00000000       0x24 Essential.o
  .text._Z15printStringCRNLPKc
                 0x00000000       0x2a Essential.o
+ .text._Z11printStringPKc
+                0x00000000       0x1e Essential.o
+ .text._Z16hexArrayToStringPhh
+                0x00000000       0x62 Essential.o
+ .text._Z14printHexNumberyh
+                0x00000000       0x14 Essential.o
  .text._Z9printCharh
                 0x00000000        0x6 Essential.o
+ .bss._ZZ16hexArrayToStringPhhE3str
+                0x00000000       0x40 Essential.o
+ .bss._ZZ16hexArrayToStringPhhE1t
+                0x00000000        0x1 Essential.o
+ .bss._ZZ10numToArrayyE5array
+                0x00000000        0x8 Essential.o
+ .bss._ZZ11hexToStringhE5ascii
+                0x00000000        0x5 Essential.o
+ .bss._ZZ11hexToStringhE4temp
+                0x00000000        0x1 Essential.o
  .bss.FlowCheckFlag
                 0x00000000        0x1 Essential.o
  .text          0x00000000        0x0 NRF24L01.o
@@ -190,10 +212,10 @@ Discarded input sections
                 0x00000000       0x34 NRF24L01.o
  .text._ZN8NRF24L0114readACKPayloadEPVh
                 0x00000000       0x7c NRF24L01.o
- .text._ZN8NRF24L0115transmitPayloadEPVh
-                0x00000000      0x202 NRF24L01.o
  .text._ZN8NRF24L01C2Ehb
                 0x00000000        0xc NRF24L01.o
+ .text._ZN8NRF24L0115transmitPayloadEPVh
+                0x00000000      0x202 NRF24L01.o
  .text._ZN8NRF24L0115writeACKPayloadEPVh
                 0x00000000       0x86 NRF24L01.o
  .text._ZN8NRF24L017flushRXEv
@@ -230,9 +252,9 @@ Discarded input sections
  .text._ZN11SwitchClass11getSwitchIDEv
                 0x00000000        0x6 Switch.o
  .text._ZN11SwitchClass11fallingEdgeEPFvhE
-                0x00000000       0x10 Switch.o
+                0x00000000       0x14 Switch.o
  .text._ZN11SwitchClass10risingEdgeEPFvhE
-                0x00000000       0x10 Switch.o
+                0x00000000       0x14 Switch.o
  .text._ZN11SwitchClass9longPressEPFvhE
                 0x00000000       0x14 Switch.o
  .text._ZN11SwitchClass19continuousLongPressEPFvhE
@@ -251,7 +273,7 @@ Discarded input sections
                 0x00000000        0x2 Switch.o
  .bss._ZN11SwitchClass13NotFirstSpawnE
                 0x00000000        0x1 Switch.o
- .bss.Switch    0x00000000       0x2e Switch.o
+ .bss.Switch    0x00000000       0x30 Switch.o
  .text          0x00000000        0x0 Timer.o
  .data          0x00000000        0x0 Timer.o
  .bss           0x00000000        0x0 Timer.o
@@ -571,7 +593,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x1520
+.text           0x00000000     0x14c6
  *(.vectors)
  .vectors       0x00000000       0x68 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega328p/avr5/crtatmega328p.o
                 0x00000000                __vector_default
@@ -694,206 +716,191 @@ END GROUP
  .text.__vector_6
                 0x00000338       0x1e ATmega328P.o
                 0x00000338                __vector_6
- .text._Z10numToArrayy
-                0x00000356       0x20 Essential.o
-                0x00000356                _Z10numToArrayy
- .text._Z10hexToASCIIh
-                0x00000376        0xc Essential.o
-                0x00000376                _Z10hexToASCIIh
- .text._Z11hexToStringh
-                0x00000382       0x30 Essential.o
-                0x00000382                _Z11hexToStringh
  .text._Z6NotifyPKc
-                0x000003b2       0x32 Essential.o
-                0x000003b2                _Z6NotifyPKc
- .text._Z11printStringPKc
-                0x000003e4       0x1e Essential.o
-                0x000003e4                _Z11printStringPKc
- .text._Z16hexArrayToStringPhh
-                0x00000402       0x62 Essential.o
-                0x00000402                _Z16hexArrayToStringPhh
- .text._Z14printHexNumberyh
-                0x00000464       0x14 Essential.o
-                0x00000464                _Z14printHexNumberyh
+                0x00000356       0x32 Essential.o
+                0x00000356                _Z6NotifyPKc
  .text._ZN8NRF24L0114toggleActivateEv
-                0x00000478       0x12 NRF24L01.o
-                0x00000478                _ZN8NRF24L0114toggleActivateEv
+                0x00000388       0x12 NRF24L01.o
+                0x00000388                _ZN8NRF24L0114toggleActivateEv
  .text._ZN8NRF24L0114sendSPICommandEh
-                0x0000048a        0xc NRF24L01.o
-                0x0000048a                _ZN8NRF24L0114sendSPICommandEh
+                0x0000039a        0xc NRF24L01.o
+                0x0000039a                _ZN8NRF24L0114sendSPICommandEh
  .text._ZN8NRF24L0115readSPIRegisterEhh
-                0x00000496       0xa8 NRF24L01.o
-                0x00000496                _ZN8NRF24L0115readSPIRegisterEhh
+                0x000003a6       0xa8 NRF24L01.o
+                0x000003a6                _ZN8NRF24L0115readSPIRegisterEhh
  .text._ZN8NRF24L018isTXFullEv
-                0x0000053e        0xe NRF24L01.o
-                0x0000053e                _ZN8NRF24L018isTXFullEv
+                0x0000044e        0xe NRF24L01.o
+                0x0000044e                _ZN8NRF24L018isTXFullEv
  .text._ZN8NRF24L0111isTX_DS_SetEv
-                0x0000054c        0xe NRF24L01.o
-                0x0000054c                _ZN8NRF24L0111isTX_DS_SetEv
+                0x0000045c        0xe NRF24L01.o
+                0x0000045c                _ZN8NRF24L0111isTX_DS_SetEv
  .text._ZN8NRF24L0112isRT_Max_SetEv
-                0x0000055a        0xe NRF24L01.o
-                0x0000055a                _ZN8NRF24L0112isRT_Max_SetEv
+                0x0000046a        0xe NRF24L01.o
+                0x0000046a                _ZN8NRF24L0112isRT_Max_SetEv
  .text._ZN8NRF24L0116writeSPIRegisterEhyh
-                0x00000568       0x7e NRF24L01.o
-                0x00000568                _ZN8NRF24L0116writeSPIRegisterEhyh
+                0x00000478       0x7e NRF24L01.o
+                0x00000478                _ZN8NRF24L0116writeSPIRegisterEhyh
  .text._ZN8NRF24L017powerONEb
-                0x000005e6       0x4c NRF24L01.o
-                0x000005e6                _ZN8NRF24L017powerONEb
+                0x000004f6       0x4c NRF24L01.o
+                0x000004f6                _ZN8NRF24L017powerONEb
+ .text._ZN8NRF24L018testChipEv
+                0x00000542       0x70 NRF24L01.o
+                0x00000542                _ZN8NRF24L018testChipEv
  .text._ZN8NRF24L017setModeEb
-                0x00000632       0x6c NRF24L01.o
-                0x00000632                _ZN8NRF24L017setModeEb
+                0x000005b2       0x56 NRF24L01.o
+                0x000005b2                _ZN8NRF24L017setModeEb
  .text._ZN8NRF24L0120enableACKWithPayloadEb
-                0x0000069e       0x4c NRF24L01.o
-                0x0000069e                _ZN8NRF24L0120enableACKWithPayloadEb
+                0x00000608       0x4c NRF24L01.o
+                0x00000608                _ZN8NRF24L0120enableACKWithPayloadEb
  .text._ZN8NRF24L0126enableDynamicPayloadLengthEb
-                0x000006ea       0x4e NRF24L01.o
-                0x000006ea                _ZN8NRF24L0126enableDynamicPayloadLengthEb
+                0x00000654       0x4e NRF24L01.o
+                0x00000654                _ZN8NRF24L0126enableDynamicPayloadLengthEb
  .text._ZN8NRF24L0118enableDPLForRXPipeEhb
-                0x00000738       0x7c NRF24L01.o
-                0x00000738                _ZN8NRF24L0118enableDPLForRXPipeEhb
+                0x000006a2       0x7c NRF24L01.o
+                0x000006a2                _ZN8NRF24L0118enableDPLForRXPipeEhb
  .text._ZN8NRF24L0110clearTX_DSEv
-                0x000007b4       0x34 NRF24L01.o
-                0x000007b4                _ZN8NRF24L0110clearTX_DSEv
+                0x0000071e       0x34 NRF24L01.o
+                0x0000071e                _ZN8NRF24L0110clearTX_DSEv
  .text._ZN8NRF24L0111clearRT_MaxEv
-                0x000007e8       0x34 NRF24L01.o
-                0x000007e8                _ZN8NRF24L0111clearRT_MaxEv
+                0x00000752       0x34 NRF24L01.o
+                0x00000752                _ZN8NRF24L0111clearRT_MaxEv
  .text._ZN8NRF24L0113setRFDataRateEb
-                0x0000081c       0x50 NRF24L01.o
-                0x0000081c                _ZN8NRF24L0113setRFDataRateEb
- .text._ZN8NRF24L0119fastTransferPayloadEh
-                0x0000086c       0x76 NRF24L01.o
-                0x0000086c                _ZN8NRF24L0119fastTransferPayloadEh
- .text._ZN8NRF24L0118setTransmitAddressEy
-                0x000008e2       0x34 NRF24L01.o
-                0x000008e2                _ZN8NRF24L0118setTransmitAddressEy
- .text._ZN8NRF24L0118setReceive0AddressEy
-                0x00000916       0x34 NRF24L01.o
-                0x00000916                _ZN8NRF24L0118setReceive0AddressEy
+                0x00000786       0x50 NRF24L01.o
+                0x00000786                _ZN8NRF24L0113setRFDataRateEb
  .text._ZN8NRF24L0110initializeEv
-                0x0000094a       0xaa NRF24L01.o
-                0x0000094a                _ZN8NRF24L0110initializeEv
+                0x000007d6       0x88 NRF24L01.o
+                0x000007d6                _ZN8NRF24L0110initializeEv
  .text._ZN8NRF24L01C2Ehhb
-                0x000009f4       0x24 NRF24L01.o
-                0x000009f4                _ZN8NRF24L01C2Ehhb
-                0x000009f4                _ZN8NRF24L01C1Ehhb
+                0x0000085e       0x24 NRF24L01.o
+                0x0000085e                _ZN8NRF24L01C2Ehhb
+                0x0000085e                _ZN8NRF24L01C1Ehhb
+ .text._ZN8NRF24L0119fastTransferPayloadEh
+                0x00000882       0x76 NRF24L01.o
+                0x00000882                _ZN8NRF24L0119fastTransferPayloadEh
+ .text._ZN8NRF24L0118setTransmitAddressEy
+                0x000008f8       0x34 NRF24L01.o
+                0x000008f8                _ZN8NRF24L0118setTransmitAddressEy
+ .text._ZN8NRF24L0117setReceiveAddressEyh
+                0x0000092c       0x38 NRF24L01.o
+                0x0000092c                _ZN8NRF24L0117setReceiveAddressEyh
  .text._ZN8NRF24L017flushTXEv
-                0x00000a18        0x8 NRF24L01.o
-                0x00000a18                _ZN8NRF24L017flushTXEv
+                0x00000964        0x8 NRF24L01.o
+                0x00000964                _ZN8NRF24L017flushTXEv
  .text._ZN11SwitchClass9doNothingEh
-                0x00000a20        0x2 Switch.o
-                0x00000a20                _ZN11SwitchClass9doNothingEh
+                0x0000096c        0x2 Switch.o
+                0x0000096c                _ZN11SwitchClass9doNothingEh
  .text._ZN11SwitchClass5beginEv
-                0x00000a22       0x12 Switch.o
-                0x00000a22                _ZN11SwitchClass5beginEv
+                0x0000096e       0x12 Switch.o
+                0x0000096e                _ZN11SwitchClass5beginEv
  .text._ZN11SwitchClass10shortPressEPFvhE
-                0x00000a34       0x14 Switch.o
-                0x00000a34                _ZN11SwitchClass10shortPressEPFvhE
+                0x00000980       0x14 Switch.o
+                0x00000980                _ZN11SwitchClass10shortPressEPFvhE
  .text._ZN11SwitchClass18doubleWaitCompleteEv
-                0x00000a48       0x5a Switch.o
-                0x00000a48                _ZN11SwitchClass18doubleWaitCompleteEv
+                0x00000994       0x5a Switch.o
+                0x00000994                _ZN11SwitchClass18doubleWaitCompleteEv
  .text._ZN11SwitchClass17callAllDoubleWaitEh
-                0x00000aa2       0x42 Switch.o
-                0x00000aa2                _ZN11SwitchClass17callAllDoubleWaitEh
+                0x000009ee       0x42 Switch.o
+                0x000009ee                _ZN11SwitchClass17callAllDoubleWaitEh
  .text._ZN11SwitchClass17enableSamePtrModeEb
-                0x00000ae4       0x16 Switch.o
-                0x00000ae4                _ZN11SwitchClass17enableSamePtrModeEb
+                0x00000a30       0x1e Switch.o
+                0x00000a30                _ZN11SwitchClass17enableSamePtrModeEb
  .text._ZN11SwitchClass16updatePinBuffersEv
-                0x00000afa       0x12 Switch.o
-                0x00000afa                _ZN11SwitchClass16updatePinBuffersEv
+                0x00000a4e       0x12 Switch.o
+                0x00000a4e                _ZN11SwitchClass16updatePinBuffersEv
  .text._ZN11SwitchClass10pollSwitchEv
-                0x00000b0c       0x48 Switch.o
-                0x00000b0c                _ZN11SwitchClass10pollSwitchEv
+                0x00000a60       0x48 Switch.o
+                0x00000a60                _ZN11SwitchClass10pollSwitchEv
  .text._ZN11SwitchClass16initializeSwitchEhhPS_
-                0x00000b54       0xb6 Switch.o
-                0x00000b54                _ZN11SwitchClass16initializeSwitchEhhPS_
+                0x00000aa8       0xb6 Switch.o
+                0x00000aa8                _ZN11SwitchClass16initializeSwitchEhhPS_
  .text._ZN11SwitchClass18processStateChangeEv
-                0x00000c0a      0x10e Switch.o
-                0x00000c0a                _ZN11SwitchClass18processStateChangeEv
+                0x00000b5e      0x132 Switch.o
+                0x00000b5e                _ZN11SwitchClass18processStateChangeEv
  .text._ZN11SwitchClass25callAllProcessStateChangeEv
-                0x00000d18       0x32 Switch.o
-                0x00000d18                _ZN11SwitchClass25callAllProcessStateChangeEv
+                0x00000c90       0x32 Switch.o
+                0x00000c90                _ZN11SwitchClass25callAllProcessStateChangeEv
  .text._ZN11SwitchClass16longWaitCompleteEv
-                0x00000d4a       0xe8 Switch.o
-                0x00000d4a                _ZN11SwitchClass16longWaitCompleteEv
+                0x00000cc2       0xe8 Switch.o
+                0x00000cc2                _ZN11SwitchClass16longWaitCompleteEv
  .text._ZN11SwitchClass20callAllOjectLongWaitEh
-                0x00000e32       0x42 Switch.o
-                0x00000e32                _ZN11SwitchClass20callAllOjectLongWaitEh
+                0x00000daa       0x42 Switch.o
+                0x00000daa                _ZN11SwitchClass20callAllOjectLongWaitEh
  .text.__vector_1
-                0x00000e74       0x62 Switch.o
-                0x00000e74                __vector_1
+                0x00000dec       0x62 Switch.o
+                0x00000dec                __vector_1
  .text.__vector_2
-                0x00000ed6       0x52 Switch.o
-                0x00000ed6                __vector_2
+                0x00000e4e       0x52 Switch.o
+                0x00000e4e                __vector_2
  .text.__vector_3
-                0x00000f28       0x62 Switch.o
-                0x00000f28                __vector_3
+                0x00000ea0       0x62 Switch.o
+                0x00000ea0                __vector_3
  .text.__vector_4
-                0x00000f8a       0x62 Switch.o
-                0x00000f8a                __vector_4
+                0x00000f02       0x62 Switch.o
+                0x00000f02                __vector_4
  .text.__vector_5
-                0x00000fec       0x62 Switch.o
-                0x00000fec                __vector_5
+                0x00000f64       0x62 Switch.o
+                0x00000f64                __vector_5
  .text._ZN10TimerClass5beginEv
-                0x0000104e       0x12 Timer.o
-                0x0000104e                _ZN10TimerClass5beginEv
+                0x00000fc6       0x12 Timer.o
+                0x00000fc6                _ZN10TimerClass5beginEv
  .text._ZN10TimerClass15initializeTimerEv
-                0x00001060       0x22 Timer.o
-                0x00001060                _ZN10TimerClass15initializeTimerEv
+                0x00000fd8       0x22 Timer.o
+                0x00000fd8                _ZN10TimerClass15initializeTimerEv
  .text._ZN10TimerClass15setCallBackTimeEjhPFvhE
-                0x00001082       0x1c Timer.o
-                0x00001082                _ZN10TimerClass15setCallBackTimeEjhPFvhE
+                0x00000ffa       0x1c Timer.o
+                0x00000ffa                _ZN10TimerClass15setCallBackTimeEjhPFvhE
  .text._ZN10TimerClass18resetCallbackTimerEv
-                0x0000109e        0xa Timer.o
-                0x0000109e                _ZN10TimerClass18resetCallbackTimerEv
+                0x00001016        0xa Timer.o
+                0x00001016                _ZN10TimerClass18resetCallbackTimerEv
  .text._ZN10TimerClass15getCallBackTimeEv
-                0x000010a8       0x10 Timer.o
-                0x000010a8                _ZN10TimerClass15getCallBackTimeEv
+                0x00001020       0x10 Timer.o
+                0x00001020                _ZN10TimerClass15getCallBackTimeEv
  .text._ZN10TimerClass7setTimeEj
-                0x000010b8       0x16 Timer.o
-                0x000010b8                _ZN10TimerClass7setTimeEj
+                0x00001030       0x16 Timer.o
+                0x00001030                _ZN10TimerClass7setTimeEj
  .text._ZN10TimerClass7getTimeEv
-                0x000010ce       0x10 Timer.o
-                0x000010ce                _ZN10TimerClass7getTimeEv
+                0x00001046       0x10 Timer.o
+                0x00001046                _ZN10TimerClass7getTimeEv
  .text._ZN10TimerClass10resetTimerEv
-                0x000010de        0xa Timer.o
-                0x000010de                _ZN10TimerClass10resetTimerEv
+                0x00001056        0xa Timer.o
+                0x00001056                _ZN10TimerClass10resetTimerEv
  .text._ZN10TimerClass11milliPassedEv
-                0x000010e8       0x64 Timer.o
-                0x000010e8                _ZN10TimerClass11milliPassedEv
+                0x00001060       0x64 Timer.o
+                0x00001060                _ZN10TimerClass11milliPassedEv
  .text._ZN10TimerClass19callAllTimerObjectsEv
-                0x0000114c       0x32 Timer.o
-                0x0000114c                _ZN10TimerClass19callAllTimerObjectsEv
+                0x000010c4       0x32 Timer.o
+                0x000010c4                _ZN10TimerClass19callAllTimerObjectsEv
  .text._ZN10TimerClass10getTimerIDEv
-                0x0000117e        0x6 Timer.o
-                0x0000117e                _ZN10TimerClass10getTimerIDEv
+                0x000010f6        0x6 Timer.o
+                0x000010f6                _ZN10TimerClass10getTimerIDEv
  .text.__vector_11
-                0x00001184       0x92 Timer.o
-                0x00001184                __vector_11
+                0x000010fc       0x92 Timer.o
+                0x000010fc                __vector_11
  .text._Z13switchPressedh
-                0x00001216       0x12 main.o
-                0x00001216                _Z13switchPressedh
+                0x0000118e       0x12 main.o
+                0x0000118e                _Z13switchPressedh
  .text._Z9timerDoneh
-                0x00001228        0xe main.o
-                0x00001228                _Z9timerDoneh
+                0x000011a0        0xe main.o
+                0x000011a0                _Z9timerDoneh
  .text._Z8runSetupv
-                0x00001236       0x1a main.o
-                0x00001236                _Z8runSetupv
- .text.main     0x00001250      0x246 main.o
-                0x00001250                main
+                0x000011ae       0x1a main.o
+                0x000011ae                _Z8runSetupv
+ .text.main     0x000011c8      0x274 main.o
+                0x000011c8                main
  .text.libgcc.builtins
-                0x00001496       0x32 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_ashldi3.o)
-                0x00001496                __ashldi3
+                0x0000143c       0x32 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_ashldi3.o)
+                0x0000143c                __ashldi3
  .text.libgcc.builtins
-                0x000014c8       0x3c c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_ashrdi3.o)
-                0x000014c8                __ashrdi3
-                0x000014cc                __lshrdi3
- .text.libgcc   0x00001504       0x18 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_adddi3_s8.o)
-                0x00001504                __adddi3_s8
-                0x0000151c                . = ALIGN (0x2)
+                0x0000146e       0x3c c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_ashrdi3.o)
+                0x0000146e                __ashrdi3
+                0x00001472                __lshrdi3
+ .text.libgcc   0x000014aa       0x18 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_adddi3_s8.o)
+                0x000014aa                __adddi3_s8
+                0x000014c2                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000151c        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
-                0x0000151c                _exit
-                0x0000151c                exit
+ .fini9         0x000014c2        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+                0x000014c2                _exit
+                0x000014c2                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -912,11 +919,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000151c        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+ .fini0         0x000014c2        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00001520                _etext = .
+                0x000014c6                _etext = .
 
-.data           0x00800100        0x0 load address 0x00001520
+.data           0x00800100        0x0 load address 0x000014c6
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -927,7 +934,7 @@ END GROUP
                 0x00800100                _edata = .
                 0x00800100                PROVIDE (__data_end, .)
 
-.bss            0x00800100      0x1f3
+.bss            0x00800100      0x1b2
                 0x00800100                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
@@ -938,102 +945,98 @@ END GROUP
                 0x00800101                cdown
  .bss.time      0x00800103        0x8 ATmega328P.o
                 0x00800103                time
- .bss._ZZ16hexArrayToStringPhhE3str
-                0x0080010b       0x40 Essential.o
- .bss._ZZ16hexArrayToStringPhhE1t
-                0x0080014b        0x1 Essential.o
- .bss._ZZ10numToArrayyE5array
-                0x0080014c        0x8 Essential.o
- .bss._ZZ11hexToStringhE5ascii
-                0x00800154        0x5 Essential.o
- .bss._ZZ11hexToStringhE4temp
-                0x00800159        0x1 Essential.o
  .bss._ZZN8NRF24L0119fastTransferPayloadEhE6status
-                0x0080015a        0x1 NRF24L01.o
+                0x0080010b        0x1 NRF24L01.o
  .bss._ZN11SwitchClass17PinStateChangePtrE
-                0x0080015b        0x2 Switch.o
-                0x0080015b                _ZN11SwitchClass17PinStateChangePtrE
+                0x0080010c        0x2 Switch.o
+                0x0080010c                _ZN11SwitchClass17PinStateChangePtrE
  .bss._ZN11SwitchClass16AllShortPressPtrE
-                0x0080015d        0x2 Switch.o
-                0x0080015d                _ZN11SwitchClass16AllShortPressPtrE
+                0x0080010e        0x2 Switch.o
+                0x0080010e                _ZN11SwitchClass16AllShortPressPtrE
  .bss._ZN11SwitchClass25AllContinuousLongPressPtrE
-                0x0080015f        0x2 Switch.o
-                0x0080015f                _ZN11SwitchClass25AllContinuousLongPressPtrE
+                0x00800110        0x2 Switch.o
+                0x00800110                _ZN11SwitchClass25AllContinuousLongPressPtrE
  .bss._ZN11SwitchClass15AllLongPressPtrE
-                0x00800161        0x2 Switch.o
-                0x00800161                _ZN11SwitchClass15AllLongPressPtrE
+                0x00800112        0x2 Switch.o
+                0x00800112                _ZN11SwitchClass15AllLongPressPtrE
  .bss._ZN11SwitchClass17AllDoublePressPtrE
-                0x00800163        0x2 Switch.o
-                0x00800163                _ZN11SwitchClass17AllDoublePressPtrE
+                0x00800114        0x2 Switch.o
+                0x00800114                _ZN11SwitchClass17AllDoublePressPtrE
  .bss._ZN11SwitchClass20AllContinuousLong_ENE
-                0x00800165        0x1 Switch.o
-                0x00800165                _ZN11SwitchClass20AllContinuousLong_ENE
+                0x00800116        0x1 Switch.o
+                0x00800116                _ZN11SwitchClass20AllContinuousLong_ENE
+ .bss._ZN11SwitchClass16AllRisingEdge_ENE
+                0x00800117        0x1 Switch.o
+                0x00800117                _ZN11SwitchClass16AllRisingEdge_ENE
+ .bss._ZN11SwitchClass17AllFallingEdge_ENE
+                0x00800118        0x1 Switch.o
+                0x00800118                _ZN11SwitchClass17AllFallingEdge_ENE
  .bss._ZN11SwitchClass10AllLong_ENE
-                0x00800166        0x1 Switch.o
-                0x00800166                _ZN11SwitchClass10AllLong_ENE
+                0x00800119        0x1 Switch.o
+                0x00800119                _ZN11SwitchClass10AllLong_ENE
  .bss._ZN11SwitchClass12AllDouble_ENE
-                0x00800167        0x1 Switch.o
-                0x00800167                _ZN11SwitchClass12AllDouble_ENE
+                0x0080011a        0x1 Switch.o
+                0x0080011a                _ZN11SwitchClass12AllDouble_ENE
  .bss._ZN11SwitchClass11AllShort_ENE
-                0x00800168        0x1 Switch.o
-                0x00800168                _ZN11SwitchClass11AllShort_ENE
+                0x0080011b        0x1 Switch.o
+                0x0080011b                _ZN11SwitchClass11AllShort_ENE
  .bss._ZN11SwitchClass13AllSamePtr_ENE
-                0x00800169        0x1 Switch.o
-                0x00800169                _ZN11SwitchClass13AllSamePtr_ENE
+                0x0080011c        0x1 Switch.o
+                0x0080011c                _ZN11SwitchClass13AllSamePtr_ENE
  .bss._ZN11SwitchClass9PinBufferE
-                0x0080016a        0x3 Switch.o
-                0x0080016a                _ZN11SwitchClass9PinBufferE
+                0x0080011d        0x3 Switch.o
+                0x0080011d                _ZN11SwitchClass9PinBufferE
  .bss._ZN11SwitchClass11SwitchStateE
-                0x0080016d        0x1 Switch.o
-                0x0080016d                _ZN11SwitchClass11SwitchStateE
+                0x00800120        0x1 Switch.o
+                0x00800120                _ZN11SwitchClass11SwitchStateE
  .bss._ZN11SwitchClass1iE
-                0x0080016e        0x1 Switch.o
-                0x0080016e                _ZN11SwitchClass1iE
+                0x00800121        0x1 Switch.o
+                0x00800121                _ZN11SwitchClass1iE
  .bss._ZN11SwitchClass4SptrE
-                0x0080016f        0xc Switch.o
-                0x0080016f                _ZN11SwitchClass4SptrE
+                0x00800122        0xc Switch.o
+                0x00800122                _ZN11SwitchClass4SptrE
  .bss._ZN10TimerClass1iE
-                0x0080017b        0x1 Timer.o
-                0x0080017b                _ZN10TimerClass1iE
+                0x0080012e        0x1 Timer.o
+                0x0080012e                _ZN10TimerClass1iE
  .bss._ZN10TimerClass4TimeE
-                0x0080017c        0x8 Timer.o
-                0x0080017c                _ZN10TimerClass4TimeE
+                0x0080012f        0x8 Timer.o
+                0x0080012f                _ZN10TimerClass4TimeE
  .bss._ZN10TimerClass6TimersE
-                0x00800184       0x3c Timer.o
-                0x00800184                _ZN10TimerClass6TimersE
- .bss.S6        0x008001c0       0x2e main.o
-                0x008001c0                S6
- .bss.S5        0x008001ee       0x2e main.o
-                0x008001ee                S5
- .bss.S4        0x0080021c       0x2e main.o
-                0x0080021c                S4
- .bss.S3        0x0080024a       0x2e main.o
-                0x0080024a                S3
- .bss.S2        0x00800278       0x2e main.o
-                0x00800278                S2
- .bss.S1        0x008002a6       0x2e main.o
-                0x008002a6                S1
- .bss.Timer2    0x008002d4        0xe main.o
-                0x008002d4                Timer2
- .bss.Timer1    0x008002e2        0xe main.o
-                0x008002e2                Timer1
- .bss.TimeOut   0x008002f0        0x1 main.o
-                0x008002f0                TimeOut
+                0x00800137       0x3c Timer.o
+                0x00800137                _ZN10TimerClass6TimersE
+ .bss.S6        0x00800173       0x30 main.o
+                0x00800173                S6
+ .bss.S5        0x008001a3       0x30 main.o
+                0x008001a3                S5
+ .bss.S4        0x008001d3       0x30 main.o
+                0x008001d3                S4
+ .bss.S3        0x00800203       0x30 main.o
+                0x00800203                S3
+ .bss.S2        0x00800233       0x30 main.o
+                0x00800233                S2
+ .bss.S1        0x00800263       0x30 main.o
+                0x00800263                S1
+ .bss.Timer2    0x00800293        0xe main.o
+                0x00800293                Timer2
+ .bss.Timer1    0x008002a1        0xe main.o
+                0x008002a1                Timer1
+ .bss.TimeOut   0x008002af        0x1 main.o
+                0x008002af                TimeOut
  .bss.SwitchPressedFlag
-                0x008002f1        0x1 main.o
-                0x008002f1                SwitchPressedFlag
- .bss.SwitchID  0x008002f2        0x1 main.o
-                0x008002f2                SwitchID
+                0x008002b0        0x1 main.o
+                0x008002b0                SwitchPressedFlag
+ .bss.SwitchID  0x008002b1        0x1 main.o
+                0x008002b1                SwitchID
  *(COMMON)
-                0x008002f3                PROVIDE (__bss_end, .)
-                0x00001520                __data_load_start = LOADADDR (.data)
-                0x00001520                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x008002b2                PROVIDE (__bss_end, .)
+                0x000014c6                __data_load_start = LOADADDR (.data)
+                0x000014c6                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x008002f3        0x0
+.noinit         0x008002b2        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x008002f3                _end = .
+                0x008002b2                _end = .
                 [!provide]                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
@@ -1103,87 +1106,87 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x5a0
+.debug_aranges  0x00000000      0x5a8
  *(.debug_aranges)
  .debug_aranges
                 0x00000000      0x200 ATmega328P.o
  .debug_aranges
                 0x00000200       0x98 Essential.o
  .debug_aranges
-                0x00000298      0x150 NRF24L01.o
+                0x00000298      0x158 NRF24L01.o
  .debug_aranges
-                0x000003e8       0xf8 Switch.o
+                0x000003f0       0xf8 Switch.o
  .debug_aranges
-                0x000004e0       0x80 Timer.o
+                0x000004e8       0x80 Timer.o
  .debug_aranges
-                0x00000560       0x40 main.o
+                0x00000568       0x40 main.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x6b3a
+.debug_info     0x00000000     0x6ceb
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x5f4 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega328p/avr5/crtatmega328p.o
  .debug_info    0x000005f4      0xed7 ATmega328P.o
  .debug_info    0x000014cb      0x941 Essential.o
- .debug_info    0x00001e0c     0x1d7c NRF24L01.o
- .debug_info    0x00003b88     0x131c Switch.o
- .debug_info    0x00004ea4      0x5d3 Timer.o
- .debug_info    0x00005477     0x16c3 main.o
+ .debug_info    0x00001e0c     0x1e3e NRF24L01.o
+ .debug_info    0x00003c4a     0x1374 Switch.o
+ .debug_info    0x00004fbe      0x5d3 Timer.o
+ .debug_info    0x00005591     0x175a main.o
 
-.debug_abbrev   0x00000000     0x166f
+.debug_abbrev   0x00000000     0x1659
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x5a2 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega328p/avr5/crtatmega328p.o
  .debug_abbrev  0x000005a2      0x33d ATmega328P.o
  .debug_abbrev  0x000008df      0x207 Essential.o
- .debug_abbrev  0x00000ae6      0x340 NRF24L01.o
- .debug_abbrev  0x00000e26      0x320 Switch.o
- .debug_abbrev  0x00001146      0x23c Timer.o
- .debug_abbrev  0x00001382      0x2ed main.o
+ .debug_abbrev  0x00000ae6      0x32a NRF24L01.o
+ .debug_abbrev  0x00000e10      0x320 Switch.o
+ .debug_abbrev  0x00001130      0x23c Timer.o
+ .debug_abbrev  0x0000136c      0x2ed main.o
 
-.debug_line     0x00000000     0x2cd9
+.debug_line     0x00000000     0x2d4f
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x133 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega328p/avr5/crtatmega328p.o
  .debug_line    0x00000133      0xedb ATmega328P.o
  .debug_line    0x0000100e      0x48d Essential.o
- .debug_line    0x0000149b      0x9ef NRF24L01.o
- .debug_line    0x00001e8a      0x7b0 Switch.o
- .debug_line    0x0000263a      0x303 Timer.o
- .debug_line    0x0000293d      0x39c main.o
+ .debug_line    0x0000149b      0xa1d NRF24L01.o
+ .debug_line    0x00001eb8      0x7ec Switch.o
+ .debug_line    0x000026a4      0x303 Timer.o
+ .debug_line    0x000029a7      0x3a8 main.o
 
-.debug_frame    0x00000000     0x1288
+.debug_frame    0x00000000     0x12c0
  *(.debug_frame)
  .debug_frame   0x00000000      0x428 ATmega328P.o
  .debug_frame   0x00000428      0x2d4 Essential.o
- .debug_frame   0x000006fc      0x630 NRF24L01.o
- .debug_frame   0x00000d2c      0x3a0 Switch.o
- .debug_frame   0x000010cc      0x140 Timer.o
- .debug_frame   0x0000120c       0x7c main.o
+ .debug_frame   0x000006fc      0x668 NRF24L01.o
+ .debug_frame   0x00000d64      0x3a0 Switch.o
+ .debug_frame   0x00001104      0x140 Timer.o
+ .debug_frame   0x00001244       0x7c main.o
 
-.debug_str      0x00000000     0x23d7
+.debug_str      0x00000000     0x24cf
  *(.debug_str)
  .debug_str     0x00000000      0x208 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega328p/avr5/crtatmega328p.o
  .debug_str     0x00000208      0xa49 ATmega328P.o
                                 0xa8d (size before relaxing)
  .debug_str     0x00000c51      0x271 Essential.o
                                 0x48c (size before relaxing)
- .debug_str     0x00000ec2      0x7d7 NRF24L01.o
-                                0xaf4 (size before relaxing)
- .debug_str     0x00001699      0xbf9 Switch.o
-                                0xf1d (size before relaxing)
- .debug_str     0x00002292       0x7a Timer.o
+ .debug_str     0x00000ec2      0x863 NRF24L01.o
+                                0xb14 (size before relaxing)
+ .debug_str     0x00001725      0xc65 Switch.o
+                                0xfa6 (size before relaxing)
+ .debug_str     0x0000238a       0x7a Timer.o
                                 0x53f (size before relaxing)
- .debug_str     0x0000230c       0xcb main.o
-                               0x1524 (size before relaxing)
+ .debug_str     0x00002404       0xcb main.o
+                               0x1584 (size before relaxing)
 
-.debug_loc      0x00000000     0x4033
+.debug_loc      0x00000000     0x4113
  *(.debug_loc)
  .debug_loc     0x00000000      0xbd7 ATmega328P.o
  .debug_loc     0x00000bd7      0xe31 Essential.o
- .debug_loc     0x00001a08     0x1a1d NRF24L01.o
- .debug_loc     0x00003425      0x7f8 Switch.o
- .debug_loc     0x00003c1d      0x2e8 Timer.o
- .debug_loc     0x00003f05      0x12e main.o
+ .debug_loc     0x00001a08     0x1afd NRF24L01.o
+ .debug_loc     0x00003505      0x7f8 Switch.o
+ .debug_loc     0x00003cfd      0x2e8 Timer.o
+ .debug_loc     0x00003fe5      0x12e main.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -1203,14 +1206,14 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000      0x558
+.debug_ranges   0x00000000      0x560
  *(.debug_ranges)
  .debug_ranges  0x00000000      0x1f0 ATmega328P.o
  .debug_ranges  0x000001f0       0xa0 Essential.o
- .debug_ranges  0x00000290      0x140 NRF24L01.o
- .debug_ranges  0x000003d0       0xe8 Switch.o
- .debug_ranges  0x000004b8       0x70 Timer.o
- .debug_ranges  0x00000528       0x30 main.o
+ .debug_ranges  0x00000290      0x148 NRF24L01.o
+ .debug_ranges  0x000003d8       0xe8 Switch.o
+ .debug_ranges  0x000004c0       0x70 Timer.o
+ .debug_ranges  0x00000530       0x30 main.o
 
 .debug_macro
  *(.debug_macro)
